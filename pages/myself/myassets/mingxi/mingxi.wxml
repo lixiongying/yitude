@@ -1,0 +1,54 @@
+<view class='container'>
+<!-- 金币明细 -->
+  <block wx:if="{{curtab==1}}">
+    <view class='jinbimingxi' wx:for="{{datas}}" wx:key="keys">
+        <view class='main'>
+            <view class='main_ul'>
+              <view class='main_li'>{{item.detail}}</view>
+              <view class='main_li date'>{{item.time}}</view>
+            </view>
+            <view class='main_pay'>{{item.plus_minus}}{{item.user_gold}}</view>
+        </view>
+
+        
+    </view>
+  </block>
+<!-- 余额明细 -->
+ <block wx:if="{{curtab==0}}">
+      <view class='mingxin' wx:for="{{datas}}" wx:key="keys">
+          
+            <view class='main'>
+              <view class='main_ul'>
+                <view class='main_li'>{{item.desc}}</view>
+                <view class='main_li date'>{{item.change_time}}</view>
+              </view>
+              <view class='main_pay'>{{item.user_money}}</view>
+            
+          </view>
+        </view>
+    </block>
+
+    <!-- 提现记录 -->
+  
+ <block wx:if="{{curtab==2}}">
+      <view class='mingxin' wx:for="{{datas}}" wx:key="keys">
+          <view class='main' data-ids="{{item.id}}" bindtap='listdetail'>
+              <view class='main_ul'>
+                <view class='main_li'>{{item.bank_name}}</view>
+                <view class='main_li date'>{{item.update_time}}</view>
+              </view>
+              <view class='main_item'>
+              <block wx:if="{{item.status==0}}">
+                <view class='main_li havewithdrawl'>提现中</view>
+              </block>
+              <block wx:else>
+                <view class='main_li havewithdrawl'>已提现</view>
+              </block>
+           
+                <view class='main_li money'>-{{item.money}}</view>
+              </view>
+          </view>
+          
+        </view>
+    </block>
+</view>

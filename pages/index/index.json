@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "易涂得",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "white",
+  "navigationBarTextStyle": "black",
+  "navigationBarBackgroundColor": "#ffffff"
+}

@@ -1,0 +1,161 @@
+.container{
+  width: 100%;
+  height: auto;
+}
+.reminders{
+  width: 100%;
+  height: 50rpx;
+}
+.reminders .remider_icon{
+  width: 28rpx;
+	height: 28rpx;
+  margin-top: 11rpx;
+  margin-left: 24rpx;
+  float: left;
+}
+.remider{
+  /* width: 100%; */
+  height: 50rpx;
+  line-height: 50rpx;
+  text-align: left;
+	font-family: PingFang-SC-Medium;
+	font-size: 24rpx;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+	color: #ec6d56;
+   float: left;
+   margin-left: 24rpx;
+}
+.main_ul{
+  width: 750px;
+	height: 204rpx;
+	background-color: #ffffff;
+  margin-bottom: 25rpx;
+}
+.main_uls{
+  width: 750px;
+	height: 102rpx;
+	background-color: #ffffff;
+  margin-bottom: 25rpx;
+}
+.main_ul .f_li,.f_lis{
+  width: 100%;
+  height: 102rpx;
+  position: relative;
+  overflow: hidden
+}
+.u_lis{
+  width: 100%;
+  height: 102rpx;
+  position: relative;
+  overflow: hidden;
+  background-color: #ffffff;
+  margin-top: -30rpx;
+  margin-bottom: 30rpx;
+}
+.u_lis .li_icon{
+   width: 17rpx;
+	height: 29rpx;
+  position: absolute;
+  right: 40rpx;
+  top: 36rpx;
+}
+.u_lis .li_one{
+  width: 150rpx;
+	height: 102rpx;
+	font-family: PingFang-SC-Medium;
+	font-size: 32rpx;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 102rpx;
+	letter-spacing: 0px;
+	color: #1f1f1f;
+  float: left;
+  margin-left: 24rpx;
+}
+.u_lis .li_bank{
+  max-width: 300rpx;
+	height:102rpx;
+  position: absolute;
+  right: 80rpx;
+  line-height: 102rpx;
+  font-size: 32rpx;
+}
+.main_ul .f_li .li_one{
+  width: 150rpx;
+	height: 102rpx;
+	font-family: PingFang-SC-Medium;
+	font-size: 32rpx;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 102rpx;
+	letter-spacing: 0px;
+	color: #1f1f1f;
+  float: left;
+  margin-left: 24rpx;
+}
+.main_ul .f_li .li_icon{
+  width: 17rpx;
+	height: 29rpx;
+  
+ float:left;
+  margin-top: 36rpx;
+  margin-left: 540rpx;
+}
+
+
+.main_ul .f_li .li_input{
+  float: left;
+  width: 570rpx;
+	height: 102rpx;
+	font-family: PingFang-SC-Medium;
+	font-size: 32rpx;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 102rpx;
+	letter-spacing: 0px;
+	color: black;
+  padding-left: 15rpx;
+}
+.main_ul .ul_code{
+  position: relative;
+}
+.main_ul .ul_code .li_input{
+  width: 300rpx;
+  float: left;
+}
+.code{
+  /* position: absolute;
+  top: 40rpx;
+  right: 24rpx; */
+  width: 154rpx;
+	height: 54rpx;
+	border-radius: 10rpx;
+	border: solid 1px #40dab0;
+  font-family: PingFang-SC-Medium;
+	font-size: 24rpx;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 54rpx;
+  text-align: center;
+	color: #40dab0;
+  float: left;
+  margin-top: 24rpx;
+  margin-left: 50rpx;
+}
+.submit{
+  width: 750rpx;
+	height: 88rpx;
+	background-color: #ec6d56;
+  text-align: center;
+  line-height: 88rpx;
+  font-family: PingFang-SC-Medium;
+	font-size: 32rpx;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+	color: #ffffff;
+  position: fixed;
+  bottom: 0;
+}

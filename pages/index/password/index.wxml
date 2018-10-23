@@ -1,0 +1,30 @@
+<view class='psd' style='text-align:center;margin-top:200rpx;'>
+  <view class='head'>
+    <image src='{{jiekou+datas.userinfo.head_pic}}'></image>
+    <view class='psdtitle'>请输入支付密码</view>
+  </view>
+
+  <view class='money'>
+      <view style='font-size:28rpx;margin-bottom:20rpx;'>easydeco易涂得</view>
+      <view style="font-size:40rpx;margin-bottom:30rpx;font-weight:bold">¥{{total_amount}}</view>
+  </view>
+ 
+
+  <paySix 
+  bindvalueSix="valueSix" 
+  input_value="{{inputData.input_value}}" 
+  value_length="{{inputData.value_length}}" 
+  isNext="{{inputData.isNext}}" 
+  get_focus="{{inputData.get_focus}}" 
+  focus_class="{{inputData.focus_class}}" 
+  value_num="{{inputData.value_num}}"
+  height="{{inputData.height}}" 
+  width="{{inputData.width}}" 
+  see="{{inputData.see}}" 
+  interval="{{inputData.interval}}">
+  </paySix>
+
+  <view class='forgetpsd' bindtap='forgetpsd'>忘记密码？</view>
+  
+</view>
+<view class='mask' ></view>

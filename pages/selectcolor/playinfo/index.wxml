@@ -1,0 +1,63 @@
+<view class="container">
+  <view class="address_box">
+    <view class="addku_li">
+      <view class="addku_li_name">姓名：</view>
+      <view class="addku_li_ipt">
+        <view class="addku_li_ipt">
+          <input placeholder='请填写联系人姓名' placeholder-class='input_class' bindinput='setName' value="{{name}}" type='text'></input>
+        </view>
+      </view>
+    </view>
+    <picker bindchange="bindPickerChange" value="{{sexindex}}" range="{{array}}" range-key="text">
+      <view class="addku_li">
+        <view class="addku_li_name">性别：</view>
+        <view class="addku_li_ipt">
+          <view class="addku_li_ipt">
+            <input placeholder='请选择性别' disabled='true' placeholder-class='input_class' bindinput='setRess' value="{{array[sexindex].text}}" type='text'></input>
+          </view>
+        </view>
+        <view class="addku_li_next">
+          <image src="../../../images/querendingdan_zhekouquan.png"></image>
+        </view>
+      </view>
+    </picker>
+    <!-- <view class="addku_li">
+      <view class="addku_li_name">电话：</view>
+      <view class="addku_li_ipt">
+        <view class="addku_li_ipt">
+          <input placeholder='请填写联系人电话' placeholder-class='input_class' bindinput='setPhone' value="{{mobile}}" type='text'></input>
+        </view>
+      </view>
+    </view> -->
+    <picker bindchange="bindRegionChange" value="{{addressindex}}" mode="region">
+      <view class="addku_li">
+        <view class="addku_li_name">地区：</view>
+        <view class="addku_li_ipt">
+          <view class="addku_li_ipt">
+            <input placeholder='请选择' disabled='true' placeholder-class='input_class' value="{{region}}" disabled='true' type='text'></input>
+          </view>
+        </view>
+        <view class="addku_li_next">
+          <image src="../../../images/querendingdan_zhekouquan.png"></image>
+        </view>
+      </view>
+    </picker>
+
+    <picker bindchange="bindPickerChange1" value="{{ageindex}}" range="{{agearr}}" range-key="region">
+      <view class="addku_li">
+        <view class="addku_li_name">年龄：</view>
+        <view class="addku_li_ipt">
+          <view class="addku_li_ipt">
+            <input placeholder='请选择年龄段' placeholder-class='input_class' value="{{agearr[ageindex].region}}" disabled='true' type='text'></input>
+          </view>
+        </view>
+        <view class="addku_li_next">
+          <image src="../../../images/querendingdan_zhekouquan.png"></image>
+        </view>
+      </view>
+    </picker>
+  </view>
+
+  <view class="address" bindtap='saveRess'>确定提交</view>
+</view>
+

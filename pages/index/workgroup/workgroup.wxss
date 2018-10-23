@@ -1,0 +1,59 @@
+/* pages/index/workgroup/workgroup.wxss */
+.container{
+  width: 100%;
+  height: auto
+}
+.main{
+  width: 750rpx;
+	height: 132rpx;
+	background-color: #ffffff;
+}
+.main .main_num{
+  font-size: 36rpx;
+  float: left;
+  width: auto;
+  height: 100%;
+  line-height: 132rpx;
+  margin-left: 35rpx;
+}
+.main .main_item{
+  float: left;
+  width: auto;
+  height: 100%;
+  margin-left: 25rpx;
+}
+.main .main_item .item_one{
+  width: 80rpx;
+	height: 80rpx;
+  margin-top: 26rpx;
+  float: left;
+}
+.main .main_item .item_two{
+  float: left;
+  width: auto;
+  height: 100;
+  margin-left: 24rpx;
+}
+.main .main_item .item_two .name{
+  color: #1f1f1f;
+  font-size: 32rpx;
+  margin-top: 20rpx;
+}
+.main .main_item .item_two .score{
+  color: #666666;
+  font-size: 24rpx;
+  margin-top: 15rpx;
+}
+.main_state{
+  width: auto;
+  height: auto;
+	font-size: 32rpx;
+	line-height: 132rpx;
+	letter-spacing: 1px;
+	color: #60e997;
+  float: right;
+  margin-right: 24rpx
+}
+.active{
+   color: #f25c5c;
+}

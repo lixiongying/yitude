@@ -1,0 +1,134 @@
+/* pages/member/address/index.wxss */
+.container {
+  background: #f0f0f0;
+  border-top: 1px solid #cccccc;
+}
+.addku_li {
+  position: relative;
+  margin: 0 auto;
+  background: #ffffff;
+  border-bottom: 1px solid #f0f0f0;
+  padding: 20rpx;
+  height: 60rpx;
+}
+.addku_li_name {
+  width: 150rpx;
+  float: left;
+  font-size: 30rpx;
+  color: #202020;
+  height: 60rpx;
+  line-height: 60rpx;
+}
+.addku_li_ipt {
+  float: left;
+  font-size: 30rpx;
+  color: #202020;
+  width: 340rpx;
+  height: 60rpx;
+}
+.addku_li_ipt input {
+  padding: 0 20rpx;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+.addku_li_next {
+  width: 16rpx;
+  height: 30rpx;
+  float: right;
+  margin-top: 17rpx;
+  margin-right: 5rpx;
+}
+.addku_li_next image {
+  width: 100%;
+  height: 100%;
+  float: left;
+}
+button {
+  width: 702rpx;
+	height: 88rpx;
+	background-color: #ec6d56;
+	border-radius: 10rpx;
+  font-family: PingFang-SC-Medium;
+	font-size: 32rpx;
+	line-height: 88rpx;
+	letter-spacing: 0px;
+	color: #ffffff;
+  text-align: center;
+  margin-left: 24rpx;
+  padding: 0;
+  box-sizing: border-box;
+  margin-top: 100rpx;
+}
+.address {
+  width: 702rpx;
+	height: 88rpx;
+	background-color: #ec6d56;
+	border-radius: 10rpx;
+  font-family: PingFang-SC-Medium;
+	font-size: 32rpx;
+	line-height: 88rpx;
+	letter-spacing: 0px;
+	color: #ffffff;
+  text-align: center;
+}
+.input_class{
+  color: #cccccc;
+}
+.card_box {
+  width: 100%;
+  height: 170rpx;
+  background: #ffffff;
+  padding-top: 30rpx;
+}
+.card_box_name {
+  float: left;
+  color: #1f1f1f;
+  line-height: 64rpx;
+  height: 64rpx;
+  font-size: 30rpx;
+  margin-left: 20rpx;
+}
+.card_box_r {
+  float: left;
+  width: 520rpx;
+}
+.card_br_ipt {
+  width: 100%;
+  height: 64rpx;
+  border: 1px solid #cccccc;
+  box-sizing: border-box;
+  background: #f0f0f0;
+}
+.card_br_ipt input {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  font-size: 28rpx;
+  line-height: 60rpx;
+  padding: 0 20rpx;
+}
+.card_btn {
+  width: 212rpx;
+	height: 54rpx;
+	line-height: 54rpx;
+	background-color: #6c45d5;
+	border-radius: 27rpx;
+  color: #ffffff;
+  text-align: center;
+  margin-top: 20rpx;
+}
+.sendcode {
+  position: absolute;
+  width: 200rpx;
+	height: 54rpx;
+	background-color: #ffffff;
+	border-radius: 27rpx;
+	border: solid 1px #ec6d56;
+  text-align: center;
+  line-height: 54rpx;
+  right: 25rpx;
+  color: #ec6d56;
+}

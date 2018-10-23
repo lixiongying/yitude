@@ -1,0 +1,31 @@
+<view class='container'>
+<block wx:for="{{addresslist}}" wx:key="keys" wx:for-index="indexs">
+    <view class="main">
+       <block wx:if="{{selectstatus}}">
+        <view bindtap='addressreturn' data-ids="{{item.address_id}}">
+            <view class='main_name'>{{item.name}}  {{item.phone}}</view>
+            <view class='main_ads'>{{item.province+item.city+item.district+item.address}}</view>
+        </view>
+       </block>
+       <block wx:else>
+        <view bindtap='addressreturn'>
+            <view class='main_name'>{{item.name}}  {{item.phone}}</view>
+            <view class='main_ads'>{{item.province+item.city+item.district+item.address}}</view>
+        </view>
+       </block>
+       <view class='main_caz'>
+          
+          <image class='select' data-adsid="{{item.address_id}}" data-index="{{indexs}}" bindtap='setDefaultAddress' src="{{item.is_default==1?'../../../../images/wodeshouhuodizhi_selected.png':'../../../../images/wodeshouhuodizhi_noselected.png'}}"></image>
+          <view class='default'>默认地址</view>
+          <view class='edit' bindtap='editaddress' data-adsid="{{item.address_id}}">编辑</view>
+          <view class='delete' bindtap='deleteaddress' data-adsid="{{item.address_id}}">删除</view>
+       </view>
+    </view>
+</block>
+<block wx:if="{{botataus==1}}">
+   <view class='bottom_title'>已经到底啦</view>
+</block>
+    
+    <view class='addads' bindtap='addaddress'>新增收货地址+</view>
+</view>
+

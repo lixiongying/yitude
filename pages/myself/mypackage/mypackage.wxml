@@ -1,0 +1,98 @@
+<view class='container'>
+  <block wx:for="{{datas}}" wx:key="keys">
+    <view class='main'>
+      <view class='main_head'>
+        <image class='head_img' src='{{jiekou+item.store_logo}}'></image>
+        <view class='head_title'>易涂得专卖店(广州天河店)</view>
+        <view class='head_state'>{{head_state}}</view>
+      </view>
+      <view class='main_ul' data-packageid="{{item.order_package_id}}" data-construcstatus="{{item.construcstatus}}" bindtap='mypackageorder'>
+
+        <view class='f_ul'>
+          <image src="{{jiekou+item.pack_pic}}" class='goods_img'></image>
+          <view class='main_item'>
+            <view class='item_one'>{{item.goodsnames}}</view>
+            <view class='item_two'>¥{{item.package_price}}</view>
+          </view>
+
+        </view>
+
+      </view>
+      <view class='main_price'>
+        订单应付：{{item.order_amount}}
+      </view>
+
+      <block wx:if="{{curtab==0}}">
+        <view class='main_pay'>
+          <view class='li_two' data-paytype="0" data-price="{{item.yicifuqing}}" data-packageid="{{item.order_package_id}}" bindtap='payfor'>去付款</view>
+          <!-- <block wx:if="{{item.is_stages==1}}">
+            <view class='li_one' data-price="{{item.one_money}}" data-packageid="{{item.order_package_id}}" data-paytype="3" bindtap='payInfull'>交订金</view>
+          </block> -->
+        </view>
+      </block>
+      <block wx:if="{{curtab==1}}">
+        <block wx:if="{{item.order_pay_status!=4&&item.pay_status!=1}}">
+          <view class='main_pay'>
+            <view class='li_two' data-paytype="0" bindtap='payInfull' data-price="{{item.yicifuqing}}" data-packageid="{{item.order_package_id}}">一次付清</view>
+          </view>
+        </block>
+      </block>
+      <block wx:if="{{curtab==2}}">
+        <view class='main_pay'>
+          <view class='li_two' wx:if="{{item.order_pay_status!=4&&item.pay_status!=1}}" data-packageid="{{item.order_package_id}}" bindtap='payInfull' data-price="{{item.yicifuqing}}">一次付清</view>
+          <block wx:if="{{item.order_pay_status==4&&item.pay_status==1}}">
+            <view class='li_one' data-pay_staste="1" data-paytype="1" data-packageid="{{item.order_package_id}}" bindtap="startwork" data-price="{{item.two_money}}">开始动工</view>
+          </block>
+          <block wx:else>
+            <view class='li_one' data-pay_staste="1" data-paytype="1" data-packageid="{{item.order_package_id}}" bindtap="payInfull" data-price="{{item.two_money}}">开始动工</view>
+          </block>
+        </view>
+      </block>
+      <block wx:if="{{curtab==3}}">
+        <view class='main_pay'>
+          <block wx:if="{{item.order_pay_status==4&&item.pay_status==1}}">
+            <view class='li_one' data-pay_staste="2" data-paytype="2" data-packageid="{{item.order_package_id}}" bindtap="startwork" data-price="{{item.three_money}}">确认完工</view>
+          </block>
+          <block wx:else>
+            <view class='li_one' data-pay_staste="2" data-paytype="2" data-packageid="{{item.order_package_id}}" bindtap="payInfull" data-price="{{item.three_money}}">确认完工</view>
+          </block>
+
+          <!-- <view class='li_two' bindtap='{{item.yicifuqing==0?startwork:payInfull}}' data-pay_staste="2" data-paytype="2" data-price="{{item.three_money}}" data-packageid="{{item.order_package_id}}">已完工</view> -->
+        </view>
+      </block>
+      <block wx:if="{{curtab==4&&item.construcstatus==1}}">
+        <view class='main_pay'>
+            <view class='li_two' data-packageid="{{item.order_package_id}}"  bindtap='packagecomment'>评价施工员</view>
+          </view>
+      </block>
+
+    </view>
+  </block>
+
+  <block wx:if="{{paystate==1}}">
+    <view class='payfor'>
+      <view class='pay_method'>支付方式
+        <text style='color: #666666;font-size: 24rpx;'>（¥ {{total_amount}}）</text>
+      </view>
+      <view class='wechat_pay' bindtap='getWxPay'>
+        <image src='../../../images/querendingdan_tijiaodingdan_zhifufangshi_weixinzhifu.png'></image>微信支付</view>
+      <view class="extra_pay {{user_money==0?'extra_nopay':''}}" bindtap="moneyPay">
+        <image src='../../../images/querendingdan_tijiaodingdan_zhifufangshi_yuezhifu.png'></image>余额支付
+        <block wx:if="{{moneystate==0}}">
+          <view class='extramoney'>（余额不足）</view>
+        </block>
+        <block wx:else>
+          <view class='extramoney'>（¥ {{user_money}}）</view>
+        </block>
+      </view>
+    </view>
+
+    <view class='mask' bindtap='cancelpay'></view>
+  </block>
+  <block wx:if="{{packageflag==1}}">
+    <view class='notorder'>
+      <image src='../../../images/zanwutaocan.png'></image>
+      <view>暂无此套餐</view>
+    </view>
+  </block>
+</view>

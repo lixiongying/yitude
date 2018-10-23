@@ -1,0 +1,26 @@
+<view class='container'>
+   <view class='myassets'>
+      <view class='asstet_one' data-current='0' bindtap='mingxi'>明细</view>
+      <view class='asstet_four' data-current='2' bindtap='mingxi'>我的提现</view>
+      <view class='asstet_two'>¥{{datas.user_money}}</view>
+      <view class='asstet_three'>我的余额:</view>
+   </view>
+<!-- 我的银行卡 -->
+   <view class='mycard' bindtap='mycard'>
+     <image class='card_icon' src='../../../images/wodezichan_wodeyinhanka.png'></image>
+     <view class='card_world'>我的银行卡</view>
+     <image class='card_next'src='../../../images/shouye_rexiaoshangpin_chakangengduo.png'></image>
+   </view>
+<!-- 我的金币 -->
+    <view class='mycard'  data-current='1' bindtap='mingxi'>
+     <image class='card_icon' src='../../../images/shenghuofangshi_dakachenggong_huodejinbi.png'></image>
+     <view class='card_world'>我的金币</view>
+     <image class='card_next'src='../../../images/shouye_rexiaoshangpin_chakangengduo.png'></image>
+     <view class='card_num'>{{datas.gold}}</view>
+   </view>
+   <view class='getcoin'bindtap='getcoin'>如何获得金币？</view>
+
+   <!-- 提现 -->
+
+   <view class='withdrawl' bindtap='withdrawl'>提现</view>
+</view>

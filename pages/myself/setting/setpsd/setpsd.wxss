@@ -1,0 +1,124 @@
+.container{
+  width: 100%;
+  height: auto;
+}
+.main{
+  width: 100%;
+  height: auto;
+  /* padding: 0 24rpx; */
+
+}
+
+.main .f_li{
+  width: 702rpx;
+	height: 102rpx;
+	background-color: #ffffff;
+	border-radius: 6rpx;
+  margin-left: 24rpx;
+  overflow: hidden;
+}
+.main .f_li .li_one{
+  width: 120rpx;
+	height: 102rpx;
+	font-size: 28rpx;
+	line-height: 102rpx;
+	letter-spacing: 0px;
+	color: #1f1f1f;
+  float: left;
+  text-align: center;
+  padding-left: 24rpx;
+ white-space: nowrap
+}
+.main .f_li .f_li_one{
+  float: left;
+  width: 400rpx;
+  height: 100rpx;
+  margin-top: 1rpx;
+  margin-left: 24rpx;
+}
+.main .f_li .f_li_one .li_two{
+  width:100%;
+	height: 100rpx;
+	font-size: 32rpx;
+	line-height: 100rpx;
+  color: #1f1f1f;
+  padding-left: 24rpx;
+}
+
+
+.mains{
+  width: 100%;
+  height: auto;
+  padding: 0 24rpx;
+margin-top: 36rpx;
+}
+.mains .main_li{
+   width: 100%;
+   height: 30rpx;
+}
+.mains .f_li{
+  width: 702rpx;
+	height: 102rpx;
+	background-color: #ffffff;
+	border-radius: 6rpx;
+  position: relative;
+}
+.mains .f_li .li_one{
+  width: 30rpx;
+	height: 30rpx;
+  float: left;
+  margin-left: 24rpx;
+  
+}
+.mains .f_li .f_li_one{
+  float: left;
+  width: 60%;
+  height: 100rpx;
+  margin-top: 1rpx;
+  margin-left: 24rpx;
+}
+.mains .f_li .f_li_one .li_two{
+  width:100%;
+	height: 100rpx;
+	font-size: 32rpx;
+	line-height: 100rpx;
+  color: #1f1f1f;
+  padding-left: 24rpx;
+}
+
+.mains .li_three{
+  width: 160rpx;
+	height: 60rpx;
+	border-radius: 6rpx;
+	border: solid 1px #ec6d56;
+  position: absolute;
+  right: 50rpx;
+  top: 21rpx;
+	font-size: 24rpx;
+	line-height: 60rpx;
+	color: #ec6d56;
+  text-align: center;
+}
+mains .prompt{
+  width: 100%;
+  height: auto;
+  /* padding: 20rpx 24rpx; */
+  font-size: 22rpx;
+	letter-spacing: 0px;
+	color: #999999;
+  margin-top: 24rpx;
+}
+.savebtn{
+  width: 702rpx;
+	height: 88rpx;
+	background-color: #ec6d56;
+	border-radius: 6rpx;
+  margin: 0 auto;
+  margin-top: 208rpx;
+  font-family: PingFang-SC-Medium;
+	font-size: 32rpx;
+	line-height: 88rpx;
+	letter-spacing: 0px;
+	color: #ffffff;
+  text-align: center;
+}

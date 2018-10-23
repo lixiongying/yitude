@@ -1,0 +1,128 @@
+/* pages/partner/constructinfo/constructinfo.wxss */
+.container{
+  width: 100%;
+  height: auto;
+}
+
+.co_content{
+  width: 100;
+  height: auto;
+  padding-bottom: 20rpx;
+  margin-bottom: 10rpx;
+  background-color: #ffffff
+}
+.co_content .main_title{
+  width: 750rpx;
+	height: 80rpx;
+	background-color: #ffffff;
+
+}
+.co_content .main_title{
+  width: 750rpx;
+	height: 80rpx;
+	background-color: #ffffff;
+  
+}
+.main_title .mt_order{
+  width: auto;
+  line-height: 80rpx;
+  padding-left: 24rpx;
+  color: #1f1f1f;
+  font-size: 26rpx;
+  float: left;
+  
+}
+
+.co_content .main_ul{
+  width: 750rpx;
+	height: auto;
+	background-color: #fff7f5;
+}
+
+.main_ul .f_ul{
+  width: 750rpx;
+	height: 210rpx;
+	
+}
+.main_ul .f_ul .number{
+  width: 60rpx;
+	height: 36rpx;
+  float: right;
+  margin-right: 25rpx;
+  margin-top: 135rpx;
+}
+
+.main_ul .goods_img{
+  width: 148rpx;
+	height: 148rpx;
+  float: left;
+  margin-left: 24rpx;
+  margin-top: 31rpx;
+}
+.main_ul .main_item{
+  max-width: 550rpx;
+  height: 100%;
+  float: left;
+}
+.main_ul .main_item{
+  max-width: 550rpx;
+  height: 100%;
+  margin-left: 20rpx;
+}
+.main_ul .main_item .item_one{
+  max-width: 550rpx;
+  height:105rpx;
+  line-height: 105rpx;
+  font-family: PingFang-SC-Medium;
+	font-size: 32rpx;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+	color: #1f1f1f;
+}
+.main_ul .main_item .item_two{
+  max-width: 550rpx;
+  height:105rpx;
+  line-height: 105rpx;
+  font-family: PingFang-SC-Medium;
+	font-size: 36rpx;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+	color: #ec6d56;
+}
+
+.yezhu_score{
+  width: 100;
+  height: auto;
+  padding: 12rpx 24rpx;
+}
+.yezhu_score view{
+ color: #1f1f1f;
+ font-size: 28rpx;
+ float: left
+}
+.yezhu_score image{
+  float: left;
+  width: 28rpx;
+	height: 28rpx;
+  margin-top:7rpx;
+  margin-left: 15rpx;
+}
+.yezhu_message{
+  width: 100;
+  height: auto;
+  padding: 12rpx 24rpx;
+  font-size: 28rpx;
+}
+.picture{
+  width: 100%;
+  height: auto;
+  padding: 12rpx 24rpx;
+}
+.picture image{
+  float: left;
+  width: 140rpx;
+	height: 140rpx;
+  margin-right: 24rpx;
+}

@@ -1,0 +1,163 @@
+<import src="../../../wxParse/wxParse.wxml" />
+<view class='container'>
+  <!-- 轮播 -->
+  <view class="index_slider">
+    <swiper current='{{current}}' bindchange='bindchange'>
+      <block wx:for="{{packdetail.pack_images}}" wx:key="keys">
+        <swiper-item>
+          <image src='{{jiekou+item}}'></image>
+        </swiper-item>
+      </block>
+
+    </swiper>
+    <view class='index_number'>{{current+1}}/{{packdetail.pack_images.length}}</view>
+  </view>
+
+  <!-- 套餐 -->
+  <view class='goods'>
+    <view class='goods_name'>
+      <view class='name_one'>{{packdetail.pa_lavel}}</view>
+      <view class='name_two'>{{packdetail.pa_name}}
+        <text style='white-space:nowrap;overflow:hidden;text-overflow:ellipsis'>({{packdetail.goodsnames}})</text>
+      </view>
+    </view>
+    <view class='goods_biaoqian'>
+      <view>{{packdetail.pa_lavel}}</view>
+
+    </view>
+    <view class='goods_price'>
+      <view class='newprice'>¥{{packdetail.pa_price}}</view>
+      <view class='oldprice'>¥{{packdetail.yuan_price}}
+        <view class='line'></view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 保证 -->
+  <view class='goods_guarantee' bindtap='guarantee'>
+    <block wx:for="{{packdetail.service}}" wx:key="keys">
+      <view class='guarantee_item'>
+        <image class='guarantee_icon' src='../../../images/shangpinxiangqing_biaoqian.png'></image>
+        <view class='guarantee_world'>{{item.pa_service}}</view>
+      </view>
+    </block>
+  </view>
+  <block wx:if="{{gr_status==1}}">
+    <view class='guarantees'>
+     <block  wx:for="{{packdetail.service}}" wx:key="keys" wx:for-index="indexs">
+        <view class='tro_item'>
+          <view class='item_one'>
+            <image class='icon' src='../../../images/shangpinxiangqing_biaoqian.png'></image>
+            <view class='normalgood'>{{item.pa_service}}</view>
+          </view>
+          <view class='item_two'>
+            {{item.service_detail}}
+          </view>
+        </view>
+      </block>
+    </view>
+    <view class='mask' bindtap='grstatus'></view>
+  </block>
+
+  <!-- 店名 -->
+  <view class='shop'>
+    <image class='shop_icon' src='{{jiekou+packdetail.store_logo}}'></image>
+    <view class='shop_name'>{{packdetail.store_name}}</view>
+    <view class='shop_sales '>销量：{{packdetail.sp_sales}}件</view>
+  </view>
+
+  <!-- 其他套餐 -->
+  <view class='package'>
+    <view class='gp_title' style=''>
+      <view class='gp_amount'>其他套餐</view>
+      <image class='gp_icon' src='../../../images/shouye_rexiaoshangpin_chakangengduo.png'></image>
+      <view class='gp_more' bindtap='packagelist'>查看更多</view>
+    </view>
+
+    <view class='pc_content'>
+      <scroll-view scroll-x="true" class="scroll-header">
+        <block wx:for="{{packagelist}}" wx:key="keys">
+          <view class='pc_item' bindtap='gopackagedetail' data-sp_id="{{item.sp_id}}">
+            <image class='pc_img' src='{{jiekou+item.pack_pic}}'></image>
+            <view class='pc_can'>
+              <view class='taocan'>
+                <view class='can_one'>{{item.pa_lavel}}</view>
+                <view class='can_two'>{{item.pa_name}}</view>
+              </view>
+              <view class='newprice'>¥ {{item.pa_price}}</view>
+              <view class='oldprice'>¥ {{item.yuan_price}}</view>
+            </view>
+          </view>
+        </block>
+
+      </scroll-view>
+    </view>
+
+  </view>
+
+
+  <!-- 商品详情介绍 -->
+  <view class='tro_goods'>
+    <view class='tro_head'>商品详情</view>
+
+    <view>
+      <template is="wxParse" data="{{wxParseData:content.nodes}}" />
+    </view>
+  </view>
+
+  <!-- 底部选项栏导航 -->
+  <view class='nav_bottom'>
+    <view class='nav_one' bindtap='returnhomepage'>
+      <image src='../../../images/shangpinxiangqing_shouye.png'></image>
+    </view>
+    <block wx:if="{{is_collect==0}}">
+      <view class='nav_two' bindtap='collect'>
+        <image src='../../../images/shangpinxiangqing_shoucang_noselected.png'></image>
+      </view>
+    </block>
+    <block wx:if="{{is_collect==1}}">
+      <view class='nav_two' bindtap='collect'>
+        <image src='../../../images/shoucang.png'></image>
+      </view>
+    </block>
+    <view class='nav_three'>
+      <block wx:if="{{is_stages==1}}">
+        <view class='dingjin' bindtap='paydingjin' data-pay="1">预付订金</view>
+      </block>
+      <block wx:if="{{is_stages==0}}">
+        <view class='dingjin active'>预付订金</view>
+      </block>
+      <view class='fuqing' bindtap='paydingjin' data-pay="0">一次付清</view>
+    </view>
+
+  </view>
+  <block wx:if="{{relayflag==1}}">
+    <view class='relay'>
+      <image class='re_pic' src='../../../images/zhuanfabj.png'></image>
+      <block wx:if="{{relaynone==0}}">
+        <view class='re_gold' style='margin-top:30rpx;'>{{relaydata}}</view>
+      </block>
+      <block wx:else>
+        <view class='re_gold'>收获
+          <text style='color:#ffa000;'>{{relaydata.add_gold}}</text>个金币</view>
+        <view class='re_golds'>你今日还可以获得{{relaydata.maybe_gold}}金币！</view>
+      </block>
+
+
+      <block wx:if="{{relaynone!=0}}">
+        <view class='re_sechdule'>
+          <view class='sed_one'>
+            <progress percent="{{percent}}" stroke-width="10" backgroundColor="#cccccc" activeColor="#5e2fe6" />
+          </view>
+          <view class='sed_two'>
+            【
+            <text style="color:#ffa000;">{{relaydata.now_gold}}</text>/{{totalgold}}】
+          </view>
+        </view>
+      </block>
+      <view class='re_btn' bindtap='Ikonw'>我知道了</view>
+    </view>
+    <view class='mask'></view>
+  </block>
+
+</view>

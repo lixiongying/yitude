@@ -1,0 +1,14 @@
+<view class='container'>
+    <view class='mycard' wx:for="{{datas}}" wx:for-index="indexs" wx:key="keys">
+       <view class='card' data-index='{{indexs}}' bindtap="{{flag == 1 ? '': 'returntixian'}}" data-text="{{item.text}}" data-bank_id="{{item.bank_id}}">
+          <image class='card_img' src='../../../../images/wodeyinhangka_yinhangka_icon.png'></image>
+          <view class='card_content'>
+            <view class='bankname'>【{{item.bank_name}}】</view>
+            <view class='banknumber'>{{item.card_no}}</view>
+          </view>
+          <image class='card_next' src='../../../../images/shouye_rexiaoshangpin_chakangengduo.png'></image>
+       </view>
+       
+    </view>
+    <view class='addcard' bindtap='addcard'>+添加银行卡</view>
+</view>

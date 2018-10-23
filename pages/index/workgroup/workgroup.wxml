@@ -1,0 +1,16 @@
+<view class="containe">
+   <block wx:for="{{construclist}}" wx:key="key" wx:for-index="indexs">
+    <view class='main' data-user_id="{{item.user_id}}" bindtap="selectgroup" data-index='{{indexs}}'>
+        <view class='main_num' style="color:{{item.color}}">{{indexs+1}}</view>
+        <view class='main_item'>
+            <image class='item_one' src='{{jiekou+item.head_pic}}'></image>
+            <view class='item_two'>
+              <view class='name'>{{item.true_name}}</view>
+              <view class='score'>业主评分：<text style='color: #ffa000;'>{{item.score}}</text></view>
+            </view>
+        </view>
+        
+        <view class="main_state {{item.status==0?'':'active'}}">{{item.status_name}}</view>
+    </view>
+   </block>
+</view>

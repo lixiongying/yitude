@@ -1,0 +1,53 @@
+<!--pages/myself/ordercomment/ordercomment.wxml-->
+<view class='container'>
+  <view class='main_head'>
+      <image class='head_img' src='{{jiekou+datas.store_logo}}'></image>
+      <view class='head_title'>{{datas.store_name}}</view>
+    </view>
+  <view class='main_ul'>
+      <view class='f_ul'>
+          <image src="{{jiekou+datas.pack_pic}}" class='goods_img'></image>
+          <view class='main_item'>
+              <view class='item_one'>{{datas.pa_name}}</view>
+              <view class='item_two'>¥{{datas.package_price}}</view>
+              
+          </view>
+        <view class='number'>×1</view>
+      </view>
+  </view>
+
+  <view class='commet'>施工员：{{datas.true_name}}</view>
+
+  <view class='yezhu_score clear'>
+      <view>评分：</view>
+      <block wx:for="{{5}}" wx:for-index="indexs" wx:key="keys">
+       <!-- <image bindtap='getstar' src='../../../../images/taocanpingjia_shigongyuanpingfen_seleted.png'></image> -->
+        <block wx:if="{{index>=indexs+1}}">
+             <image bindtap='getstar' data-index="{{indexs+1}}" src='{{selectedSrc}}'></image>
+        </block>
+        <block wx:if="{{index<indexs+1}}">
+             <image bindtap='getstar' data-index="{{indexs+1}}" src='{{normalSrc}}'></image>    
+        </block> 
+      </block>
+  </view>
+  <view class='commet_content'>
+    <textarea class='texrcontent' bindinput='commet' maxlength="200" placeholder='留下你的评价…'>
+    
+    </textarea>
+    <view class='world'>{{comlen}}/200字</view>
+  </view>
+
+<!-- 上传图片 -->
+  <view class='uploadpic'>
+     <view class='img_world'>上传图片(最多5张)</view>
+     <view class='imgitem clear'>
+       <block wx:for="{{image_photo}}" wx:key='keys' wx:for-index="index">
+        <image class="mr5 mb5" src="{{item}}" mode="aspectFill"  data-index="{{index}}" catchlongtap="onDeleteImgTap" catchtap="onPreviewTap"></image>
+      </block>
+       <image class='addimg_icon' src='../../../images/add.png' catchtap="choice"></image>
+     </view>
+    <view class='img_worlds'>(长按删除图片)</view>
+  </view>
+   
+  <view class='send' bindtap='sendInfoBtn'>发表</view>
+</view>

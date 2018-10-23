@@ -1,0 +1,30 @@
+<view class="container">
+
+   <view class="intel_left" style='height:{{winHeight}}px'>
+       <block wx:for="{{navelist}}" wx:key='index' wx:for-index="listindex">    
+          <view class="left_li {{item.id==typeid ? 'active' : ''}}" data-id='{{item.id}}' bindtap='getlist'>{{item.name}}</view>
+       </block>
+   </view>
+   
+   <view class='intel_right' style='height:{{winHeight}}px'>
+        <view class='main_ul'>
+          <block wx:for="{{navelist}}" wx:key='index' wx:for-index="listindex"> 
+      
+                <block wx:if="{{item.id==typeid}}">  
+                  <block wx:for="{{item.twolist}}" wx:for-index='indexs' wx:key="keys">
+                      <view class='main_li' data-id='{{item.id}}' bindtap='getcory'>
+
+                          <image src='{{jiekou+item.image}}'></image>
+                          <view class='name'>{{item.name}}</view>
+                      
+                      </view>
+                    </block>
+                </block>
+         
+          </block>
+          
+        </view>
+   </view>  
+   
+
+</view>

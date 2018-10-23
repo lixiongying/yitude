@@ -1,0 +1,187 @@
+<view class='container'>
+  <view class='main_pic'>
+    <block wx:if="{{currtab==0&&datas.stastes==3}}">
+      <view class='f_desic'>
+        <view class='f_lione'>拼团失败</view>
+        <view class='f_litwo'>款项将在3-5个工作日内退还</view>
+      </view>
+
+      <image class='f_pic' src='../../../images/dingdanxiangqing_pintuanshibai.png'> </image>
+    </block>
+    <block wx:if="{{currtab==0&&datas.stastes==1}}">
+      <view class='f_desic'>
+        <view class='f_lione'>拼团中(
+          <text style='font-size:24rpx;'>还差{{datas.cha_num}}人</text>)</view>
+        <view class='f_litwo'>剩余 {{countDownList[0].hou}}：{{countDownList[0].min}}：{{countDownList[0].sec}}</view>
+      </view>
+
+      <image class='f_pic' src='../../../images/dingdanxiangqing_pingtuanzhong.png'></image>
+    </block>
+    <block wx:if="{{currtab==1}}">
+      <view class='f_desic'>
+        <view class='f_lione'>等待买家付款</view>
+      </view>
+      <image class='f_pic' src='../../../images/dingdanxiangqing_daifukuan.png'></image>
+    </block>
+
+    <block wx:if="{{currtab==2}}">
+      <view class='f_desic'>
+        <view class='f_lione'>买家已付款</view>
+      </view>
+      <image class='f_pic' src='../../../images/dingdanxiangqing_daifahuo.png'></image>
+    </block>
+
+    <block wx:if="{{currtab==3}}">
+      <view class='f_desic'>
+        <view class='f_lione'>卖家已发货</view>
+      </view>
+      <image class='f_pic' src='../../../images/dingdanxiangqing_daishouhuo.png'></image>
+    </block>
+
+    <block wx:if="{{currtab==4}}">
+      <view class='f_desic'>
+        <view class='f_lione'>买家已收货</view>
+      </view>
+      <image class='f_pic' src='../../../images/shouhuo.png'></image>
+    </block>
+  </view>
+
+
+  <view class='main_address'>
+    <view class='address_one'>
+      <view class='name'>{{datas.consignee}}</view>
+      <view class='phone'>{{datas.mobile}}</view>
+    </view>
+    <view class='address_two'>
+      <image class='ads_icon' src='../../../images/dingdanxiangqing_dizhi.png'></image>
+      <view class='ads_place'>{{datas.province+datas.city+datas.district+datas.address}}</view>
+      <image class='image_icon' src='../../../images/querendingdan_dizhi02.png'></image>
+    </view>
+  </view>
+
+
+  <block wx:if="{{currtab==0}}">
+    <view class='main_pintuan'>
+      <view class='tun_one'>
+        <image src='../../../images/shouye_biaoqian_hehuoren_01.png'></image>
+        <block wx:if="{{datas.stastes==3}}">
+          <view class='tun_state'>拼团失败</view>
+        </block>
+        <block wx:if="{{datas.stastes==1}}">
+          <view class='tun_state'>拼团中</view>
+        </block>
+        <button class='invite' open-type='share' data-orderid="{{datas.order_id}}" data-stastes="{{datas.stastes}}" data-sg_id="{{datas.sg_id}}" data-id="{{datas.groupid}}"> 邀请好友</button>
+      </view>
+      <view class='tun_two'>
+        <block wx:for="{{userlist}}" wx:key="keys">
+          <image src='{{jiekou+item.head_pic}}'></image>
+        </block>
+        <view class='tuanzhang'>团长</view>
+      </view>
+    </view>
+  </block>
+
+  <view class='main_head'>
+    <image class='head_img' src='{{jiekou+datas.store_logo}}'></image>
+    <view class='head_title'>{{datas.store_name}}</view>
+  </view>
+  <view class='main_ul'>
+    <view class='f_ul'>
+      <image src="{{jiekou+datas.goods_pic}}" class='goods_img'></image>
+      <view class='main_item'>
+        <view class='item_one'>{{datas.goods_name}}</view>
+        <view class='item_two'>¥{{datas.goods_price}}</view>
+
+      </view>
+      <view class='number'>×{{datas.goods_num}}</view>
+    </view>
+  </view>
+
+  <view class='main_items'>
+    <view class='f_li'>订单状态：</view>
+    <view class='f_li'>订单编号：{{datas.order_sn}}</view>
+    <view class='f_li'>创建时间：{{datas.add_time}}</view>
+    <view class='f_li'>运费：包邮</view>
+    <view class='f_li'>订单金额：{{datas.total_amount}}</view>
+    <view class='f_li'>优惠券：-{{datas.coupon_price}}</view>
+    <view class='f_li'>使用金币：-{{datas.gold_price}}</view>
+    <view class='f_li'>支付方式：{{datas.pay_name}}</view>
+    <view class='f_li'>买家实付金额：
+      <text class='money'>{{datas.order_amount}}</text>
+    </view>
+    <view class='order_state'>{{datas.status_name}}</view>
+    <!-- <view class='shouhou'>申请售后</view> -->
+  </view>
+
+
+  <block wx:if="{{currtab==1}}">
+    <view class='main_btn'>
+      <view class='li_two' bindtap='payfor' data-price="{{datas.order_amount}}" data-orderid="{{datas.order_id}}">去付款</view>
+      <view class='li_one' bindtap='cancelorder' data-orderid="{{datas.order_id}}">取消订单</view>
+    </view>
+  </block>
+
+  <block wx:if="{{currtab==2}}">
+    <view class='main_btn' data-orderid="{{datas.order_id}}" bindtap='remindgoods'>
+      <view class='li_two'>提醒发货</view>
+    </view>
+  </block>
+
+
+  <block wx:if="{{currtab==3}}">
+    <view class='main_btn'>
+      <view class='li_two' data-orderid="{{datas.order_id}}" bindtap='surereceive'>确认收货</view>
+      <view class='li_one'>查看物流</view>
+    </view>
+  </block>
+
+  <block wx:if="{{currtab==4}}">
+    <view class='main_btn'>
+      <view class='li_two'  wx:if="{{comment!=1}}" bindtap='gocomment' data-orderid="{{datas.order_id}}">前往评价</view>
+      <view class='li_one'>查看物流</view>
+    </view>
+  </block>
+
+  
+    <block wx:if="{{paystate==1}}">
+      <view class='payfor'>
+        <view class='pay_method'>支付方式<text style='color: #666666;font-size: 24rpx;'>（¥ {{total_amount}}）</text></view>
+        <view class='wechat_pay' bindtap='getWxPay'><image src='../../../images/querendingdan_tijiaodingdan_zhifufangshi_weixinzhifu.png'></image>微信支付</view>
+        <view class="extra_pay {{user_money==0?'extra_nopay':''}}"  bindtap="moneyPay"><image src='../../../images/querendingdan_tijiaodingdan_zhifufangshi_yuezhifu.png'></image>余额支付
+        <block wx:if="{{moneystate==0}}">
+          <view class='extramoney'>（余额不足）</view>
+        </block>
+        <block wx:else>
+          <view class='extramoney'>（¥ {{user_money}}）</view>
+        </block>
+        </view>
+        </view>
+
+        <view class='mask'bindtap='cancelpay'></view>
+    </block>
+    <block wx:if="{{relayflag==1}}">
+      <view class='relay'>
+          <image class='re_pic' src='../../../images/zhuanfabj.png'></image>
+          <block wx:if="{{relaynone==0}}">
+             <view class='re_gold' style='margin-top:30rpx;'>{{relaydata}}</view>
+          </block>
+          <block wx:else>
+            <view class='re_gold'>收获<text style='color:#ffa000;'>{{relaydata.add_gold}}</text>个金币</view>
+            <view class='re_golds'>你今日还可以获得{{relaydata.maybe_gold}}金币！</view>
+          </block>
+         
+          
+          <block wx:if="{{relaynone!=0}}">
+            <view class='re_sechdule'>
+              <view class='sed_one'>
+                <progress percent="{{percent}}" stroke-width="10" backgroundColor="#cccccc" activeColor="#5e2fe6" /></view>
+              <view class='sed_two'>
+                【<text style="color:#ffa000;">{{relaydata.now_gold}}</text>/{{totalgold}}】
+              </view>
+            </view>
+          </block>
+          <view class='re_btn' bindtap='Ikonw'>我知道了</view>
+      </view>
+       <view class='mask'></view>
+   </block>
+</view>

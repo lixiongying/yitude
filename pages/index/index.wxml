@@ -1,0 +1,218 @@
+<!--index.wxml-->
+<view class="container">
+  <!-- 搜素栏 -->
+  <view class='index_header'>
+    <view bindtap="{{glod == 1 ? 'selectcity' : 'getShow'}}">
+      <view class='posistion'>
+        <image src='../../images/dingwei.png'></image>
+      </view>
+      <view class='city'>{{glod == 1 ? city : '定位'}}</view>
+    </view>
+    <view class='serach'>
+      <input class='serach_input' disabled='disabled' bindtap='serach' placeholder='关键词搜索'></input>
+      <image class='serach_icon' src='../../../images/shangpnigliebiao_sousuo.png'></image>
+    </view>
+    <view class='comment' bindtap='message'>
+    
+       <view wx:if="{{infoflags==1}}" class='circle'></view>
+      <image src='../../images/pinglun.png'></image>
+    </view>
+  </view>
+  <!-- 轮播 -->
+  <view class="index_slider">
+    <swiper autoplay='true' circular='true' indicator-dots='true' indicator-color='rgba(84, 101, 113, 0.2)' indicator-active-color='#546571'>
+      <block wx:if="{{cardatas.wxbroadcastList}}">
+        <block wx:for="{{cardatas.wxbroadcastList}}" wx:for-index="indexs" wx:key="keys">
+          <swiper-item wx:if="{{jiekou+item.wxb_pic}}" data-id="{{item.wxb_id}}">
+            <image src='{{jiekou+item.wxb_pic}}'></image>
+          </swiper-item>
+
+        </block>
+      </block>
+     
+
+
+    </swiper>
+  </view>
+  <!-- 公告 -->
+  <view class='index_anounce'>
+    <image src='../../images/shouye_gonggao.png'></image>
+    <view class='anounce_two'>{{cardatas.notice}}</view>
+  </view>
+  <!-- 分类 -->
+  <view class='index_classify'>
+    <block wx:for="{{cardatas.categorylist}}" wx:for-index='indexs' wx:key="keys">
+      <view class='main_lis' data-id="{{item.id}}" bindtap='goclassify'>
+        <image src='{{jiekou + item.image}}'></image>
+        <view class=''>{{item.name}}</view>
+
+      </view>
+    </block>
+  </view>
+
+  <!-- 热销商品 -->
+  <view class='index_goods'>
+    <view class='goodshead'>
+      <view class='li_one'>热销商品</view>
+      <view class='li_three'>
+        <image src='../../images/querendingdan_zhekouquan.png'></image>
+      </view>
+      <view class='li_two' bindtap='more'>查看更多</view>
+    </view>
+
+    <scroll-view scroll-x class="scroll-header">
+      <block wx:for="{{cardatas.hotlist}}" wx:for-index='indexs' wx:key="keys">
+        <view class='head_item' bindtap='goodsdetail' data-id="{{item.sg_id}}">
+          <image class='head_img' src='{{jiekou+item.original_img}}'></image>
+          <view class='name'>{{item.goods_name}}</view>
+          <view class='f_li biaoqian'>
+            <block wx:for="{{item.goods_label}}" wx:key="keys">
+              <view class='qianone'>{{item}}</view>
+            </block>
+
+          </view>
+          <view class='price'>¥{{item.unit_price}}</view>
+        </view>
+      </block>
+
+
+    </scroll-view>
+
+  </view>
+  <!-- 新品推荐 -->
+  <view class='index_goods'>
+    <view class='goodshead'>
+      <view class='li_one'>新品推荐</view>
+      <view class='li_three'>
+        <image src='../../images/querendingdan_zhekouquan.png'></image>
+      </view>
+      <view class='li_two' bindtap='more'>查看更多</view>
+    </view>
+
+    <scroll-view scroll-x class="scroll-header">
+      <block wx:for="{{cardatas.newslist}}" wx:for-index='indexs' wx:key="keys">
+        <view class='head_item' bindtap='goodsdetail' data-id="{{item.sg_id}}">
+          <image class='head_img' src='{{jiekou+item.original_img}}'></image>
+          <view class='name'>{{item.goods_name}}</view>
+          <view class='f_li biaoqian'>
+            <block wx:for="{{item.goods_label}}" wx:key="keys">
+              <view class='qianone'>{{item}}</view>
+            </block>
+
+          </view>
+          <view class='price'>¥{{item.unit_price}}</view>
+        </view>
+      </block>
+
+    </scroll-view>
+
+  </view>
+
+  <!-- 精品推荐 -->
+  <view class='index_goods'>
+    <view class='goodshead'>
+      <view class='li_one'>精品推荐</view>
+      <view class='li_three'>
+        <image src='../../images/querendingdan_zhekouquan.png'></image>
+      </view>
+      <view class='li_two' bindtap='more'>查看更多</view>
+    </view>
+
+    <view class='main'>
+      <view class='main_ul'>
+        <block wx:for="{{cardatas.recommendlist}}" wx:for-index='indexs' wx:key="keys">
+          <view class='main_li' data-id="{{item.sg_id}}" bindtap='goodsdetail'>
+            <view class='f_li'>
+              <image src='{{jiekou+item.original_img}}' class='goodsimg'></image>
+            </view>
+            <view class='f_li goodsname'>{{item.goods_name}}</view>
+            <view class='f_li biaoqian'>
+              <block wx:for="{{item.goods_label}}" wx:key="keys">
+                <view class='qianone'>{{item}}</view>
+              </block>
+              <!-- <view class='qiantwo'>{{item.goods_label[1]}}</view> -->
+            </view>
+            <view class='f_li pandc'>
+              <view class='price'>¥ {{item.unit_price}}</view>
+              <view class='comment'>{{item.sg_com_nums}}条评论</view>
+            </view>
+          </view>
+        </block>
+
+      </view>
+    </view>
+
+  </view>
+
+  <!-- 首页领取优惠券 -->
+  <block wx:if="{{coupon==0}}">
+    <view class='getcoupon'>
+      <view class='co_one'>
+        领取优惠券
+        <image src='../../images/shouyeyouhuiquanbeijing.png'></image>
+      </view>
+      <view class="coupon_box">
+        <image class='coupon_box_img' src='../../images/shouyeyouhuiquanbeijingone.png'></image>
+        <view class="coupon_box_li">
+
+          <view class="coupon_box_li_top_bg">
+            <image src="{{jiekou+couponlist.bj_pic}}"></image>
+          </view>
+          <view class="coupon_box_li_main">
+            <view class="coupon_box_li_top">
+              <view class="coupon_box_li_top_con_l">
+                <view class="coupon_box_li_top_con_l_num">
+                  {{couponlist.free_money}}
+                  <text>¥</text>
+                </view>
+              </view>
+              <view class="coupon_box_li_top_con_c">
+                <view class="coupon_box_li_top_con_c_tit">{{couponlist.coupon_name}}</view>
+                <view class="coupon_box_li_top_con_c_msg">满{{couponlist.use_money}}可用</view>
+              </view>
+            </view>
+            <view class="coupon_box_li_con">
+              <view class="coupon_box_li_con_li">
+                <image src="../../../images/youhuiquan_shijian.png"></image>
+                <text>有效时长：{{couponlist.valid}}天</text>
+              </view>
+
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class='co_three'>
+        <view class='co_th_lione' data-couponid="{{couponlist.coupon_id}}" bindtap="receivecoupon">立即领取</view>
+        <view class='co_th_litwo' bindtap='Justhanging'>暂不需要，随便逛逛</view>
+      </view>
+    </view>
+    <view class='mask'></view>
+  </block>
+  <block wx:if="{{relayflag==1}}">
+    <view class='relay'>
+      <image class='re_pic' src='../../images/zhuanfabj.png'></image>
+      <block wx:if="{{relaynone==0}}">
+        <view class='re_gold' style='margin-top:30rpx;'>{{relaydata}}</view>
+      </block>
+      <block wx:else>
+        <view class='re_gold'>收获
+          <text style='color:#ffa000;'>{{relaydata.add_gold}}</text>个金币</view>
+        <view class='re_golds'>你今日还可以获得{{relaydata.maybe_gold}}金币！</view>
+      </block>
+
+      <block wx:if="{{relaynone!=0}}">
+        <view class='re_sechdule'>
+          <view class='sed_one'>
+            <progress percent="{{percent}}" stroke-width="10" backgroundColor="#cccccc" activeColor="#5e2fe6" />
+          </view>
+          <view class='sed_two'>
+            【
+            <text style="color:#ffa000;">{{relaydata.now_gold}}</text>/{{totalgold}}】
+          </view>
+        </view>
+      </block>
+      <view class='re_btn' bindtap='Ikonw'>我知道了</view>
+    </view>
+    <view class='mask'></view>
+  </block>
+</view>

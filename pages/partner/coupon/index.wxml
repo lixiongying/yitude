@@ -1,0 +1,55 @@
+<!--pages/partner/coupon/index.wxml-->
+<view class="container">
+  <view class="coupon_box">
+    <block wx:for="{{datas}}" wx:key="keys">
+      <view class="coupon_box_li">
+        <view class="coupon_box_li_top_bg"><image wx:if="{{item.bj_pic}}" src="{{jiekou + item.bj_pic}}"></image></view>
+        <view class="coupon_box_li_main">
+          <view class="coupon_box_li_top">
+            <view class="coupon_box_li_top_con_l">
+              <view class="coupon_box_li_top_con_l_num">
+                {{item.free_money}}
+                <text>¥</text>
+              </view>
+            </view>
+            <view class="coupon_box_li_top_con_c">
+              <view class="coupon_box_li_top_con_c_tit">{{item.coupon_name}}</view>
+              <view class="coupon_box_li_top_con_c_msg">满{{item.use_money}}可用</view>
+            </view>
+            <view class="share_btn {{item.status == 1 ? '' : 'none'}}"><button open-type='share' data-id="{{item.coupon_id}}">立即分享</button> </view>
+          </view>
+          <view class="coupon_box_li_con">
+            <view class="coupon_box_li_con_li"><image src="../../../images/youhuiquan_shijian.png"></image><text>领取日期：{{item.create_time}}</text></view>
+            <view class="coupon_box_li_con_li"><image src="../../../images/youhuiquan_shijian.png"></image><text>有效日期：{{item.end_time}}</text></view>
+          </view>
+        </view>
+        
+      </view>
+    </block>
+  </view>
+  <block wx:if="{{relayflag==1}}">
+      <view class='relay'>
+          <image class='re_pic' src='../../../images/zhuanfabj.png'></image>
+          <block wx:if="{{relaynone==0}}">
+             <view class='re_gold' style='margin-top:30rpx;'>{{relaydata}}</view>
+          </block>
+          <block wx:else>
+            <view class='re_gold'>收获<text style='color:#ffa000;'>{{relaydata.add_gold}}</text>个金币</view>
+            <view class='re_golds'>你今日还可以获得{{relaydata.maybe_gold}}金币！</view>
+          </block>
+         
+          
+          <block wx:if="{{relaynone!=0}}">
+            <view class='re_sechdule'>
+              <view class='sed_one'>
+                <progress percent="{{percent}}" stroke-width="10" backgroundColor="#cccccc" activeColor="#5e2fe6" /></view>
+              <view class='sed_two'>
+                【<text style="color:#ffa000;">{{relaydata.now_gold}}</text>/{{totalgold}}】
+              </view>
+            </view>
+          </block>
+          <view class='re_btn' bindtap='Ikonw'>我知道了</view>
+      </view>
+       <view class='mask'></view>
+   </block>
+</view>

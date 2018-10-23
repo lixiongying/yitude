@@ -1,0 +1,56 @@
+<view class='container'>
+   <view class="nav">
+    <scroll-view scroll-x="true" class="scrollbar_main" scroll-left="{{navScrollLeft}}" scroll-with-animation="{{true}}">
+      <view class="swiper-tab">  
+          <block wx:for="{{navList}}" wx:for-item="nav" wx:for-index="index" wx:key="navkeys">
+          <view class="swiper-tab-list {{currentTab==index ? 'on' : ''}}" data-current="{{index}}" bindtap="swichNav">{{nav}}</view>  
+          </block>
+      </view> 
+    </scroll-view>
+  </view>
+
+<swiper current="{{currentTab}}" style="width:{{winWidth}}px;height: {{winHeight-44}}px;padding-top: 88rpx;" class="swiper-box" duration="300" bindchange="bindChange">
+  <block wx:for="{{navList}}" wx:key="list" wx:for-index="listIndex">  
+  <!--  -->
+  <swiper-item style="">  
+    <scroll-view bindscrolltolower="bindDownLoad" data-index="{{listIndex}}" scroll-y="true" style="height:{{winHeight - 44}}px">  
+      <view class='main_ul'> 
+        <block wx:for="{{datas[listIndex]}}" wx:for-item="shopItem" wx:key="shopKey" wx:for-index="shopIndex">
+         <view class="coupon_box_li">
+          <view class="coupon_box_li_top_bg"><image src="{{jiekou+shopItem.bj_pic}}"></image></view>
+          <view class="coupon_box_li_main">
+            <view class="coupon_box_li_top">
+              <view class="coupon_box_li_top_con_l">
+                <view class="coupon_box_li_top_con_l_num">
+                  {{shopItem.free_money}}
+                  <text>¥</text>
+                </view>
+              </view>
+              <view class="coupon_box_li_top_con_c">
+                <view class="coupon_box_li_top_con_c_tit">{{shopItem.coupon_name}}</view>
+                <view class="coupon_box_li_top_con_c_msg">满{{shopItem.use_money}}可用</view>
+              </view>
+              <block wx:if="{{listIndex==0}}">
+                <view class="share_btn">未使用</view>
+              </block>
+              <block wx:if="{{listIndex==1}}">
+                <view class="share_btn share_btn_use">已使用</view>
+              </block>
+              <block wx:if="{{listIndex==2}}">
+                <view class="share_btn share_btn_use">已过期</view>
+              </block>
+            </view>
+            <view class="coupon_box_li_con">
+              <view class="coupon_box_li_con_li"><image src="../../../images/youhuiquan_shijian.png"></image><text>领取日期：{{shopItem.create_time}}</text></view>
+              <view class="coupon_box_li_con_li"><image src="../../../images/youhuiquan_shijian.png"></image><text>截至日期：{{shopItem.end_time}}</text></view>
+            </view>
+          </view>
+          
+          </view>
+        </block>
+      </view>
+      </scroll-view> 
+     </swiper-item> 
+    </block> 
+  </swiper> 
+</view>

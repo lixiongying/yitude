@@ -1,0 +1,19 @@
+<view class='container'>
+    <view class="main">
+      <view class='input_item'>
+          <input value='{{editaddress.name}}' bindinput='setName'></input>
+      </view>
+      <view class='input_item'><input value='{{editaddress.phone}}' bindinput='setPhone'></input></view>
+      <picker bindchange="bindRegionChange" custom-item="{{customItem}}" value="{{}}" mode="region">
+        <view class='input_item select_ads'>
+          <view class='ads_title'>选择地区</view>
+          <image class='ads_icon' src='../../../../images/shouye_rexiaoshangpin_chakangengduo.png'></image>
+          <view class='ads_where'>{{region}}</view>
+        </view>
+       </picker>
+      <view class='input_item'><input value='{{address2}}' bindblur='setRess'></input></view>
+    </view>
+    <view class='save' bindtap='saveRess'>保存</view>
+</view>
+
+

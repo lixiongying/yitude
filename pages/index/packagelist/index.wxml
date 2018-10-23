@@ -1,0 +1,47 @@
+<view class="container">
+
+  <!--头部排序 -->
+
+  <view class='sort'>
+    <block wx:if="{{pastatus==1}}">
+      <view class='li_two' bindtap='getsale'>销量
+        <view class="sanjiao_top {{sales==1?'active1':''}}"></view>
+        <view class="sanjiao_bottom {{sales==2?'active':''}}"></view>
+      </view>
+      <view class='li_three' bindtap='getprice'>价格
+        <view class="sanjiao_top {{price==1?'active1':''}}"></view>
+        <view class="sanjiao_bottom {{price==2?'active':''}}"></view>
+      </view>
+      <view class='serach_icon' bindtap='searchdisplay'><image class='serach' src='../../../images/sousuo.png'></image></view>
+    </block>  
+    <block wx:else> 
+      <view class='explore'>
+        <input class='serach_input' bindinput='packeyword' placeholder='关键词搜索'></input>
+        <image class='serach_icon' src='../../../images/shangpnigliebiao_sousuo.png' ></image>
+        <view class='sousuo' bindtap='searchpackage'>搜索</view>
+      </view>
+     </block> 
+  </view>
+<!-- 套餐列表 -->
+   <view class='package'>
+      <block wx:for="{{packagelist}}" wx:key='keys'>
+          <view class='pc_item' bindtap='gopackagedetail' data-spid="{{item.sp_id}}">
+            <image class='pc_img' src='{{jiekou+item.pack_pic}}'></image>
+            <view class='pc_can'>
+              <view class='taocan'>
+                  <view class='can_one'>{{item.pa_lavel}}</view>
+                  <view class='can_two'>{{item.pa_name}} <text>({{item.goodsnames}}）</text></view>
+              </view>
+              <view class='newprice'>¥ {{item.pa_price}}</view>
+              <view class='oldprice'>¥ {{item.yuan_price}}</view>
+            </view>
+            <view class='xioaliang'>销量: {{item.sp_sales}} 套</view>
+          </view>
+       </block>
+         
+    </view>
+   <view class='shop'>
+      <image src='{{jiekou+storeifno.store_logo}}'></image>
+     {{storeifno.store_name}}
+   </view>
+</view>

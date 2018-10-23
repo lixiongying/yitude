@@ -1,0 +1,80 @@
+<view class="container">
+  <!-- 喜欢或不喜欢的颜色 -->
+  <view class='investigation'>
+    <view class='in_one' style="{{accolor ? 'background-color:' + accolor : ''}}"></view>
+    <view class='in_two'>色彩调查</view>
+  </view>
+  <view class='selectcolor'>
+    <view class="like {{type==1?'active':''}}" bindtap='like' data-type='1'>
+      <text></text> 喜欢</view>
+    <view class="dislike {{type==2?'active':''}}" bindtap='like' data-type='2'>
+      <text></text> 不喜欢</view>
+  </view>
+
+  <view class="z_tishi_text z_mb10">
+
+    <text wx:if="{{type==1}}">白色的桌子上散布着{{background.length}}种单色， 请先从其中选择10种喜欢的颜色。</text>
+    <text wx:if="{{type==2}}">白色的桌子上散布着{{background.length}}种单色， 请先从其中选择5种讨厌的颜色。</text>
+  </view>
+
+
+  <!--颜色区 start-->
+  <view class="z_colorbox js-love_color clear">
+    <block wx:for="{{background}}" wx:key="indexs" wx:for-index="i">
+      <view class="main_box {{'z_cbox-' + item.gc_id}}" data-index="{{i}}"  data-style='{{item.rgb}}' data-id="{{item.gc_id}}" bindtap='getcolor'>
+        <view class="main_box_box {{item.gc_id == 121 ?'active_3':''}} {{item.status == 1 ?'active_1':''}} {{item.status == 2?'active_2':''}}" style='background-color:{{item.rgb}};'></view>
+        <view class="main_box_text">{{item.gc_id}}</view>
+      </view>
+    </block>
+  </view>
+  <!--喜欢的颜色：-->
+  <view class="z_love js-z_lovebox">
+    <view>喜欢的颜色：</view>
+    <view class="clearfix z_colorbox_2 clear">
+      <block wx:for="{{selectcolor}}" wx:key='key' wx:for-index="indexs">
+        <view bindtap='deletecolors' data-id="{{item}}" data-index="{{indexs}}" class="z_cbox" style="background-color:{{background[item].rgb}};{{background[item].gc_id == 121 ? 'border: 1px solid #efefef;': ''}}">
+          <view class="num_bos">{{background[item].gc_id}}</view>
+          <image class="images" src="../../images/delete.png"></image>
+        </view>
+      </block>
+    </view>
+  </view>
+  <!--讨厌的颜色：-->
+  <view class="z_hate js-z_hatebox">
+    <view>讨厌的颜色：</view>
+    <view class="clearfix z_colorbox_2">
+      <block wx:for="{{hatecolor}}" wx:key='keys' wx:for-index="indexs">
+        <view bindtap='deletecolor' data-id="{{item}}" data-index="{{indexs}}" class='z_cbox' style="{{background[item].gc_id == 121 ? 'border: 1px solid #efefef;': ''}} background-color:{{background[item].rgb}};">
+          <view class="num_bos">{{background[item].gc_id}}</view>
+          <image class="images" src="../../images/delete.png"></image>
+        </view>
+      </block>
+    </view>
+  </view>
+  <view class='next' bindtap='next'>下一步</view>
+  <block wx:if="{{relayflag==1}}">
+      <view class='relay'>
+          <image class='re_pic' src='../../images/zhuanfabj.png'></image>
+          <block wx:if="{{relaynone==0}}">
+             <view class='re_gold'  style='margin-top:30rpx;'>{{relaydata}}</view>
+          </block>
+          <block wx:else>
+            <view class='re_gold'>收获<text style='color:#ffa000;'>{{relaydata.add_gold}}</text>个金币</view>
+            <view class='re_golds'>你今日还可以获得{{relaydata.maybe_gold}}金币！</view>
+          </block>
+         
+          
+         <block wx:if="{{relaynone!=0}}">
+            <view class='re_sechdule'>
+              <view class='sed_one'>
+                <progress percent="{{percent}}" stroke-width="10" backgroundColor="#cccccc" activeColor="#5e2fe6" /></view>
+              <view class='sed_two'>
+                【<text style="color:#ffa000;">{{relaydata.now_gold}}</text>/{{totalgold}}】
+              </view>
+            </view>
+          </block>
+          <view class='re_btn' bindtap='Ikonw'>我知道了</view>
+      </view>
+       <view class='mask'></view>
+   </block>
+</view>

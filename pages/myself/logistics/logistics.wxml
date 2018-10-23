@@ -1,0 +1,47 @@
+<!--pages/member/logistics/index.wxml-->
+<view class="container">
+  <view class="logistics_top">
+    <view class="logistics_top_img">
+      <image src="{{jiekou+datas.goods_img}}"></image>
+      <view class="logistics_top_img_msg">{{datas.goods_num}}件商品</view>
+    </view>
+    <view class="logistics_top_main">
+      <view class="logistics_top_main_top">商品名称 <text>{{datas.goods_name}}</text></view>
+       <block wx:if="{{datas.logistics.State==2}}">
+         <view class="logistics_top_main_text">订单状态:<text>在途中</text></view>
+      </block>
+      <block wx:if="{{datas.logistics.State==3}}">
+         <view class="logistics_top_main_text">订单状态:<text>签收</text></view>
+      </block>
+      <block wx:if="{{datas.logistics.State==42}}">
+         <view class="logistics_top_main_text">订单状态: <text>问题件</text></view>
+      </block>
+      <view class="logistics_top_main_text">承运公司: {{datas.shipping_name}}</view>
+      <view class="logistics_top_main_text">运单编号: {{datas.invoice_no}}</view>
+     
+      <!-- <view class="logistics_top_main_text">官方电话:暂无</view> -->
+    </view>
+  </view>
+  <view class="logistics_box">
+    <view class="logistics_box_tit">物流跟踪</view>
+    <block wx:if="{{datas.logistics.Traces!=''&&datas.logistics.Traces!=null}}">
+      <view class="logistics_box_list">
+        <block wx:for="{{datas.logistics.Traces}}" wx:key="keys">
+          <view class="logistics_box_list_li clear {{index == 0 ? 'active': ''}}">
+            <view class="logistics_box_list_li_con">
+              <view class="logistics_box_list_li_l_icon">
+                <view class="view"></view>
+              </view>
+              <view class="logistics_box_list_li_con_text">{{item.AcceptStation}}</view>
+              <view class="logistics_box_list_li_con_time">{{item.AcceptTime}}</view>
+            </view>
+          </view>
+        </block>
+      </view>
+    </block>
+    <block wx:else>
+       
+    </block>
+  </view>
+</view>
+

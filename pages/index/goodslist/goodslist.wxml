@@ -1,0 +1,94 @@
+<view class="container">
+
+  <!--头部排序 -->
+
+  <view class='sort'>
+    <block wx:if="{{searchtype==0}}">
+      <block wx:if="{{order_type==0}}">
+        <view class='li_one' bindtap='zh_sort'>综合排序
+          <view class="sanjiao {{sortstate==1?'sanjiaoactive':''}}"></view>
+        </view>
+      </block>
+      <block wx:if="{{order_type==1}}">
+        <view class='li_one' bindtap='zh_sort'>新品优先
+          <view class='sanjiao'></view>
+        </view>
+      </block>
+      <block wx:if="{{order_type==2}}">
+        <view class='li_one' bindtap='zh_sort'>评论数量
+          <view class='sanjiao'></view>
+        </view>
+      </block>
+      <view class='li_two' bindtap='getsales'>销量
+        <view class="sanjiao_top {{sales==2?'active1':''}}" data-id='2'></view>
+        <view class="sanjiao_bottom {{sales==1?'active':''}}" data-id='1'></view>
+
+      </view>
+
+      <view class='li_three' bindtap='gettype'>价格
+        <view class="sanjiao_top {{priceid==2?'active1':''}}" data-id='2'></view>
+        <view class="sanjiao_bottom {{priceid==1?'active':''}}" data-id='1'></view>
+      </view>
+
+      <view class='serach_icon' bindtap='searchs'>
+        <image class='serach' src='../../../images/sousuo.png'></image>
+      </view>
+    </block>
+    <block wx:else>
+      <view class='explore'>
+        <input class='serach_input' bindinput='serach' placeholder='关键词搜索'></input>
+        <image class='serach_icon' src='../../../images/shangpnigliebiao_sousuo.png'></image>
+        <view class='sousuo' bindtap='searchgood'>搜索</view>
+      </view>
+    </block>
+
+  </view>
+
+
+  <block wx:if="{{sortstate==1}}">
+    <view class='sortitem' style=''>
+      <view bindtap="selectsort" class="{{order_type==0?'actives':''}}" data-type='0'>综合排序</view>
+      <view bindtap="selectsort" class="{{order_type==1?'actives':''}}" data-type='1'>新品优先</view>
+      <view bindtap="selectsort" class="{{order_type==2?'actives':''}}" data-type='2'>评论数量由高到低</view>
+    </view>
+
+    <view class='mask' bindtap='disaper'></view>
+  </block>
+  <!-- 排序搜素结果 -->
+  <scroll-view bindscrolltolower="bindDownLoad" data-index="{{}}" scroll-y="true"> \
+    <block wx:if="{{nulldata!=1}}">
+      <view class='main'>
+
+        <view class='main_ul'>
+          <block wx:for="{{searchlist}}" wx:key="keys" wx:for-index="indexs">
+            <view class='main_li' bindtap='goodsdetail' data-id="{{item.sg_id}}">
+              <view class='f_li'>
+                <image src="{{jiekou+item.original_img}}" class='goodsimg'></image>
+              </view>
+              <view class='f_li goodsname'>{{item.goods_name}}</view>
+              <view class='f_li biaoqian'>
+                <block wx:for="{{item.goods_label}}" wx:key="keys">
+                  <view class='qianone'>{{item}}</view>
+                </block>
+                <!-- <view class='qianone'>{{item.goods_label[0]}}</view><view class='qiantwo'>{{item.goods_label[1]}}</view> -->
+              </view>
+              <view class='f_li pandc'>
+                <view class='price'>¥ {{item.unit_price}}</view>
+                <view class='comment'>{{item.sg_com_nums}}条评论</view>
+              </view>
+            </view>
+          </block>
+
+        </view>
+
+      </view>
+    </block>
+    <block wx:else>
+       <view class='nulldata'><image src='../../../images/cantfind.png'></image></view>
+       <view class='nulldatas'>暂无商品</view>
+    </block>
+  </scroll-view>
+  <block wx:if="{{botataus==1}}">
+    <view class='bottom_title'>已经到底啦</view>
+  </block>
+</view>

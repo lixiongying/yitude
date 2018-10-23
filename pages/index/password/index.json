@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "paySix": "../../component/component"
+  },
+  "navigationBarTitleText": "支付订单",
+  "enablePullDownRefresh": false,
+  "backgroundTextStyle": "white",
+  "navigationBarTextStyle": "black",
+  "navigationBarBackgroundColor": "#ffffff"
+}

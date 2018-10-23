@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "色彩游戏",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "white",
+  "navigationBarTextStyle": "black",
+  "navigationBarBackgroundColor": "#ffffff"
+}

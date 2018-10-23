@@ -1,0 +1,55 @@
+<view class="container">
+<!-- 搜索城市 -->
+   <view class='searchcity'>
+     <view class='searcg_input'><input placeholder='请输入城市名' placeholder-style='color: #cccccc;' type='text' bindinput='cityinput'></input></view>
+     <view class='searcg_btn' bindtap='searchcity'>搜索</view>
+   </view>
+<!-- 定位城市 -->
+   <view class='pos_city'>
+      <view class='city'>
+        <view class='city_title'>定位城市</view>
+        <view class='freshen_city' bindtap='getShow'><image src='../../../images/shuaxin.png'></image>刷新定位</view>
+      </view>
+      <view class='city_result'>{{cityname}}</view>
+   </view>
+
+   <!-- 热门城市 -->
+   <view class='hot_city'>
+      <view class='city'>
+        <view class='city_title'>热门城市</view>
+      </view>
+      <view class='hotcity clear'>
+        <block wx:for="{{hotcitylist}}" wx:for-index='indexs' wx:key="keys">
+           <view class='city_result' data-id="{{item.id}}" data-name="{{item.name}}"  bindtap='getcityinfo'>{{item.name}}</view>
+        </block>
+      
+      </view>
+      
+   </view>
+
+   <view class='allcity'>
+      <block wx:if="{{msg==''}}">
+        <view class='city_left'>
+          <block wx:for="{{citylist}}" wx:for-index='indexs' wx:key="keys">
+              <view class="province {{item.id==cityid?'active':''}}" bindtap='getdistrict' data-id="{{item.id}}">{{item.name}}</view>
+          </block>
+
+        </view>
+      
+        <view class='city_right'>
+            <block wx:for="{{citylist}}" wx:for-index='indexs' wx:key="keys">
+              <view class='' wx:if="{{item.id==cityid}}">
+                <block wx:for="{{item.citylist}}" wx:for-index='indexs' wx:key="keys">
+                  <view class='district' data-id="{{item.id}}" data-name="{{item.name}}" bindtap='getcityinfo'>
+                  {{item.name}}
+                  </view>
+                </block>
+              </view>
+            </block>
+        </view>
+      </block>
+      <block wx:else>
+         {{msg}}
+      </block>
+   </view>
+</view>

@@ -1,0 +1,23 @@
+<!--pages/partner/upgrade/index.wxml-->
+<view class="container">
+  <block wx:for="{{datas}}" wx:key="keys">
+    <view class="upgrade_li">
+      <view class="upgrade_li_top">{{item.parent_name}}</view>
+      <view class="upgrade_li_main">
+        <view class="upgrade_li_main_li">
+          <view class="upgrade_li_main_li_tit"><text></text> 享受权益</view>
+          <view class="upgrade_li_main_li_con">{{item.privilege}}</view>
+        </view>
+        <view class="upgrade_li_main_li">
+          <view class="upgrade_li_main_li_tit"><text style="background-color: #8f4c7e;"></text> 所需条件</view>
+          <view class="upgrade_li_main_li_con">{{item.conditions}}</view>
+        </view>
+        <view class="upgrade_li_main_li">
+          <view class="upgrade_li_main_li_tit"><text style="background-color: #4f4765;"></text> 办理流程</view>
+          <view class="upgrade_li_main_li_con">{{item.handle}}</view>
+        </view>
+      </view>
+      <view class="upgrade_li_btn" data-id="{{item.partner_id}}" data-names="{{item.parent_name}}" bindtap='linkapplying'>我要申请</view>
+    </view>
+  </block>
+</view>

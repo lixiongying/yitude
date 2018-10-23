@@ -1,0 +1,705 @@
+/* pages/lifemethod/lifemethod.wxss */
+
+Page {
+  background: #fff;
+}
+
+.life_top {
+  width: 100%;
+  height: 224rpx;
+  position: relative;
+}
+
+.life_top .life_top_bg {
+  width: 100%;
+  height: 100%;
+  float: left;
+}
+
+.life_top_card {
+  position: absolute;
+  width: 140rpx;
+  height: 64rpx;
+  background-color: #fe593c;
+  box-shadow: -2rpx 4rpx 8rpx 0rpx rgba(237, 46, 36, 0.75);
+  border-radius: 31rpx 0rpx 0rpx 31rpx;
+  text-align: center;
+  line-height: 64rpx;
+  right: 0;
+  top: 116rpx;
+  color: #fff;
+  font-size: 30rpx;
+}
+
+.life_top_tit {
+  width: 100%;
+  height: 40rpx;
+  top: 30rpx;
+  position: absolute;
+  left: 0;
+}
+
+.life_top_tit_li {
+  float: right;
+  margin-right: 25rpx;
+}
+
+.life_top_tit_li image {
+  width: 28rpx;
+  height: 28rpx;
+  float: left;
+  margin-top: 6rpx;
+  margin-right: 10rpx;
+}
+
+.life_top_tit_li view {
+  float: left;
+  font-size: 26rpx;
+  line-height: 40rpx;
+  color: #fff;
+}
+
+.life_main {
+  width: 100%;
+  height: 492rpx;
+  position: relative;
+  background: #f0f0f0;
+  border-bottom: 20rpx solid #f0f0f0;
+}
+
+.life_main_bg {
+  float: left;
+  width: 100%;
+  height: 100%;
+}
+
+.life_main_title {
+  position: absolute;
+  width: 100%;
+  height: 50rpx;
+  line-height: 50rpx;
+  left: 0;
+  top: 24rpx;
+  color: #202020;
+  text-align: center;
+  font-size: 32rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.life_main_title text {
+  color: #fbda30;
+  font-size: 48rpx;
+}
+
+.life_main_tit_msg {
+  position: absolute;
+  width: 100%;
+  height: 40rpx;
+  line-height: 40rpx;
+  left: 0;
+  top: 80rpx;
+  font-size: 22rpx;
+  color: #666;
+  text-align: center;
+}
+
+.life_main_box {
+  position: absolute;
+  width: 700rpx;
+  height: 350rpx;
+  top: 140rpx;
+  left: 25rpx;
+}
+
+.life_main_box_top {
+  width: 100%;
+  height: 54rpx;
+  line-height: 54rpx;
+  font-size: 22rpx;
+  text-align: center;
+  color: #1f1f1f;
+}
+
+.life_main_box_top text {
+  color: #ffa000;
+}
+
+.life_main_box_ul {
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 28rpx;
+  color: #1f1f1f;
+}
+
+.life_main_box_ul .life_main_box_ul_li {
+  float: left;
+  width: 14.28%;
+  text-align: center;
+  font-size: 28rpx;
+  color: #ccc;
+}
+
+.life_main_box_ul .before {
+  color: #1f1f1f;
+}
+
+.life_main_box_ul .active {
+  color: #ec6d56;
+}
+
+.life_main_box_list {
+  width: 100%;
+  height: 216rpx;
+  box-sizing: border-box;
+}
+
+.life_main_box_list_li {
+  float: left;
+  width: 14.28%;
+  height: 100%;
+}
+
+.life_main_box_list_li:first-of-type .life_main_box_list_li_box {
+  margin-left: 24rpx;
+}
+
+.life_main_box_list_li_box {
+  position: relative;
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+  box-sizing: border-box;
+  text-align: center;
+  line-height: 60rpx;
+  font-size: 28rpx;
+  color: #ccc;
+  margin-top: 32rpx;
+  margin-left: 20rpx;
+}
+
+.life_main_box_list_li_box_icon {
+  position: absolute;
+  left: 50%;
+  margin-left: -47rpx;
+  top: -20rpx;
+  width: 94rpx;
+  height: 40rpx;
+}
+
+.life_main_box_list_li_box_img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.life_main_box_list_li_box_text {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 60rpx;
+}
+
+.color1 {
+  color: #ec6d56;
+}
+
+.color2 {
+  color: #6c45d5;
+  background-color: #fffbe5;
+  box-shadow: 0px 2rpx 20rpx 0px rgba(251, 218, 48, 0.75);
+  border: solid 1px #fbda30;
+  position: relative;
+}
+.color2 text {
+  width: 10rpx;
+  height: 10rpx;
+  border-radius: 50%;
+  background: #fbda30;
+  position: absolute;
+  bottom: -15rpx;
+  left: 25rpx;
+}
+
+.life_bottom {
+  width: 100%;
+  position: relative;
+}
+
+.life_bottom_icon {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: 30rpx solid #f0f0f0;
+  border-left-color: transparent;
+  border-bottom-color: transparent;
+  border-right-color: transparent;
+  left: 50%;
+  margin-left: -30rpx;
+  top: 0;
+}
+
+.life_bottom_box {
+  width: 100%;
+  padding-top: 30rpx;
+}
+
+.life_bottom_box_left {
+  float: left;
+  margin-left: 20rpx;
+}
+
+.life_bottom_box_left_img {
+  float: left;
+  width: 22rpx;
+  height: 104rpx;
+}
+
+.life_bottom_box_left_img image {
+  width: 100%;
+  height: 100%;
+}
+
+.life_bottom_box_left_ul {
+  float: left;
+  margin-left: 10rpx;
+}
+
+.life_bottom_box_left_ul_li {
+  width: 300rpx;
+}
+
+.life_bottom_box_left_ul_li:first-of-type {
+  margin-bottom: 15rpx;
+}
+
+.life_bottom_box_left_ul_li_tit {
+  height: 30rpx;
+  width: 100%;
+  line-height: 30rpx;
+  font-size: 22rpx;
+  color: #ccc;
+}
+
+.life_bottom_box_left_ul_li_text {
+  width: 100%;
+  font-size: 26rpx;
+  color: #1f1f1f;
+}
+
+.life_bottom_box_r {
+  float: right;
+  width: 220rpx;
+}
+
+.life_bottom_box_r_tit {
+  width: 100%;
+  height: 60rpx;
+  text-align: center;
+  line-height: 60rpx;
+  font-size: 40rpx;
+  color: #ec6d56;
+}
+
+.life_bottom_box_r_main {
+  width: 100%;
+  height: 40rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.life_bottom_box_r_main image {
+  width: 36rpx;
+  height: 36rpx;
+  margin-right: 10rpx;
+}
+
+.life_bottom_box_r_main text {
+  font-size: 24rpx;
+  color: #666;
+}
+
+.life_bottom_btn {
+  position: relative;
+  width: 300rpx;
+  height: 128rpx;
+  margin: 50rpx auto;
+}
+
+.life_bottom_btn_btn {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 300rpx;
+  height: 128rpx;
+  background-color: #6c45d5;
+  box-shadow: 0px 8rpx 20rpx 0px rgba(135, 100, 233, 0.75);
+  border-radius: 63rpx;
+  text-align: center;
+  line-height: 128rpx;
+  color: #fff;
+  font-size: 40rpx;
+}
+
+.life_bottom_btn_active {
+  background-color: #62e998;
+  box-shadow: 0px 8rpx 20rpx 0px rgba(107, 250, 164, 0.75);
+}
+
+.life_bottom_btn_icon {
+  position: absolute;
+  left: -58rpx;
+  top: 0;
+  width: 416rpx;
+  height: 128rpx;
+}
+
+/* 邀请卡 */
+
+.life_model {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.life_model_hide {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.life_model_main {
+  width: 700rpx;
+  height: 900rpx;
+  position: absolute;
+  top: 80rpx;
+  left: 25rpx;
+  background-color: #fff;
+}
+
+.life_model_main_imgs {
+  width: 700rpx;
+  height: 700rpx;
+  position: relative;
+}
+
+.life_model_main_imgs_bg {
+  width: 100%;
+  height: 100%;
+}
+
+.life_model_main_imgs_bg image {
+  width: 100%;
+  height: 100%;
+}
+
+.life_model_main_imgs_del {
+  position: absolute;
+  top: 12rpx;
+  right: 12rpx;
+  width: 56rpx;
+  height: 56rpx;
+  border-radius: 50%;
+}
+
+.life_model_main_imgs_del image {
+  width: 100%;
+  height: 100%;
+}
+
+.life_model_main_content {
+  width: 100%;
+  height: 200rpx;
+  position: relative;
+}
+
+.life_model_main_content_top {
+  width: 144rpx;
+  height: 144rpx;
+  border-radius: 50%;
+  position: absolute;
+  left: 28rpx;
+  top: -72rpx;
+  overflow: hidden;
+}
+
+.life_model_main_content_top image {
+  width: 100%;
+  height: 100%;
+}
+
+.life_model_main_content_l {
+  float: left;
+  width: 500rpx;
+  height: 200rpx;
+}
+
+.life_model_main_content_l_tit {
+  width: 100%;
+  height: 80rpx;
+  padding-left: 180rpx;
+  font-size: 28rpx;
+  color: #1f1f1f;
+  line-height: 80rpx;
+  box-sizing: border-box;
+}
+
+.life_model_main_content_l_box {
+  width: 100%;
+  height: 80rpx;
+  padding: 20rpx 0;
+}
+
+.life_model_main_content_l_box_l {
+  float: left;
+  width: 200rpx;
+  height: 80rpx;
+  border-right: 1px solid #ccc;
+}
+
+.lmmclb_l_tit {
+  width: 100%;
+  height: 50rpx;
+  line-height: 50rpx;
+  text-align: center;
+  font-size: 24rpx;
+  color: #1f1f1f;
+}
+
+.lmmclb_l_tit text {
+  color: #ec6d56;
+  font-size: 48rpx;
+  padding: 0 10rpx;
+}
+
+.lmmclb_l_msg {
+  width: 100%;
+  text-align: center;
+  font-size: 24rpx;
+  color: #666;
+}
+
+.life_model_main_content_l_box_r {
+  float: left;
+  width: 290rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.lmmclb_r_tit {
+  width: 100%;
+  text-align: center;
+  font-size: 32rpx;
+  color: #1f1f1f;
+  height: 40rpx;
+  letter-spacing: 11rpx;
+  line-height: 40rpx;
+}
+
+.lmmclb_r_msg {
+  width: 100%;
+  height: 40rpx;
+  line-height: 40rpx;
+  text-align: center;
+  font-size: 24rpx;
+  color: #1f1f1f;
+  letter-spacing: 2rpx;
+}
+
+.life_model_main_content_r {
+  position: absolute;
+  top: 20rpx;
+  right: 20rpx;
+  width: 160rpx;
+  height: 160rpx;
+}
+
+.life_model_main_content_r image {
+  width: 100%;
+  height: 100%;
+}
+
+.life_model_main_btns {
+  width: 700rpx;
+  position: absolute;
+  bottom: -100rpx;
+  height: 80rpx;
+}
+.life_model_main_btns_xiazai {
+  float: left;
+  width: 240rpx;
+  height: 80rpx;
+  background: #ec6d56;
+  border-radius: 40rpx;
+  color: #ffffff;
+  text-align: center;
+  line-height: 80rpx;
+  font-size: 32rpx;
+  margin-left: 30rpx;
+}
+.life_model_main_btns_fenxiang {
+  float: right;
+  width: 240rpx;
+  height: 80rpx;
+  background: #ec6d56;
+  border-radius: 40rpx;
+  color: #ffffff;
+  text-align: center;
+  line-height: 80rpx;
+  font-size: 32rpx;
+  margin-right: 30rpx;
+}
+.life_model_main_btns_fenxiang button {
+  width: 240rpx;
+  height: 80rpx;
+  background: #ec6d56;
+  border-radius: 40rpx;
+  color: #ffffff;
+  text-align: center;
+  line-height: 80rpx;
+  font-size: 32rpx;
+  margin-right: 30rpx;
+}
+.life_card {
+  width: 560rpx;
+  height: 600rpx;
+  position: absolute;
+  top: 240rpx;
+  left: 95rpx;
+}
+.life_card_ticon {
+  width: 580rpx;
+  height: 88rpx;
+  transform: translateX(-10rpx);
+}
+.life_card_ticon image {
+  width: 100%;
+  height: 100%;
+}
+
+.life_card_main_top {
+  width: 100%;
+  height: 166rpx;
+  background-color: #f0ebff;
+  box-sizing: border-box;
+  padding-top: 20rpx;
+}
+.life_card_main_top_tit {
+  width: 100%;
+  text-align: center;
+  line-height: 80rpx;
+  height: 80rpx;
+  font-size: 36rpx;
+  color: #6c45d5;
+}
+.life_card_main_top_con {
+  width: 100%;
+  text-align: center;
+  line-height: 40rpx;
+  height: 40rpx;
+  font-size: 28rpx;
+  color: #1f1f1f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.life_card_main_top_con image {
+  width: 36rpx;
+  height: 36rpx;
+}
+.life_card_main_top_con text {
+  color: #ffa000;
+  font-size: 40rpx;
+}
+.life_card_main_box {
+  width: 100%;
+  height: 354rpx;
+  background-color: #ffffff;
+  border-radius: 0 0 20rpx 20rpx;
+  padding-top: 1rpx;
+}
+
+.life_card_main_box_num {
+  width: 100rpx;
+  height: 100rpx;
+  margin: 30rpx auto 10rpx;
+  position: relative;
+  overflow: hidden;
+  border-radius: 6rpx;
+}
+.life_card_main_box_num .after {
+  position: absolute;
+  width: 100rpx;
+  height: 50rpx;
+  background: #7e5ed5;
+  top: 0;
+  left: 0;
+}
+.life_card_main_box_num .before {
+  position: absolute;
+  width: 100rpx;
+  height: 50rpx;
+  background: #bfa9fd;
+  bottom: 0;
+  left: 0;
+}
+.life_card_main_box_num .con {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  text-align: center;
+  line-height: 100rpx;
+  font-size: 60rpx;
+  color: #ffffff;
+}
+.life_card_main_box_tit {
+  width: 100%;
+  text-align: center;
+  font-size: 30rpx;
+  color: #1f1f1f;
+  line-height: 48rpx;
+  height: 48rpx;
+}
+.life_card_main_box_msg {
+  width: 100%;
+  text-align: center;
+  font-size: 24rpx;
+  color: #666666;
+  line-height: 48rpx;
+  height: 48rpx;
+}
+.life_card_main_box_tit text {
+  color: #ffa000;
+  font-size: 32rpx;
+}
+.life_card_main_box_btn {
+  width: 360rpx;
+	height: 64rpx;
+	background-color: #6c45d5;
+	border-radius: 32rpx;
+  text-align: center;
+  line-height: 64rpx;
+  font-size: 28rpx;
+  color: #ffffff;
+  margin: 20rpx auto 0;
+}

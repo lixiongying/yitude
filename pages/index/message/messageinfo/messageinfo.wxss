@@ -1,0 +1,106 @@
+/* page{
+  background: white;
+} */
+.container{
+  width: 100%;
+  height: auto;
+}
+.main{
+  width: 100%;
+  height: auto;
+margin-top: 20rpx;
+}
+.main .main_time{
+  width: 400rpx;
+  padding: 10rpx 40rpx;
+  margin: 0 auto;
+  text-align: center;
+  color: white;
+  font-size: 30rpx;
+  background-color: #cccccc;
+  border-radius: 30rpx;
+  
+}
+.main .main_content{
+  width: 650rpx;
+  margin: 0 auto;
+  border-radius: 20rpx;
+  border: 1px solid #1f1f1f;
+  height: 170rpx;
+  margin-top: 30rpx;
+}
+.main .main_content .content_one{
+  width: 100%;
+  padding-left: 24rpx;
+  font-size: 32rpx;
+  color: black;
+  text-align: left;
+  height: 85rpx;
+  line-height: 85rpx;
+}
+.main .main_content .content_two{
+  width: 100%;
+  padding-left: 24rpx;
+  font-size: 28rpx;
+  color: #666666;
+  text-align: left;
+   height: 60rpx;
+  line-height: 60rpx;
+}
+.bottom_title{
+ 
+  width: 100%;
+  height: 105rpx;
+	color: #666666;
+  line-height: 105rpx;
+  text-align: center;
+  font-size: 32rpx;
+   margin-bottom: 20rpx;
+}
+.comtent{
+  width: 702rpx;
+	height: auto;
+	background-color: #ffffff;
+	border-radius: 6rpx;
+  margin: 0 auto;
+  padding: 12rpx;
+  margin-top: 24rpx;
+}
+
+.comtent_one{
+  width: auto;
+  height: auto;
+  padding: 12rpx 12rpx;
+  color: #1f1f1f;
+  font-size: 32rpx;
+}
+
+.serview{
+ padding: 12rpx 12rpx;
+  color: #1f1f1f;
+  font-size: 32rpx;
+  float: left;
+  position: relative;
+}
+.dian{
+ position: absolute;
+ left: 0;
+ width: 8rpx;
+ height: 40rpx;
+ background: red;
+ margin-right: 15rpx;
+}
+.time{
+  padding: 12rpx 12rpx;
+  color: #666666;
+  font-size: 24rpx;
+  float: right;
+}
+.content_two{
+   color: #1f1f1f;
+   font-size: 26rpx;
+   width:auto;
+   height: auto;
+   padding: 12rpx 12rpx;
+   padding-top: 0;
+}

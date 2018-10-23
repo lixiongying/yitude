@@ -1,0 +1,22 @@
+<view class="container">
+   <view class='main'>
+    <view class='reminders'>
+        <image class='remider_icon' src='../../../../images/tixian_tishi.png'></image>
+        <view class='remider'>当前可提现金额：{{datas.user_money}}</view>
+    </view>
+    <view class='account' bindtap='account'>
+      <view class='ac_one'>提现账户</view>
+      
+      <image class='ac_three' src='../../../../images/shouye_rexiaoshangpin_chakangengduo.png'></image>
+      <view class='ac_two'>{{text}}</view>
+    </view>
+
+     <view class='extra'>
+      <view class='ac_one'>提现金额：</view>
+      
+      <input class='input_money' type='number' value='{{extravalue}}' bindinput='moneys' placeholder='请输入提现金额' placeholder-style='color:#cccccc;'></input>
+    </view>
+
+    <view class='tixian' bindtap='withdrawl'>提现</view>
+   </view>
+</view>

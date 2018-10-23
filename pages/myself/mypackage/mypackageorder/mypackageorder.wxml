@@ -1,0 +1,209 @@
+<view class='container'>
+
+  <view class='main_address'>
+    <view class='address_one'>
+      <view class='name'>{{orderPackDetail.consignee}}</view>
+      <view class='phone'>{{orderPackDetail.mobile}}</view>
+    </view>
+    <view class='address_two'>
+      <image class='ads_icon' src='../../../../images/dingdanxiangqing_dizhi.png'></image>
+      <view class='ads_place'>{{orderPackDetail.province}}{{orderPackDetail.city}}{{orderPackDetail.district}}{{orderPackDetail.address}}</view>
+      <image class='image_icon' src='../../../../images/querendingdan_dizhi02.png'></image>
+    </view>
+  </view>
+
+
+
+  <view class='main_head'>
+    <image class='head_img' src='{{jiekou+orderPackDetail.store_logo}}'></image>
+    <view class='head_title'>{{orderPackDetail.store_name}}</view>
+  </view>
+  <view class='main_ul'>
+    <view class='f_ul'>
+      <image src="{{jiekou+orderPackDetail.pack_pic}}" class='goods_img'></image>
+      <view class='main_item'>
+        <view class='item_one'>{{orderPackDetail.goodsnames}}</view>
+        <view class='item_two'>¥{{orderPackDetail.pa_price}}</view>
+
+      </view>
+      <view class='number'>×1</view>
+    </view>
+  </view>
+  <!-- 施工员信息 -->
+  <block wx:if='{{curtab==0}}'>
+    <block wx:if='{{constatus==1}}'>
+      <view class='co_order'>
+        <view></view>
+        <view>施工员信息</view>
+      </view>
+
+      <view class='order_head'>
+        <view class='head_mark clear'>
+          <view class='mark_one'>施工员姓名：
+            <text style='font-size: 32rpx;'>{{construc_order[0].true_name}}</text>
+          </view>
+          <view class='mark_two' bindtap='playPhone' data-phone="{{construc_order[0].mobile}}">{{construc_order[0].mobile}}
+            <image class='phone_icon' src='../../../../images/dingdanxiangqing_shigongyuanxinxi_dianhua.png'></image>
+          </view>
+        </view>
+
+        <view class='head_mark clear'>
+          <view class='mark_one'>业主评分：
+            <text style='color: #ffa000;font-size: 32rpx;'>{{construc_order[0].score}}</text>
+          </view>
+          <view class='mark_two'>施工次数：{{construc_order[0].successcount}}次</view>
+        </view>
+        <view class='head_shop clear'>
+          <view class='shop_title'>所属店铺：</view>
+          <image class='shop_pic' src='{{jiekou+construc_order[0].store_logo}}'></image>
+          <view class='shop_name'>{{construc_order[0].store_name}}</view>
+        </view>
+      </view>
+    </block>
+  </block>
+
+  <block wx:if='{{curtab==1||curtab==2||curtab==3||curtab==4}}'>
+    <block wx:if="{{construc_order!=''&&construc_order!=null}}">
+      <view class='co_order'>
+        <view></view>
+        <view>施工员信息</view>
+      </view>
+
+      <view class='order_head'>
+        <view class='head_mark clear'>
+          <view class='mark_one'>施工员姓名：
+            <text style='font-size: 32rpx;'>{{construc_order.true_name}}</text>
+          </view>
+          <view class='mark_two' bindtap='playPhone' data-phone="{{construc_order.mobile}}">{{construc_order.mobile}}
+            <image class='phone_icon' src='../../../../images/dingdanxiangqing_shigongyuanxinxi_dianhua.png'></image>
+          </view>
+        </view>
+
+        <view class='head_mark clear'>
+          <view class='mark_one'>业主评分：
+            <text style='color: #ffa000;font-size: 32rpx;'>{{construc_order.score}}</text>
+          </view>
+          <view class='mark_two'>施工次数：{{construc_order.successcount}}次</view>
+        </view>
+        <view class='head_shop clear'>
+          <view class='shop_title'>所属店铺：</view>
+          <image class='shop_pic' src='{{jiekou+construc_order.store_logo}}'></image>
+          <view class='shop_name'>{{construc_order.store_name}}</view>
+        </view>
+      </view>
+    </block>
+  </block>
+  
+  <block wx:if="{{curtab==0&&constatus!=1}}">
+    <view class='co_order' data-sp_id="{{orderPackDetail.sp_id}}" bindtap='selectworkgroup'>
+      <view></view>
+      <view>请选择施工团队</view>
+    </view>
+  </block>
+
+
+
+  <view class='main_items'>
+    <view class='f_li'>订单状态：</view>
+    <view class='f_li'>订单编号：{{orderPackDetail.order_package_sn}}</view>
+    <view class='f_li'>创建时间：{{orderPackDetail.order_time}}</view>
+    <view class='f_li'>运费：包邮</view>
+    <view class='f_li'>订单金额：{{orderPackDetail.total_amount}}</view>
+    <view class='f_li'>优惠券：-{{orderPackDetail.coupon_price}}</view>
+    <view class='f_li'>使用金币：-{{orderPackDetail.gold_price}}</view>
+    <!-- <view class='f_li'>支付方式：{{orderPackDetail.pay_name}}</view> -->
+    <view class='f_li'>买家实付金额：
+      <text class='money'>{{orderPackDetail.order_amount}}</text>
+    </view>
+    <view class='order_state'>{{orderPackDetail.status_name}}</view>
+    <!-- <view class='shouhou'>申请售后</view> -->
+  </view>
+
+
+  <view class='main_pay'>
+    <view class='f_li'>支付类型：
+      <text class='money'>{{orderPackDetail.pay_name}}</text>
+    </view>
+    <block wx:for="{{order_packpay}}" wx:key="keys">
+      <view class='f_li'>付款时间：({{item.msg}}) {{item.pay_time}}</view>
+    </block>
+
+    <view class='f_li' wx:if="{{orderPackDetail.order_statu==4}}">完成时间：{{orderPackDetail.confirm_time}}</view>
+  </view>
+
+
+  <block wx:if="{{curtab==0}}">
+    <view class='main_btn'>
+      <block wx:if="{{orderPackDetail.order_pay_status!=4&&orderPackDetail.pay_status!=1}}">
+        <view class='li_two' data-paytype="0" data-price="{{orderPackDetail.yicifuqing}}" data-packageid="{{orderPackDetail.order_package_id}}" bindtap='payInfull'>一次付清</view>
+      </block>
+      <block wx:if="{{orderPackDetail.is_stages==1}}">
+        <view class='li_one' data-price="{{orderPackDetail.one_money}}" data-packageid="{{orderPackDetail.order_package_id}}" data-paytype="3" bindtap='payInfull'>交订金</view>
+      </block>
+      <!-- <view class='li_one' >交订金</view> -->
+    </view>
+  </block>
+
+  <block wx:if="{{curtab==1}}">
+    <view class='main_btn' wx:if="{{orderPackDetail.order_pay_status!=4&&orderPackDetail.pay_status!=1}}">
+      <block wx:if="{{orderPackDetail.order_pay_status!=4&&orderPackDetail.pay_status!=1}}">
+        <view class='li_two' data-pay_staste="1" data-paytype="0" data-packageid="{{orderPackDetail.order_package_id}}" bindtap="payInfull" data-price="{{orderPackDetail.yicifuqing}}">一次付清</view>
+      </block>
+    </view>
+  </block>
+
+  <block wx:if="{{curtab==2}}">
+    <view class='main_btn' wx:if="{{orderPackDetail.order_pay_status!=4&&orderPackDetail.pay_status!=1}}">
+      <view class='li_two' wx:if="{{orderPackDetail.order_pay_status!=4&&orderPackDetail.pay_status!=1}}" data-packageid="{{orderPackDetail.order_package_id}}">一次付清</view>
+      <!-- <view class='li_one'>开始动工</view> -->
+      <block wx:if="{{orderPackDetail.order_pay_status==4&&item.pay_status==1}}">
+        <view class='li_one' data-pay_staste="1" data-paytype="1" data-packageid="{{orderPackDetail.order_package_id}}" bindtap="startwork" data-price="{{orderPackDetail.two_money}}">开始动工</view>
+      </block>
+      <block wx:else>
+        <view class='li_one' data-pay_staste="1" data-paytype="1" data-packageid="{{orderPackDetail.order_package_id}}" bindtap="payInfull" data-price="{{orderPackDetail.two_money}}">开始动工</view>
+      </block>
+    </view>
+
+  </block>
+
+
+  <block wx:if="{{curtab==3}}">
+    <view class='main_btn'>
+      <block wx:if="{{orderPackDetail.order_pay_status==4&&item.pay_status==1}}">
+        <view class='li_two' bindtap='startwork' data-pay_staste="2" data-paytype="2" data-price="{{orderPackDetail.three_money}}" data-packageid="{{orderPackDetail.order_package_id}}">已完工</view>
+      </block>
+
+      <block wx:else>
+        <view class='li_two' data-pay_staste="2" data-paytype="2" data-packageid="{{orderPackDetail.order_package_id}}" bindtap="payInfull" data-price="{{orderPackDetail.two_money}}">已完工</view>
+      </block>
+    </view>
+  </block>
+
+  <block wx:if="{{curtab==4}}">
+    <view class='main_btn' wx:if="{{construcstatus==1}}">
+      <view class='li_two' data-packageid="{{orderPackDetail.order_package_id}}" bindtap='packagecomment'>评价施工员</view>
+    </view>
+  </block>
+
+  <!-- 订单支付弹窗 -->
+  <block wx:if="{{paystate==1}}">
+    <view class='payfor'>
+      <view class='pay_method'>支付方式
+        <text style='color: #666666;font-size: 24rpx;'>（¥ {{total_amount}}）</text>
+      </view>
+      <view class='wechat_pay' bindtap='getWxPay'>
+        <image src='../../../../images/querendingdan_tijiaodingdan_zhifufangshi_weixinzhifu.png'></image>微信支付</view>
+      <view class="extra_pay {{datas.user.user_money==0?'extra_nopay':''}}" bindtap="moneyPay">
+        <image src='../../../../images/querendingdan_tijiaodingdan_zhifufangshi_yuezhifu.png'></image>余额支付
+        <block wx:if="{{moneystate==0}}">
+          <view class='extramoney'>（余额不足）</view>
+        </block>
+        <block wx:else>
+          <view class='extramoney'>（¥ {{user_money}}）</view>
+        </block>
+      </view>
+    </view>
+
+    <view class='mask' bindtap='cancelpay'></view>
+  </block>
+</view>

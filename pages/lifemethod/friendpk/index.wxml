@@ -1,0 +1,54 @@
+<!--pages/goods/index.wxml-->
+<view class="Container">
+  <view class="main">
+    <swiper current="{{currentTab}}" style="width:{{winWidth}}px;height: {{winHeight}}px;" class="swiper-box" duration="300" bindchange="bindChange">  
+    <!-- 全部 -->
+      <block wx:for="{{navList}}" wx:key="list" wx:for-index="listIndex">  
+        <swiper-item style="padding-top: 108rpx;">  
+          <scroll-view bindscrolltolower="bindDownLoad" data-index="{{listIndex}}" scroll-y="true" style="height:{{winHeight - 54}}px"> 
+            <view class="friend_box">
+              <block wx:for="{{datas[listIndex]}}" wx:for-item="datasItem" wx:key="itemkey" wx:for-index="datasIndex">
+                <view class="friend_box_li clear">
+                  <view class="friend_box_li_one">
+                    <block wx:if="{{datasIndex <= 2}}">
+                      <block wx:if="{{datasIndex == 0}}"><image src="../../../images/shenghuofangshi_haoyoupk_guanjun.png"></image></block>
+                      <block wx:if="{{datasIndex == 1}}"><image src="../../../images/shenghuofangshi_haoyoupk_yajun.png"></image></block>
+                      <block wx:if="{{datasIndex == 2}}"><image src="../../../images/shenghuofangshi_haoyoupk_jijun.png"></image></block>
+                    </block>
+                    <block wx:else>{{datasIndex * 1 + 1}}</block>
+                    
+                  </view>
+                  <view class="friend_box_li_pic"><image wx:if="{{datasItem.head_pic}}" src="{{jiekou + datasItem.head_pic}}"></image></view>
+                  <view class="friend_box_li_name">{{datasItem.nickname}}</view>
+                  <view class="friend_box_li_time">{{datasItem.time}}</view>
+                </view>
+              </block>
+            </view>
+          </scroll-view> 
+        </swiper-item> 
+      </block> 
+         <!-- 全部 -->   
+    </swiper>
+    <view class="share_img" bindtap='showModel'><image src="../../../images/shenghuofangshi_haoyoupk_fenxiangchengjiu.png"></image></view>
+    <view class="share_model {{none == 0 ? 'none' : ''}}">
+      <view class="share_model_hide" bindtap='hideModel'></view>
+      <view class="share_model_con">
+        <button open-type='share'>
+          <view class="share_model_con_li">
+            <view class="share_model_con_li_icon"><image src="../../../images/shenghuofangshi_haoyoupk_fenxiang_weixin.png"></image></view>
+            <view class="share_model_con_li_text">微信好友</view>
+          </view>
+        </button>
+      </view>
+    </view>
+  </view>
+  <view class="nav">
+    <scroll-view scroll-x="true" class="scrollbar_main" scroll-left="{{navScrollLeft}}" scroll-with-animation="{{true}}">
+      <view class="swiper-tab">  
+          <block wx:for="{{navList}}" wx:for-item="nav" wx:for-index="index" wx:key="item">
+            <view class="swiper-tab-list {{currentTab==index ? 'on' : ''}}" data-current="{{index}}" catchtap="swichNav"><text>{{nav}}</text></view>  
+          </block>
+      </view> 
+    </scroll-view>
+  </view>
+</view>

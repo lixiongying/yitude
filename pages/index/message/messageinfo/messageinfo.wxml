@@ -1,0 +1,28 @@
+<!-- <view class='contaner'>
+</view> -->
+<view class='container'>
+<block wx:for="{{datas}}" wx:key="keys" wx:for-index="indexs">
+  <view class='comtent clear'>
+      <view class='comtent_one clear'>
+         <view class='serview'><view class='dian'></view><text style='margin-left:10rpx;'>消息提醒!</text></view>
+         <view class='time'>{{item.time}}</view>
+      </view>
+      <view class='content_two'>{{item.message}}</view>
+  </view>
+
+</block>
+   <!-- <block wx:for="{{datas}}" wx:key="keys" wx:for-index="indexs">
+      <view class='main'>
+        <view class='main_time'>{{item.time}}</view>
+        <view class='main_content'>
+          
+            <view class='content_one'>消息提醒</view>
+            <view class='content_two'>{{item.message}}</view>
+        </view>
+      </view>
+   </block> -->
+   <block wx:if="{{botataus==1}}">
+       <view class='bottom_title'>已经到底啦</view>
+   </block>
+ 
+</view>

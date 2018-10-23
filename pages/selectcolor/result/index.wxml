@@ -1,0 +1,5 @@
+<!--pages/selectcolor/result/index.wxml-->
+<view class="container" style='width:{{winWidth}}px;height:{{winHeight-150}}px;overflow:auto;'>
+  <web-view src="{{jiekou}}/WXAPI/Game/result?gu_id={{ids}}" style='overflow:hidden'></web-view>
+</view>
+<!-- <view class='saveposter'><image src='../../../images/saveposter.png'></image></view> -->

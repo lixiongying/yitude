@@ -1,0 +1,28 @@
+<view class='container'>
+  
+    <view class='main'>
+      <view class='main_li'>
+        <view>交易类型</view>
+        <view>{{datas.type}}</view>
+      </view>
+      <view class='main_li'>
+        <view>交易方式</view>
+        <view>{{datas.type_code}}</view>
+      </view>
+      <view class='main_li'>
+        <view>交易时间</view>
+        <view>{{datas.update_time}}</view>
+      </view>
+      <view class='main_li'>
+        <view>交易单号</view>
+        <view>{{datas.account_bank}}</view>
+      </view>
+    </view>
+    <view class='extras'>
+      <view class='extra'>
+          <view>交易金额</view>
+          <view>-{{datas.money}}</view>
+        </view>
+    </view>
+  
+</view>

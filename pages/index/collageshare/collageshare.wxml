@@ -1,0 +1,116 @@
+<view class='container'>
+  <view class='main_head'>
+    <image class='head_img' src='{{jiekou+datas.goodsinfo.store_logo}}'></image>
+    <view class='head_title'>{{datas.goodsinfo.store_name}}</view>
+  </view>
+  <view class='main_ul'>
+    <view class='f_ul'>
+      <image src="{{jiekou+datas.goodsinfo.original_img}}" class='goods_img'></image>
+      <view class='main_item'>
+        <view class='item_one'>{{datas.goodsinfo.goods_name}}</view>
+        <view class='item_two'>¥{{datas.goodsinfo.group_price}}</view>
+
+      </view>
+      <view class='number'>×1</view>
+    </view>
+  </view>
+
+  <view class='main_center'>
+    <view class='f_lione'>
+      <block wx:for="{{datas.userlist}}" wx:key="keys">
+        <view class='userimg'>
+          <image src='{{jiekou+item.head_pic}}'></image>
+          <view wx:if="{{item.groupstatus==1}}" class='tuanzhang'>团长</view>
+        </view>
+      </block>
+      
+     
+    </view>
+     <block wx:if="{{datas.stastes==1}}">
+       <view class='f_litwo'>还差 {{datas.groupinfo.cha_num}}人 成团 剩余 {{countDownList[0].hou}}:{{countDownList[0].min}}:{{countDownList[0].sec}} </view>
+     </block>
+     <block wx:if="{{datas.stastes==2}}">
+       <view class='f_litwo'><text style='color: #ec6d56;'>拼团成功</text></view>
+     </block>
+     <block wx:if="{{datas.stastes==3}}">
+       <view class='f_litwo'><text style='color: #ec6d56;'>拼团失败</text><text style='color: #202020;font-size:24rpx;'>(款项将原路返回)</text></view>
+     </block>
+  </view>
+
+   <block wx:if="{{datas.is_cantuan==1}}">
+     
+      <view class='invitefriend'>
+      <button open-type='share'  data-id="{{datas.groupid}}" data-userid="{{datas.user_id}}" class='invite_btns'>邀请好友拼团</button>
+     </view>
+
+      <view class='share'>分享3个群后，拼团成功率高达90%</view>
+
+   </block>
+
+   <block wx:if="{{datas.stastes==1&&datas.is_cantuan==0}}">
+     
+      <view class='invitefriend'>
+        <view class='invite_btn' data-orderid="{{order_id}}" data-stastes="{{stastes}}" data-sg_id="{{datas.groupinfo.sg_id}}"  data-id="{{datas.groupinfo.id}}" data-userid="{{userid}}" bindtap='gocollage'>立即参团</view>
+      </view>
+
+      <view class='returnhomepage'>
+        <view class='return_btn'  bindtap='returnindex'>返回首页</view>
+      </view>
+
+   </block>
+
+
+  <block wx:if="{{datas.stastes==2||datas.stastes==3&&datas.is_cantuan==0}}">
+    
+      <view class='invitefriend'>
+        <view class='invite_btn' data-sg_id="{{sg_id}}" bindtap='opencollage'>我来开个团</view>
+      </view>
+
+      <view class='returnhomepage'>
+        <view class='return_btn' bindtap='returnindex'>返回首页</view>
+      </view>
+
+  </block>
+
+  <view class='collage'>
+    <view class='co_title'>
+      拼团玩法
+    </view>
+    <view class='co_item'>
+      <view class='item'>
+        <image src='../../../images/pintuanxiangqing_pintuanwanfa_zhifu.png'></image>
+        <view>支付开团或者参团</view>
+      </view>
+      <view class='item'>
+        <image src='../../../images/pintuanxiangqing_pintuanwanfa_zhifu.png'></image>
+        <view>邀请好友参团</view>
+      </view>
+      <view class='item'>
+        <image src='../../../images/pintuanxiangqing_pintuanwanfa_zhifu.png'></image>
+        <view>人数达到分别发货</view>
+      </view>
+      <view class='item'>
+        <image src='../../../images/pintuanxiangqing_pintuanwanfa_zhifu.png'></image>
+        <view>人数不够自动退款</view>
+      </view>
+    </view>
+  </view>
+
+  <view class='recomendgoods'>
+    <view class='goodtitle'>
+      <view class='line'></view>
+      <view class='linetitle'>推荐商品</view>
+      <view class='line'></view>
+    </view>
+    <scroll-view scroll-x class="scroll-header">
+      <block wx:for="{{recommendlist}}" wx:key="keys">
+        <view class='head_item' bindtap='goodsdetail' data-sg_id="{{item.sg_id}}">
+          <image class='head_img' src='{{jiekou+item.original_img}}'></image>
+          <view class='name'>{{item.goods_name}}</view>
+          <view class='price'>¥{{item.unit_price}}</view>
+        </view>
+      </block>
+    </scroll-view>
+  </view>
+
+</view>

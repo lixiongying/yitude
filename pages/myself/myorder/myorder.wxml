@@ -1,0 +1,81 @@
+<view class='container'> 
+    <block wx:for="{{datas}}" wx:key="keys" wx:for-index="index">
+      <view class='main'>
+        <view class='main_head'>
+          <image class='head_img' src='{{jiekou+item.store_logo}}'></image>
+          <view class='head_title'>{{item.store_name}}</view>
+          <view class='head_state'>{{item.status_name?item.status_name:head_state}}</view>
+        </view>
+        <view class='main_ul' data-comment="{{item.is_comment}}" data-current="{{currtab}}" bindtap='orderdetail' data-orderid="{{item.order_id}}">
+
+            <view class='f_ul'>
+                <image src="{{jiekou+item.goods_pic}}" class='goods_img'></image>
+                <view class='main_item'>
+                    <view class='item_one'>{{item.goods_name}}</view>
+                    <view class='item_two'>¥{{item.goods_price}}</view>
+                  
+                </view>
+              <view class='number'>×{{item.goods_num}}</view>
+            </view>
+        
+        </view>
+        <view class='main_price'>
+          共{{item.goods_num}}件商品 合计：¥{{item.total_amount}}（含运费：{{item.shipping_price}}）
+        </view>
+        <block wx:if="{{currtab==0}}">
+              <view class='main_pay' data-orderid="{{item.order_id}}" bindtap='orderdetail'>
+                <view class='li_two'>查看详情</view>
+                <!-- <view class='li_one'>交订金</view> -->
+              </view>
+          </block>
+          <block wx:if="{{currtab==1}}">
+            <view class='main_pay'>
+              <view class='li_two' bindtap='payfor' data-price="{{item.order_amount}}" data-orderid="{{item.order_id}}">去支付</view>
+              <view class='li_one' bindtap='cancelorder' data-orderid="{{item.order_id}}">取消订单</view>
+            </view>
+          </block>
+          <block wx:if="{{currtab==2}}">
+            <view class='main_pay'>
+              <view class='li_two' bindtap='remindgoods' data-orderid="{{item.order_id}}">提醒发货</view>
+      
+            </view>
+          </block>
+          <block wx:if="{{currtab==3}}">
+            <view class='main_pay'>
+                <view class='li_two' data-orderid="{{item.order_id}}" bindtap='surereceive'>确认收货</view>
+                 <view class='li_one' data-orderid="{{item.order_id}}" bindtap='checklogistics'>查看物流</view>
+            </view>
+          </block>
+          <block wx:if="{{currtab==4}}">
+            <view class='main_pay'>
+                <view class='li_two' wx:if="{{item.is_comment!=1}}" data-comment="{{item.is_comment}}" bindtap='gocomment' data-orderid="{{item.order_id}}">去评价</view>
+                <view class='li_one' data-orderid="{{item.order_id}}" bindtap='checklogistics'>查看物流</view>
+            </view>
+          </block>
+      </view>
+    </block>
+
+    <block wx:if="{{paystate==1}}">
+      <view class='payfor'>
+        <view class='pay_method'>支付方式<text style='color: #666666;font-size: 24rpx;'>（¥ {{total_amount}}）</text></view>
+        <view class='wechat_pay' bindtap='getWxPay'><image src='../../../images/querendingdan_tijiaodingdan_zhifufangshi_weixinzhifu.png'></image>微信支付</view>
+        <view class="extra_pay {{user_money==0?'extra_nopay':''}}"  bindtap="moneyPay"><image src='../../../images/querendingdan_tijiaodingdan_zhifufangshi_yuezhifu.png'></image>余额支付
+        <block wx:if="{{moneystate==0}}">
+          <view class='extramoney'>（余额不足）</view>
+        </block>
+        <block wx:else>
+          <view class='extramoney'>（¥ {{user_money}}）</view>
+        </block>
+        </view>
+        </view>
+
+        <view class='mask'bindtap='cancelpay'></view>
+    </block>
+    <block wx:if="{{orderflag==1}}">
+      <view class='notorder'>
+        <image src='../../../images/zanwudingdan.png'></image>
+        <view>暂无此订单</view>
+      </view>
+    </block>
+</view>
+

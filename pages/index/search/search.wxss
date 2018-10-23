@@ -1,0 +1,32 @@
+page{
+  background: white;
+}
+.search{
+  width: 750rpx;
+	height: 132rpx;
+	background-color: #ffffff;
+}
+.search .search_content{
+  width: 600rpx;
+	height: 80rpx;
+	background-color: #f0eff4;
+	border-radius: 39px;
+  float: left;
+  padding-left: 30rpx;
+  margin-top: 26rpx;
+  margin-left: 24rpx;
+}
+.search .search_btn{
+  width: 80rpx;
+	height: 40rpx;
+	font-family: PingFang-SC-Medium;
+	font-size: 32rpx;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 40rpx;
+	letter-spacing: 0px;
+	color: #ec6d56;
+   float: left;
+   margin-top: 46rpx;
+   margin-left: 10rpx;
+}

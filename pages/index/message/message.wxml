@@ -1,0 +1,22 @@
+<view class="container">
+  <view class='main'  data-type='0' bindtap='messageinfo'>
+    <image class='main_icon' src='../../../images/xiaoxi_fuwutongzhi.png'></image>
+    <view class='main_item'>
+      <view class='service '>服务通知</view>
+      <view class='infomation'>{{datas.fw_info}}</view>
+    </view>
+   
+    <image class='icon_next' src='../../../images/shouye_rexiaoshangpin_chakangengduo.png'></image>
+     <view class='message' wx:if="{{infoflag==1&&fw_new!=0}}">{{fw_new==0?'':fw_new}}</view>
+  </view>
+  <view class='main'  data-type='1' bindtap='messageinfo'>
+    <image class='main_icon' src='../../../images/xiaoxi_youhuicuxiao.png'></image>
+    <view class='main_item'>
+      <view class='service '>优惠促销</view>
+      <view class='infomation'>{{datas.yh_info}}</view>
+    </view>
+    
+    <image class='icon_next' src='../../../images/shouye_rexiaoshangpin_chakangengduo.png'></image>
+    <view class='message' wx:if="{{infoflag==1&&yh_new!=0}}">{{yh_new?'':yh_new}}</view>
+  </view>
+</view>

@@ -1,0 +1,181 @@
+.container{
+  width: 100%;
+  height: auto;
+  margin-bottom: 100rpx;
+
+}
+.searchcity{
+  width: 750rpx;
+	height: 132rpx;
+	background-color: #ffffff;
+  overflow: hidden;
+  
+}
+.searchcity .searcg_input{
+  width: 618rpx;
+	height: 80rpx;
+	border-radius: 39rpx;
+  margin-left: 24rpx;
+  margin-top: 26rpx;
+  float: left;
+}
+.searchcity .searcg_input input{
+  width: 618rpx;
+	height: 80rpx;
+	border-radius: 39rpx;
+  background-color: #f0eff4;
+  padding-left: 30rpx;
+  font-size: 30rpx;
+}
+.searcg_btn{
+  float: right;
+  width: 80rpx;
+	height: 31rpx;
+	font-size: 32rpx;
+	line-height: 31rpx;
+	color: #ec6d56;
+  margin-top: 50rpx;
+  margin-left: 10rpx;
+  text-align: center;
+}
+
+/* 定位城市 */
+.pos_city{
+  width: 702rpx;
+	height: 130rpx;
+  margin-left: 24rpx;
+  background-color: #f0eff4;
+}
+.pos_city .city{
+  width: 100%;
+  height: 65rpx;
+}
+.pos_city .city .city_title{
+  max-width: 410rpx;
+	height: 65rrpx;
+	font-family: PingFang-SC-Medium;
+	font-size: 28rpx;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 65rpx;
+	letter-spacing: 0px;
+	color: #1f1f1f;
+  float: left;
+
+}
+.pos_city .city .freshen_city{
+  width: 172rpx;
+	height: 54rpx;
+	background-color: #6c45d5;
+	border-radius: 6rpx;
+  line-height: 54rpx;
+  text-align: center;
+  color: #ffffff;
+  font-size: 28rpx;
+  float: right;
+  margin-top: 10rpx;
+}
+.pos_city .city .freshen_city image{
+  width: 29rpx;
+	height: 29rpx;
+  vertical-align: middle;
+}
+.city_result{
+  width: 154rpx;
+	height: 60rpx;
+	background-color: #ffffff;
+  line-height: 60rpx;
+  text-align: center;
+  color: #1f1f1f;
+  font-size: 28rpx;
+}
+
+
+/* 热门城市 */
+.hot_city{
+  width: 702rpx;
+	height: autox;
+  margin-left: 24rpx;
+  background-color: #f0eff4;
+  margin-top: 25rpx;
+  padding-bottom: 30rpx;
+}
+.hot_city .city{
+  width: 100%;
+  height: 65rpx;
+}
+.hot_city .city .city_title{
+  max-width: 410rpx;
+	height: 65rrpx;
+	font-family: PingFang-SC-Medium;
+	font-size: 28rpx;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 65rpx;
+	letter-spacing: 0px;
+	color: #1f1f1f;
+  float: left;
+
+}
+.hot_cit .hotcity{
+  width: 100%;
+  height: auto;
+}
+.hot_city .city_result{
+  width: 154rpx;
+	height: 60rpx;
+	background-color: #ffffff;
+  line-height: 60rpx;
+  text-align: center;
+  color: #1f1f1f;
+  font-size: 28rpx;
+  float: left;
+  margin-left: 20rpx;
+  margin-top: 20rpx;
+}
+
+.allcity{
+  width: 750rpx;
+	height: 752rpx;
+}
+.allcity{
+  width: 750rpx;
+	height: 750rpx;
+  margin-top: 20rpx;
+}
+
+.allcity .city_left{
+  width: 375rpx;
+	height: 750rpx;
+	background-color: #f0eff4;
+  float: left;
+  overflow: auto;
+
+}
+.city_left::-webkit-scrollbar {display:none}
+.allcity .active{
+  background: white;
+}
+.allcity .city_left .province{
+  width: 375rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  font-size: 28rpx;
+  color: #1f1f1f;
+}
+.allcity .city_right{
+  width: 375rpx;
+	height: 750rpx;
+	background-color: #ffffff;
+  float: left;
+  overflow: auto;
+}
+.allcity .city_right .district{
+  width: 375rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  font-size: 28rpx;
+  color: #1f1f1f;
+}

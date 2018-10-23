@@ -1,0 +1,232 @@
+<view class="container">
+  <view class="life_top">
+    <image class="life_top_bg" src="../../images/shenghuofangshi_banner_bg.png"></image>
+    <view class="life_top_tit">
+      <view class="life_top_tit_li" bindtap='linkreult'>
+        <image src="../../images/shenghuofangshi_dakaguize.png"></image>
+        <view>打卡规则</view>
+      </view>
+      <view class="life_top_tit_li" catchtap='linkfriendpk'>
+        <image src="../../images/shenghuofangshi_haoyoupk.png"></image>
+        <view>好友PK</view>
+      </view>
+    </view>
+    <view class="life_top_card" catchtap='showModel'>邀请卡</view>
+  </view>
+  <view class="life_main">
+    <image class="life_main_bg" src="../../images/shenghuofangshi_rili_bg.png"></image>
+    <view class="life_main_title">本月已打卡
+      <text>{{datas.month}}</text>天</view>
+    <view class="life_main_tit_msg">金币可以参与兑换商品哦！！！</view>
+    <view class="life_main_box">
+      <view class="life_main_box_top">连续打卡7天可获得
+        <text>更多金币</text>
+      </view>
+      <view class="life_main_box_ul clear">
+        <block wx:for="{{daylist}}" wx:key="datkeys">
+          <view class="life_main_box_ul_li {{item.status == 0 ? 'before' : ''}} {{item.status == 1 ? 'active' : ''}}">{{item.day}}</view>
+        </block>
+      </view>
+      <view class="life_main_box_list clear">
+        <block wx:for="{{datas.up}}" wx:key="keys" wx:for-index="indexs">
+          <view class="life_main_box_list_li">
+            <view class="life_main_box_list_li_box">
+              <block wx:if="{{item == 2}}">
+                <view class="life_main_box_list_li_box_text" bindtap='fillClockIn' data-type="1" data-index="{{indexs}}">补</view>
+                <image class="life_main_box_list_li_box_icon" bindtap='fillClockIn' data-type="1" data-index="{{indexs}}" src="../../images/138122056210167306.png"></image>
+              </block>
+              <block wx:if="{{item == 1}}">
+                <image class="life_main_box_list_li_box_img" src="../../images/shenghuofangshi_dakarili_yidaka.png"></image>
+              </block>
+              <block wx:if="{{item == 0}}">
+                <view class="life_main_box_list_li_box_text">起
+                  <text></text>
+                </view>
+              </block>
+              <block wx:if="{{item == 3}}">
+                <view class="life_main_box_list_li_box_text color2">起
+                  <text></text>
+                </view>
+              </block>
+            </view>
+            <view class="life_main_box_list_li_box">
+              <block wx:if="{{datas.down[indexs] == 2}}">
+                <view class="life_main_box_list_li_box_text" bindtap='fillClockIn' data-type="2" data-index="{{indexs}}">补</view>
+                <image class="life_main_box_list_li_box_icon" bindtap='fillClockIn' data-type="2" data-index="{{indexs}}" src="../../images/138122056210167306.png"></image>
+              </block>
+              <block wx:if="{{datas.down[indexs] == 1}}">
+                <image class="life_main_box_list_li_box_img" src="../../images/shenghuofangshi_dakarili_yidaka.png"></image>
+              </block>
+              <block wx:if="{{datas.down[indexs] == 0}}">
+                <view class="life_main_box_list_li_box_text">睡
+                  <text></text>
+                </view>
+              </block>
+              <block wx:if="{{datas.down[indexs] == 3}}">
+                <view class="life_main_box_list_li_box_text color2">睡
+                  <text></text>
+                </view>
+              </block>
+            </view>
+          </view>
+        </block>
+      </view>
+    </view>
+  </view>
+  <view class="life_bottom">
+    <view class="life_bottom_icon"></view>
+    <view class="life_bottom_box clear">
+      <view class="life_bottom_box_left">
+        <view class="life_bottom_box_left_img">
+          <image src="../../images/312052220492418283.png"></image>
+        </view>
+        <view class="life_bottom_box_left_ul">
+          <view class="life_bottom_box_left_ul_li">
+            <view class="life_bottom_box_left_ul_li_tit">早起打卡 {{life.up_time}}</view>
+            <view class="life_bottom_box_left_ul_li_text">打卡时间 {{life.user_up ?life.user_up : '未打卡' }}</view>
+          </view>
+          <view class="life_bottom_box_left_ul_li">
+            <view class="life_bottom_box_left_ul_li_tit">早睡打卡 {{life.down_time}}</view>
+            <view class="life_bottom_box_left_ul_li_text">打卡时间 {{life.user_down ?life.user_down : '未打卡' }}</view>
+          </view>
+        </view>
+      </view>
+      <view class="life_bottom_box_r">
+        <view class="life_bottom_box_r_tit">{{life.gold}}</view>
+        <view class="life_bottom_box_r_main">
+          <image src="../../images/shenghuofangshi_dakachenggong_huodejinbi.png"></image>
+          <text>我的金币</text>
+        </view>
+      </view>
+    </view>
+    <view class="life_bottom_btn">
+      <image class="life_bottom_btn_icon" src="../../images/shenghuofangshi_daka_btn_dianzhuiyuansu.png"></image>
+      <block wx:if="{{life.status == 3}}">
+        <view class="life_bottom_btn_btn life_bottom_btn_active">已打卡</view>
+      </block>
+      <block wx:else>
+        <block wx:if="{{life.status == 1}}">
+          <view class="life_bottom_btn_btn" bindtap='sendopencard'>早起打卡</view>
+        </block>
+        <block wx:if="{{life.status == 2}}">
+          <view class="life_bottom_btn_btn" bindtap='sendopencard'>早睡打卡</view>
+        </block>
+        <block wx:if="{{life.status == 4}}">
+          <view class="life_bottom_btn_btn" bindtap='fillClockIn' data-type="1" data-day="{{life.today}}" data-index="9">早起补卡</view>
+        </block>
+        <block wx:if="{{life.status == 5}}">
+          <view class="life_bottom_btn_btn" bindtap='fillClockIn' data-type="2" data-day="{{life.today}}" data-index="9">早睡补卡</view>
+        </block>
+      </block>
+    </view>
+  </view>
+
+  <!-- 邀请卡 -->
+  <view class="life_model {{none == 0 ? 'none' : ''}}">
+    <view class="life_model_hide"></view>
+    <view class="life_model_main" animation="{{animation}}">
+      <view class="life_model_main_imgs">
+        <view class="life_model_main_imgs_bg">
+          <image wx:if="{{cards.pic_url}}" src="{{jiekou + cards.pic_url}}"></image>
+        </view>
+        <view class="life_model_main_imgs_del" catchtap='hideModel'>
+          <image src="../../images/delete.png"></image>
+        </view>
+      </view>
+      <view class="life_model_main_content">
+        <view class="life_model_main_content_top">
+          <image wx:if="{{cards.head_pic}}" src="{{jiekou + cards.head_pic}}"></image>
+        </view>
+        <view class="life_model_main_content_l">
+          <view class="life_model_main_content_l_tit">{{cards.nickname}}</view>
+          <view class="life_model_main_content_l_box">
+            <view class="life_model_main_content_l_box_l">
+              <view class="lmmclb_l_tit">
+                <text>{{cards.month}}</text>天</view>
+              <view class="lmmclb_l_msg">本月打卡</view>
+            </view>
+            <view class="life_model_main_content_l_box_r">
+              <view class="lmmclb_r_tit">易涂得打卡</view>
+              <view class="lmmclb_r_msg">邀您一起早起早睡</view>
+            </view>
+          </view>
+        </view>
+        <view class="life_model_main_content_r">
+          <image wx:if="{{cards.logo}}" src="{{jiekou + cards.logo}}"></image>
+        </view>
+      </view>
+      <view class="life_model_main_btns">
+        <view class="life_model_main_btns_xiazai" bindtap='uploadimg'>下载图片</view>
+        <view class="life_model_main_btns_fenxiang">
+          <button open-type='share'>分享微信</button>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 打卡成功弹框 -->
+  <!-- <view class="life_model {{card == 0 ? 'none' : ''}}">
+    <view class="life_model_hide"></view>
+    <view class="life_card">
+      <view class="life_card_ticon">
+        <image src="../../images/671251292021116441.png"></image>
+      </view>
+      <view class="life_card_main">
+        <view class="life_card_main_top">
+          <view class="life_card_main_top_tit">打卡成功</view>
+          <view class="life_card_main_top_con">
+            <image src="../../images/shenghuofangshi_dakachenggong_huodejinbi.png"></image>恭喜您获得
+            <text>{{jinbi}}</text>个金币</view>
+        </view>
+        <view class="life_card_main_box">
+          <view class="life_card_main_box_num">
+            <view class="after"></view>
+            <view class="before"></view>
+            <view class="con">{{datas.month}}</view>
+          </view>
+          <view class="life_card_main_box_tit">本月已连续打卡
+            <text>{{datas.month}}</text> 天</view>
+          <view class="life_card_main_box_msg">金币可以参与兑换商品哦！！！</view>
+          <view class="life_card_main_box_btn" catchtap='closeModel'>我知道了</view>
+        </view>
+      </view>
+    </view>
+  </view> -->
+  <!-- 转发后的弹框/打卡成功弹框 -->
+   <block wx:if="{{relayflag==1}}">
+      <view class='relay'>
+          <block wx:if="{{cardsflag==1}}">
+             <image class='re_pic' src='../../images/dakachenggong.jpg'></image>
+          </block>
+          <block wx:else>
+             <image class='re_pic' src='../../images/zhuanfabj.png'></image>
+          </block>
+          
+          <block wx:if="{{relaynone==0}}">
+             <view class='re_gold' style='margin-top:30rpx;'>{{relaydata}}</view>
+          </block>
+          <block wx:else>
+             <block wx:if="{{cardsflag==1}}">
+               <view class='re_gold'>收获<text style='color:#ffa000;'>{{relaydata.gold}}</text>个金币</view>
+             </block>
+              <block wx:else>
+                   <view class='re_gold'>收获<text style='color:#ffa000;'>{{relaydata.add_gold}}</text>个金币</view>
+              </block>
+            <view class='re_golds'>你今日还可以获得{{relaydata.maybe_gold}}金币！</view>
+          </block>
+         
+          
+          <block wx:if="{{relaynone!=0}}">
+            <view class='re_sechdule'>
+              <view class='sed_one'>
+                <progress percent="{{percent}}" stroke-width="10" backgroundColor="#cccccc" activeColor="#5e2fe6" /></view>
+              <view class='sed_two'>
+                【<text style="color:#ffa000;">{{relaydata.now_gold}}</text>/{{totalgold}}】
+              </view>
+            </view>
+          </block>
+          
+          <view class='re_btn' bindtap='Ikonw'>我知道了</view>
+      </view>
+       <view class='mask'></view>
+   </block>
+</view>

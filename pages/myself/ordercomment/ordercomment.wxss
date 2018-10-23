@@ -1,0 +1,276 @@
+page{
+  background: white;
+}
+.container{
+  width: 100%;
+  height: auto;
+}
+.main_head{
+  width: 750rpx;
+	height: 80rpx;
+	background-color: #ffffff;
+  margin-top: 20rpx;
+}
+.main_head .head_img{
+  width: 48rpx;
+	height: 48rpx;
+  float: left;
+  margin-left: 24rpx;
+  margin-top: 16rpx;
+}
+.head_title{
+  max-width: 600rpx;
+  height: 80rpx;
+  text-align: left;
+  padding-left: 24rpx;
+  line-height: 80rpx;
+  font-size: 26rpx;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+	color: #1f1f1f;
+  float: left;
+}
+.main_items{
+  width: 100%;
+  height: auto;
+  position: relative;
+  margin-top: 20rpx;
+  background: white;
+  padding: 20rpx 0;
+}
+.main_items .f_li{
+  max-width: 607px;
+	height:50rpx;
+	font-family: PingFang-SC-Medium;
+	font-size: 26rpx;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 50rpx;
+	letter-spacing: 1px;
+	color: #1f1f1f;
+  margin-left: 24rpx;
+}
+.main_items .f_li .money{
+  color: #ef8370;
+}
+.main_items .order_state{
+  position: absolute;
+  width: 100rpx;
+	height: 50rpx;
+	font-family: PingFang-SC-Bold;
+	font-size: 26rpx;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 50rpx;
+	letter-spacing: 0px;
+	color: #ffa000;
+  right: 24rpx;
+  top: 14rpx;
+}
+.main_items .shouhou{
+  position: absolute;
+  top: 174rpx;
+  right: 24rpx;
+  width: 172rpx;
+	height: 54rpx;
+	background-color: #ffffff;
+	border-radius: 6rpx;
+	border: solid 1rpx #cccccc;
+  font-family: PingFang-SC-Medium;
+	font-size: 28rpx;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+	color: #1f1f1f;
+  line-height: 54rpx;
+  text-align: center
+}
+ .main_ul{
+  width: 750rpx;
+	height: auto;
+	
+}
+.main_ul .f_ul{
+  width: 750rpx;
+	height: 210rpx;
+  background-color: #fff7f5;
+}
+.main_ul .f_ul .number{
+  width: 60rpx;
+	height: 36rpx;
+  float: right;
+  margin-right: 25rpx;
+  margin-top: 135rpx;
+  
+}
+
+.main_ul .goods_img{
+  width: 148rpx;
+	height: 148rpx;
+  float: left;
+  margin-left: 24rpx;
+  margin-top: 31rpx;
+}
+.main_ul .main_item{
+  max-width: 550rpx;
+  height: 100%;
+  float: left;
+}
+.main_ul .main_item{
+  max-width: 550rpx;
+  height: 100%;
+  margin-left: 20rpx;
+}
+.main_ul .main_item .item_one{
+  max-width: 550rpx;
+  height:105rpx;
+  line-height: 105rpx;
+  font-family: PingFang-SC-Medium;
+	font-size: 32rpx;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+	color: #1f1f1f;
+}
+.main_ul .main_item .item_two{
+  max-width: 550rpx;
+  height:105rpx;
+  line-height: 105rpx;
+  font-family: PingFang-SC-Medium;
+	font-size: 36rpx;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+	color: #ec6d56;
+}
+
+.main_head{
+  width: 750rpx;
+	height: 80rpx;
+	background-color: #ffffff;
+  margin-top: 20rpx;
+}
+.main_head .head_img{
+  width: 48rpx;
+	height: 48rpx;
+  float: left;
+  margin-left: 24rpx;
+  margin-top: 16rpx;
+}
+.head_title{
+  max-width: 600rpx;
+  height: 80rpx;
+  text-align: left;
+  padding-left: 24rpx;
+  line-height: 80rpx;
+  font-size: 26rpx;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+	color: #1f1f1f;
+  float: left;
+}
+.commet{
+  width: 100%;
+ height: 80rpx;
+	background-color: #ffffff;
+  margin-top: 20rpx;
+  font-family: PingFang-SC-Medium;
+	font-size: 32rpx;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 80rpx;
+	letter-spacing: 0px;
+  text-align: center;
+	color: #1f1f1f;
+}
+.commet_content{
+  width: 702rpx;
+	height: 350rpx;
+	background-color: #f8f8f8;
+	border-radius: 6rpx;
+  margin-left: 24rpx;
+
+}
+.commet_content .texrcontent{
+  width: 654rpx;
+  padding: 24rpx;
+  font-size: 30rpx;
+  overflow: hidden;
+  word-wrap:break-word;
+}
+.commet_content .world{
+  width: 100%;
+  height: 40rpx;
+  text-align: right;
+  line-height: 40rpx;
+  font-family: PingFang-SC-Medium;
+	font-size: 26rpx;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+	color: #666666;background: white;
+}
+.uploadpic{
+  width: 100%;
+	height: 250rpx;
+	background-color: #f0eff4;
+  background: white;
+}
+.uploadpic .img_world{
+ width: 100%;
+	height: 40rpx;
+	font-family: PingFang-SC-Medium;
+	font-size: 26rpx;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 40rpx;
+	letter-spacing: 0px;
+	color: #1f1f1f;
+
+  text-align: left;
+  padding-left: 24rpx;
+}
+.uploadpic .img_worlds{
+ width: 702rpx;
+	height: 40rpx;
+	font-family: PingFang-SC-Medium;
+	font-size: 26rpx;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 40rpx;
+	letter-spacing: 0px;
+	color: #1f1f1f;
+
+  text-align: right;
+ 
+}
+.uploadpic .imgitem{
+  width: 100%;
+	height: auto;
+	border-radius: 6rpx;
+ 
+}
+.uploadpic .imgitem image{
+  float: left;
+  width: 100rpx;
+	height: 100rpx;
+  margin-top: 30rpx;
+  margin-left: 24rpx;
+}
+.uploadpic .imgitem .addimg_icon{
+
+}
+.send{
+  width: 100%;
+  height: 88rpx;
+	background-color: #ec6d56;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+  line-height: 88rpx;
+  color: white;
+  font-size: 32rpx;
+}

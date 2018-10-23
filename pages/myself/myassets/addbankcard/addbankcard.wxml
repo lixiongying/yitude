@@ -1,0 +1,51 @@
+<view class='container'>
+    <view class='reminders'>
+        <image class='remider_icon' src='../../../../images/tixian_tishi.png'></image>
+        <view class='remider'>请确保姓名、身份证、银行卡开户人为同一个人</view>
+    </view>
+    
+    <view class='main_ul main_uls'>
+      <view class='f_li'>
+        <view class='li_one'>银行卡号</view>
+        <input class='li_input' type='number' bindblur='getbanknumber' placeholder='请填写'></input>
+      </view>
+    </view>
+
+     <view class='u_lis'>
+        <view class='li_one'>账户类型</view>
+        <view class='li_bank'>{{cardname}}</view>
+        
+        <image class='li_icon' src='../../../../images/shouye_rexiaoshangpin_chakangengduo.png'></image>
+      </view>
+
+    <view class='main_ul'>
+      <view class='f_li'>
+        <view class='li_one'>真实姓名</view>
+        <input class='li_input' type='text' bindinput='getusername' placeholder='请填写'></input>
+      </view>
+      <view class='f_li'>
+        <view class='li_one'>身份证号</view>
+        <input class='li_input' type='text' bindinput='getidcard' placeholder='请填写'></input>
+      </view>
+    </view>
+
+     <view class='main_ul'>
+      <view class='f_li'>
+        <view class='li_one'>手机号</view>
+        <input class='li_input' type='text' bindinput='getphone' placeholder='请填写'></input>
+      </view>
+      <view class='f_li ul_code clear'>
+        <view class='li_one'>验证码</view>
+        <input class='li_input' type='number' bindinput='getcode' placeholder='请填写'></input>
+        <block wx:if="{{timeflag==0}}">
+             <view class='code' bindtap='setcode'>获取验证码</view>
+         </block>
+         <block wx:if="{{timeflag==1}}">
+             <view class='code'>{{value}}<text>秒后失效</text></view>
+         </block>
+        
+      </view>
+    </view>
+
+    <view class='submit' bindtap='submit'>提交</view>
+</view>

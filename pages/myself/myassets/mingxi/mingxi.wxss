@@ -1,0 +1,143 @@
+.container{
+  width: 100%;
+  height: auto;
+}
+.jinbimingxi{
+  width: 100%;
+  height: auto;
+   border-bottom: 1px solid #f5f5f5;
+}
+
+.main{
+  width: 100%;
+  height: 132rpx;
+	background-color: #ffffff;
+ 
+}
+.mingxin{ border-bottom: 1px solid #f5f5f5;}
+
+.main:last-child{
+  border-bottom: none;
+}
+.main .main_ul{
+  width: 60%;
+  height: 132rpx;
+  padding-left: 24rpx;
+  float: left;
+}
+
+.main .main_ul .main_li{
+  width: 100%;
+  height:46rpx;
+  text-align: left;
+  line-height:46rpx;
+  font-family: PingFang-SC-Medium;
+	font-size: 32rpx;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+	color: #1f1f1f;
+  margin-top: 10rpx;
+}
+.main .main_ul .date{
+  font-size: 24rpx;
+	color: #666666;
+}
+.main_pay{
+  float: right;
+  margin-right: 24rpx;
+  max-width: 160rpx;
+  line-height: 132rpx;
+  font-family: PingFang-SC-Medium;
+	font-size: 36rpx;
+	font-weight: normal;
+	font-stretch: normal;
+
+	letter-spacing: 0px;
+	color: #ffa000;
+}
+
+/* 明细 */
+
+.mingxin .main_item{
+ float: right;
+ max-width: 200rpx;
+ height: 92rpx;
+
+}
+.mingxin .main{
+  width: 100%;
+  height: 132rpx;
+	background-color: #ffffff;
+
+}
+.mingxin .main:last-child{
+  border-bottom: none;
+}
+.mingxin .main .main_ul{
+  width: 60%;
+  height: 132rpx;
+  padding-left: 24rpx;
+  float: left;
+}
+
+.mingxin .main .main_ul .main_li{
+  width: 100%;
+  height:46rpx;
+  text-align: left;
+  line-height:46rpx;
+  font-family: PingFang-SC-Medium;
+	font-size: 32rpx;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+	color: #1f1f1f;
+  margin-top: 10rpx;
+}
+.mingxin .main .main_ul .date{
+  font-size: 24rpx;
+	color: #666666;
+}
+.mingxin .main_item .main_li{
+ float: right;
+ width: 160rpx;
+ height: 46rpx;
+ padding-right: 24rpx;
+ margin-top: 10rpx;
+}
+.mingxin .main_item .havewithdrawl{
+  max-width: 200rpx;
+  height: 46rpx;
+  font-family: PingFang-SC-Bold;
+	font-size: 32rpx;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 46rpx;
+	letter-spacing: 0px;
+	color: #1f1f1f;
+  text-align: right;
+}
+.mingxin .main_item .money{
+  width: 100%;
+  height: 46rpx;
+  font-family: PingFang-SC-Bold;
+	font-size: 36rpx;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 46rpx;
+	letter-spacing: 0px;
+color: #ec6d56;
+  text-align: right;
+}
+.mingxin .main .main_pay{
+  float: right;
+  width: 160rpx;
+  height: 100%;
+  line-height: 132rpx;
+  font-size: 36rpx;
+	font-weight: normal;
+	font-stretch: normal;
+  text-align: right;
+	letter-spacing: 0px;
+	color: #40dab0;
+}

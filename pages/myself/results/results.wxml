@@ -1,0 +1,10 @@
+<view class='container'>
+  <block wx:for="{{datas}}" wx:key="keys">
+    <view class='result' data-id="{{item.gu_id}}" bindtap='linkresult'>
+      <view class='time'>{{item.time}}</view>
+      <image class='icon' src='../../../images/shouye_rexiaoshangpin_chakangengduo.png'></image>
+    </view>
+  </block>
+  <view class="msg {{newpage >= page_size ? 'none' : ''}}">没有数据啦</view>
+</view>
+

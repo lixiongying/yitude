@@ -1,0 +1,135 @@
+<view class="container">
+   <!-- 我的头部 -->
+   <view class='main_head'>
+    <image class='headbj_img' src='../../images/wode_id_bg.png'></image>
+    <view class='head_one'>
+       <block wx:if="{{user_id}}">
+          <image class='head_img' src='{{jiekou+datas.userinfo.head_pic}}'></image>
+       </block>
+        <block wx:else>
+          <image class='head_img' src='../../../images/wode_weidenglu.png'></image>
+       </block>
+      <view class='head_two'> 
+        <view class='li_one'>
+            <block wx:if="{{user_id}}">
+              <view class='name'>{{datas.userinfo.nickname}}</view>
+              <view class='apply'>{{datas.userinfo.partner_name}}</view>
+            </block>
+            <block wx:else>
+                <view class="login_btn">
+                  <button class='hiddenbtn userLogin' bindgetuserinfo='login' open-type='getUserInfo'>点击登录</button>
+                </view>
+            </block>
+        </view>   
+         <block wx:if="{{user_id}}">  
+           <view class='li_two' bindtap='updateprofile'>更新资料</view>
+        </block>
+      </view>
+      <image class='set' bindtap='setting' src='../../images/shezhi1.png'></image>
+      <!--  -->
+    </view>
+       
+    <view class='head_item'>
+       <view class='item' bindtap='mycollect'>
+         <text class='number'>{{datas.collectcount}}</text>
+         <view class='items'>我的收藏</view>
+       </view>
+       <view class='item' bindtap='browse'>
+         <text class='number'>{{datas.footprintcount}}</text>
+         <view class='items'>最近浏览</view>
+       </view>
+       <view class='item' bindtap='coupon'>
+         <text class='number'>{{datas.couponcount}}</text>
+         <view class='items'>优惠券</view>
+       </view>
+    </view>
+   </view>
+   <!-- 我的订单 -->
+   <view class='order'>
+      <view class='order_one'>
+         <image class='order_img' src='../../images/wode_wodedingdan_icon.png'></image>
+         <view class='order_name'>我的订单</view>
+      </view>
+      <view class='order_item'>
+        <view class='item' data-currents='0' bindtap='myorder'>
+        <image src='../../images/wode_wodedingdan_daichengtuan.png'></image>
+        待成团</view>
+        <view class='item' data-currents='1' bindtap='myorder'>
+        <image src='../../images/wode_wodedingdan_daifukuan.png'></image>
+        待付款</view>
+        <view class='item' data-currents='2' bindtap='myorder'>
+        <image src='../../images/wode_wodedingdan_daifahuo.png'></image>
+        待发货</view>
+        <view class='item' data-currents='3' bindtap='myorder'>
+        <image src='../../images/wode_wodedingdan_daishouhuo.png'></image>
+        送货中</view>
+        <view class='item' data-currents='4' bindtap='myorder'>
+        <image src='../../images/wode_wodedingdan_daipingjia.png'></image>
+        待评价</view>
+      </view>
+   </view>
+   <!-- 我的套餐 -->
+   <view class='package'>
+
+      <view class='order_one'>
+         <image class='order_img' src='../../images/wode_wodetaocan_icon.png'></image>
+         <view class='order_name'>我的套餐</view>
+      </view>
+      <view class='order_item'>
+          <view class='item' data-current='0' bindtap='mypackage'>
+          <image src='../../images/wode_wodetaocan_daizhifu.png'></image>
+          待支付</view>
+          <view class='item' data-current='1' bindtap='mypackage'>
+          <image src='../../images/daifahuo.png'></image>
+          待发货</view>
+          <view class='item' data-current='2' bindtap='mypackage'>
+          <image src='../../images/wode_wodetaocan_daifahuo.png'></image>
+          发货中</view>
+          <view class='item' data-current='3' bindtap='mypackage'>
+          <image src='../../images/wode_wodetaocan_zhuangxiuzhong.png'></image>
+          装修中</view>
+          <view class='item' data-current='4' bindtap='mypackage'>
+          <image src='../../images/wode_wodetaocan_yiwancheng.png'></image>
+          已完成</view>
+
+      </view>
+   
+   </view>
+   <!-- 我的资产 -->
+   <view class='myassets' bindtap='myassets'>
+      <image class='order_image' src='../../images/wode_wodezichan_icon.png'></image>
+      <view class='order_name'>我的资产</view>
+      <image class='order_icon' src='../../images/right_icon.png'></image>
+   </view>
+   <!-- 预测结果 -->
+   <view class='myassets' bindtap='testresult'>
+      <image class='order_image' src='../../images/wode_yucejieguo_icon.png'></image>
+      <view class='order_name'>预测结果</view>
+      <image class='order_icon' src='../../images/right_icon.png'></image>
+   </view>
+  <block wx:if="{{relayflag==1}}">
+      <view class='relay'>
+          <image class='re_pic' src='../../images/zhuanfabj.png'></image>
+          <block wx:if="{{relaynone==0}}">
+             <view class='re_gold' style='margin-top:30rpx;'>{{relaydata}}</view>
+          </block>
+          <block wx:else>
+            <view class='re_gold'>收获<text style='color:#ffa000;'>{{relaydata.add_gold}}</text>个金币</view>
+            <view class='re_golds'>你今日还可以获得{{relaydata.maybe_gold}}金币！</view>
+          </block>
+         
+          
+          <block wx:if="{{relaynone!=0}}">
+            <view class='re_sechdule'>
+              <view class='sed_one'>
+                <progress percent="{{percent}}" stroke-width="10" backgroundColor="#cccccc" activeColor="#5e2fe6" /></view>
+              <view class='sed_two'>
+                【<text style="color:#ffa000;">{{relaydata.now_gold}}</text>/{{totalgold}}】
+              </view>
+            </view>
+          </block>
+          <view class='re_btn' bindtap='Ikonw'>我知道了</view>
+      </view>
+       <view class='mask'></view>
+   </block>
+</view>

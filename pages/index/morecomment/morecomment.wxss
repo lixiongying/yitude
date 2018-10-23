@@ -1,0 +1,71 @@
+.container{
+  width: 100%;
+  height: auto;
+}
+
+/* 评论 */
+.coment_content{
+  width: 700rpx;
+	/* padding: 25rpx; */
+  height: auto;
+  margin: 0 auto;
+  padding: 15rpx 0;
+  border-bottom: 1px solid #f5f5f5;
+  background-color: white;
+  overflow: hidden;
+}
+.coment_content:last-child{
+  border-bottom: none;
+}
+.coment_content .comment_item{
+  width: 700rpx;
+	/* padding: 25rpx; */
+
+  position: relative;
+}
+.coment_content .comment_image{
+  padding: 10rpx 0;
+  padding-left: 80rpx;
+}
+.coment_content .comment_image image{
+  width: 80rpx;
+  height: 80rpx;
+  float: left;
+  margin-right: 20rpx;
+}
+.comment_item .com_img{
+  width: 81rpx;
+	height: 81rpx;
+  border-radius: 100%;
+  float: left;
+}
+.comment_item .com_item{
+  float: left;
+  max-width: 400rpx;
+  padding-left: 20rpx;
+}
+.comment_item .com_item .com_name{
+
+  font-size: 28rpx;
+  color: #1f1f1f;
+}
+.comment_item .com_item .com_desc{
+  max-width: 400rpx;
+  font-size: 24rpx;
+  color: #1f1f1f;
+  padding-top: 10rpx;
+}
+.comment_item .com_time{
+  width: auto;
+  float:right;
+  font-size: 22rpx;
+  color: #979797;
+}
+.nocomment{
+  width: 100%;
+  height:102rpx;
+  text-align: center;
+  line-height: 102rpx;
+  font-size: 42rpx; 
+  color: #1f1f1f;
+}

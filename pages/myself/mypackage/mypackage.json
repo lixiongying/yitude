@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "待付款",
+  "enablePullDownRefresh": false,
+  "backgroundTextStyle": "white",
+  "navigationBarTextStyle": "black",
+  "navigationBarBackgroundColor": "#ffffff"
+}

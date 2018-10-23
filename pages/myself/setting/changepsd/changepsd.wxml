@@ -1,0 +1,20 @@
+<view class='container'>
+    <view class='main'>
+       <view class='main_li'>密码长度为6个字符</view>
+       <view class='f_li' style='margin-bottom: 30rpx;'>
+         <view class='li_one'>原密码</view>
+         <input class='li_two' bindinput='getoldpsd' maxlength='6' type='number' password="password" placeholder='请输入原来的支付密码' placeholder-style='font-size: 32rpx;color: #cccccc;'></input>
+       </view>
+        <view class='f_li'>
+         <view class='li_one'>新密码</view>
+         <input class='li_two' bindinput='getnewpsd' maxlength='6' type='number' password placeholder='请输入新设置的支付密码' placeholder-style='font-size: 32rpx;color: #cccccc;'></input>
+       </view>
+        <view class='f_li'>
+         <view class='li_one'>确定密码</view>
+         <input class='li_two' bindinput='getcomfirmpsd' maxlength='6' type='number' password placeholder='请再次输入密码' placeholder-style='font-size: 32rpx;color: #cccccc;'></input>
+       </view>
+    </view> 
+    <view class='forgetpsd' bindtap='findpsd'>忘记密码？</view>
+
+    <view class='savebtn' bindtap='save'>保存</view>
+</view>

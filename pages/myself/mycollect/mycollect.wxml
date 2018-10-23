@@ -1,0 +1,132 @@
+<view class='container'> 
+<!-- 收藏栏导航 -->
+   <view class='nav'>
+
+     <scroll-view scroll-x="true" class="scrollbar_main" scroll-left="{{navScrollLeft}}" scroll-with-animation="{{true}}">
+      <view class="swiper-tab">  
+          <block wx:for="{{navList}}" wx:for-item="nav" wx:for-index="index" wx:key="navkeys">
+          <view class="swiper-tab-list {{currentTab==index ? 'on' : ''}}" data-current="{{index}}" bindtap="swichNav">{{nav}}</view>  
+          </block>
+      </view> 
+    </scroll-view>
+   
+   </view>
+
+   <view bindtap='giads'>sdasdadas</view>
+   <!-- 我的收藏内容 -->
+   <view class='mycollcetcontent'>
+
+   <swiper current="{{currentTab}}" style="width:{{winWidth}}px;height: {{winHeight-44}}px;padding-top: 88rpx;" class="swiper-box" duration="300" bindchange="bindChange"> 
+    <block wx:for="{{navList}}" wx:key="list" wx:for-index="listIndex">  
+    <swiper-item style="position: relative;"> 
+      <scroll-view bindscrolltolower="bindDownLoad" data-index="{{listIndex}}" scroll-y="true" style="height:{{winHeight - 44}}px"> 
+
+         <view class='main_ul'>
+          <block wx:for="{{datas[listIndex]}}" wx:for-item="shopItem" wx:key="shopKey" wx:for-index="shopIndex">
+              <view class='f_ul' catchtap="{{listIndex==0?'goodsdetail':'packagedetail'}}" data-collectid="{{listIndex==0?shopItem.sg_id:shopItem.sp_id}}">
+                  <block wx:if="{{shopItem.original_img}}">
+                     <image src="{{jiekou+shopItem.original_img}}" class='goods_img'></image>
+                  </block>
+                  <block wx:else>
+                     <image src="{{jiekou+shopItem.pack_pic}}" class='goods_img'></image>
+                  </block>
+                  <view class='main_item'>
+                         <block wx:if="{{shopItem.goods_name}}">
+                             <view class='item_one'>{{shopItem.goods_name}}</view>
+                         </block>
+                         <block wx:else>
+                             <view class='item_one'>{{shopItem.goodsnames}}</view>
+                         </block>
+                         
+                         <block wx:if="{{shopItem.pa_price}}">
+                           <view class='item_two'>¥{{shopItem.pa_price}}</view>
+                         </block>
+                         <block wx:if="{{shopItem.unit_price}}">
+                           <view class='item_two'>¥{{shopItem.unit_price}}</view>
+                         </block>
+                  </view>
+                  <!-- 商品 -->
+                  <block wx:if="{{editstatus==1&&currentTab==0}}">
+                     <block wx:if="{{shopItem.status==0}}">
+                       <image catchtap='selected' data-sgc_id="{{listIndex==0?shopItem.sgc_id:shopItem.sgc_id}}" data-index="{{shopIndex}}" class='select' src='../../../images/wodeshouhuodizhi_noselected.png'></image>
+                     </block>
+                      <block wx:else>
+                       <image catchtap='selected' data-sgc_id="{{listIndex==0?shopItem.sgc_id:shopItem.sgc_id}}" data-index="{{shopIndex}}" class='select' src='../../../images/wodeshouhuodizhi_selected.png'></image>
+                     </block>
+                  </block>
+
+                <!-- 套餐 -->
+                   <block wx:if="{{editstatuss==1&&currentTab==1}}">
+                     <block wx:if="{{shopItem.status==0}}">
+                       <image catchtap='selected' data-sgc_id="{{listIndex==0?shopItem.sgc_id:shopItem.sgc_id}}" data-index="{{shopIndex}}" class='select' src='../../../images/wodeshouhuodizhi_noselected.png'></image>
+                     </block>
+                      <block wx:else>
+                       <image catchtap='selected' data-sgc_id="{{listIndex==0?shopItem.sgc_id:shopItem.sgc_id}}" data-index="{{shopIndex}}" class='select' src='../../../images/wodeshouhuodizhi_selected.png'></image>
+                     </block>
+                  </block>
+              </view>
+            </block>
+          </view>
+      
+      <!-- <view class='choose'>
+      <image class='allelected' bindtap='allelected' src='../../../images/wodeshoucang_quanxuan.png'></image>
+      <image class='delete' bindtap='deletecollect' src='../../../images/zuijinliulan_shanchu.png'></image>
+      <image class='edit' bindtap='edit' src='../../../images/zuijinluilan_bianij.png'></image>
+   </view> -->
+      
+      </scroll-view> 
+      
+    </swiper-item>
+
+   </block>
+   </swiper>
+   
+   </view>
+   <!-- 全选 编辑 删除 -->
+   
+
+   <view class='main_pay'>
+      <block wx:if="{{currentTab==0}}">
+          <block wx:if="{{editstatus==1}}">
+            <view class='li_one'  bindtap='edit'>返回</view>
+          </block> 
+          <block wx:else>
+            <view class='li_one'  bindtap='edit'>编辑</view>
+          </block> 
+          
+          <block wx:if="{{editstatus==1}}">
+            <view class='li_two' bindtap='allelected'>全选</view>
+            <view class='li_two' bindtap='deletecollect'>删除</view>
+          </block>
+      </block> 
+
+       <block wx:if="{{currentTab==1}}">
+          <block wx:if="{{editstatuss==1}}">
+            <view class='li_one'  bindtap='edit'>返回</view>
+          </block> 
+          <block wx:else>
+            <view class='li_one'  bindtap='edit'>编辑</view>
+          </block> 
+          
+          <block wx:if="{{editstatuss==1}}">
+            <view class='li_two' bindtap='allelected'>全选</view>
+            <view class='li_two' bindtap='deletecollect'>删除</view>
+          </block>
+      </block> 
+
+<!-- 
+
+      <block wx:if="{{editstatus==1||editstatuss==1}}">
+         <view class='li_one'  bindtap='edit'>返回</view>
+       </block> 
+       <block wx:else>
+         <view class='li_one'  bindtap='edit'>编辑</view>
+       </block> 
+      
+      <block wx:if="{{editstatus==1||editstatuss==1}}">
+        <view class='li_two' bindtap='allelected'>全选</view>
+        <view class='li_two' bindtap='deletecollect'>删除</view>
+      </block>  -->
+      
+    </view>
+</view>

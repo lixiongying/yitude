@@ -1,0 +1,7 @@
+<view class='container'>
+  <view class='search'>
+    <input class='search_content' type='text' placeholder='请输入关键词' bindinput='searchs'></input>
+    
+    <view class='search_btn' bindtap='searchgoods'>搜索</view>
+  </view>
+</view>

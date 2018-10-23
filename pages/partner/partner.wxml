@@ -1,0 +1,109 @@
+<!--pages/partner/partner.wxml-->
+<view class="container">
+  <view class="partner_box">
+    <view class="partner_box_top">
+      <image wx:if="{{list.partnerinfo.prartner_pic}}" src="{{jiekou + list.partnerinfo.prartner_pic}}"></image>
+      <view class="partner_box_btn {{list.status == 0 ? '' : 'none'}}" bindtap='linkupgrade'>合伙人申请</view>
+    </view>
+  </view>
+  <view class="referrals_canvas">
+    <view class="referrals_canvas_box">
+      <canvas canvas-id="mypie" style="width:300rpx;height:300rpx;"></canvas> 
+    </view>
+    <view class="referrals_canvas_msg">
+      <view class="referrals_canvas_msg_t">
+        <view class="referrals_canvas_msg_t_icon"></view>
+        <view class="referrals_canvas_msg_t_text">一级分销: {{nums}}人</view>
+      </view>
+      <view class="referrals_canvas_msg_t">
+        <view class="referrals_canvas_msg_t_icons"></view>
+        <view class="referrals_canvas_msg_t_text">二级分销: {{allnum}}人</view>
+      </view>
+      <view class="referrals_canvas_msg_t">
+        <view class="referrals_canvas_msg_t_iconss"></view>
+        <view class="referrals_canvas_msg_t_text">团队总数: {{allnumber}}人</view>
+      </view>
+    </view>
+  </view>
+  <view class="partner_list clear">
+    <view class="partner_list_li">
+      <view class="partner_list_li_num">{{list.qitiancount}}</view>
+      <view class="partner_list_li_text">最近七日新增人数</view>
+    </view>
+    <view class="partner_list_li">
+      <view class="partner_list_li_num color">{{list.yiyuecount}}</view>
+      <view class="partner_list_li_text color">最近一月新增人数</view>
+    </view>
+  </view>
+  <view class="partner_youhuiquan {{list.partnerinfo.is_coupon == 1 ? '' : 'none'}}" bindtap='coupon'>
+    <image src="../../images/hehuoren_fenxiangyouhuiquan.png"></image>
+    <view class="partner_youhuiquan_tit">分享优惠券 > </view>
+    <view class="partner_youhuiquan_icon"></view>
+  </view>
+  <view class="partner_orderdetail" bindtap='orderdetail' wx:if="{{list.partnerinfo.partner_id==4}}">
+   
+    <view class="partner_orderone">我的订单信息</view>
+    <view class="partner_ordertwo"><image src='../../images/querendingdan_zhekouquan.png'></image> </view>
+    <block wx:if="{{myordercount!=0}}">
+      <view class="partner_orderthree">{{myordercount}}</view>
+    </block>
+  </view>
+  <view class="partner_tops">
+    <view class="partner_tops_li">
+      <image src="../../images/shenghuofangshi_dakachenggong_huodejinbi.png"></image>
+      总收益：<text>{{list.distribut_money}}</text>
+    </view>
+  </view>
+  <view class="partner_nav">
+    <view class="partner_nav_li">昵称</view>
+    <view class="partner_nav_li">等级</view>
+    <view class="partner_nav_li">创造收益</view>
+    <view class="partner_nav_li">注册日期</view>
+  </view>
+  <view class="partner_boxs">
+    <block wx:for="{{datas}}" wx:key="keyss">
+        <view class="partner_navlist clear">
+        <view class="partner_navs_li">{{item.nickname}}</view>
+        <view class="partner_navs_li">{{item.level}}</view>
+        <view class="partner_navs_li pri">{{item.money}}</view>
+        <view class="partner_navs_li">{{item.reg_time}}</view>
+      </view>
+    </block>
+  </view>
+  <view class="partner_bom">
+    <block wx:if="{{datas.length <= 0}}"><view class="msg">暂无成员</view></block>
+    <block wx:else>
+      <block wx:if="{{maxnum >= pagelist}}">
+          <view class="partner_bom_btn" bindtap='userlist'>查看更多成员</view>
+      </block>
+      <block wx:else>
+        <view class="msg">没有更多成员了</view>
+      </block>
+    </block>
+  </view>
+ <block wx:if="{{relayflag==1}}">
+      <view class='relay'>
+          <image class='re_pic' src='../../images/zhuanfabj.png'></image>
+          <block wx:if="{{relaynone==0}}">
+             <view class='re_gold' style='margin-top:30rpx;'>{{relaydata}}</view>
+          </block>
+          <block wx:else>
+            <view class='re_gold'>收获<text style='color:#ffa000;'>{{relaydata.add_gold}}</text>个金币</view>
+            <view class='re_golds'>你今日还可以获得{{relaydata.maybe_gold}}金币！</view>
+          </block>
+         
+          
+          <block wx:if="{{relaynone!=0}}">
+            <view class='re_sechdule'>
+              <view class='sed_one'>
+                <progress percent="{{percent}}" stroke-width="10" backgroundColor="#cccccc" activeColor="#5e2fe6" /></view>
+              <view class='sed_two'>
+                【<text style="color:#ffa000;">{{relaydata.now_gold}}</text>/{{totalgold}}】
+              </view>
+            </view>
+          </block>
+          <view class='re_btn' bindtap='Ikonw'>我知道了</view>
+      </view>
+       <view class='mask'></view>
+   </block>
+</view>

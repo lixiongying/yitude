@@ -1,0 +1,22 @@
+<view class="container">
+  <view class='suggest'>
+    <textarea placeholder='请提出意见' placeholder-class='input_class' bindblur='getsuggest'></textarea>
+  </view>
+  <view class='phonenumber'>
+     <input placeholder='手机号（选填）' placeholder-class='input_class' bindblur='getphone'></input>
+  </view>
+  <view class='pic_upload'>
+    <view class='pro_title'>问题截图 <text class='more_pic'>（最多九张）</text></view>
+    
+    <view class='upload_icon'>
+      <block wx:for="{{image_photo}}" wx:key='keys' wx:for-index="index">
+        <image class="mr5 mb5" src="{{item}}" mode="aspectFill"  data-index="{{index}}" catchlongtap="onDeleteImgTap" catchtap="onPreviewTap"></image>
+      </block>
+      <image src='../../../../images/add.png'  wx:if="{{pictures.length<9}}" catchtap="choice"></image>
+    </view>
+
+    <view style='margin-top:20rpx'>（长按删除图片）</view>
+    
+  </view>
+  <view class="submit" bindtap='sendInfoBtn'>提交</view>
+</view>

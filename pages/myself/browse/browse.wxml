@@ -1,0 +1,49 @@
+<view class='container'>
+<scroll-view bindscrolltolower="bindDownLoad" scroll-y="true" style="height:{{winHeight}}px"> 
+<block wx:for="{{datas}}" wx:key="keys" wx:for-index="indexs"> 
+   <view class='main'>
+      <view class='main_time'>
+      {{item[0].add_time}}
+      </view>
+      <view class='main_ul' wx:for="{{item}}" wx:key="keyss" wx:for-index="indexss">
+          <!-- <block wx:for="{{item[indexs]}}" wx:keys="keys" wx:for-index="indexss">  -->
+            <view class='f_ul' catchtap='godetail' data-sgc_id="{{item.sgc_id}}" data-type="{{item.types}}" data-collectid="{{item.id}}">
+                <image src="{{jiekou+item.pic}}" class='goods_img'></image>
+                <view class='main_item'>
+                    <view class='item_one'>{{item.name}}</view>
+                    <view class='item_two'>¥{{item.price}}</view>
+                </view>
+                 <block wx:if="{{editstatus==1}}">
+                    <block wx:if="{{item.status==0}}">
+                      <image catchtap='selected' data-sgc_id="{{item.sgc_id}}" data-indexs="{{indexs}}" data-index="{{indexss}}" class='select' src='../../../images/wodeshouhuodizhi_noselected.png'></image>
+                    </block>
+                    <block wx:else>
+                      <image catchtap='selected' data-sgc_id="{{item.sgc_id}}" data-indexs="{{indexs}}" data-index="{{indexss}}" class='select' src='../../../images/wodeshouhuodizhi_selected.png'></image>
+                    </block>
+                </block>
+             
+            </view>
+          <!-- </block>  -->
+       </view>
+     </view>
+  
+</block> 
+  
+  </scroll-view> 
+   <!-- 编辑和删除按钮 -->
+    <view class='main_pay'>
+      <block wx:if="{{editstatus==1}}">
+         <view class='li_one'  bindtap='edit'>返回</view>
+       </block> 
+       <block wx:else>
+         <view class='li_one'  bindtap='edit'>编辑</view>
+       </block> 
+      
+      <block wx:if="{{editstatus==1}}">
+        <view class='li_two' bindtap='allelected'>全选</view>
+        <view class='li_two' bindtap='deletebrowe'>删除</view>
+      </block> 
+      
+    </view>
+  
+</view>

@@ -1,0 +1,19 @@
+/* pages/myself/myassets/getcoin/getcoin.wxss */
+@import "../../../wxParse/wxParse.wxss";
+page{
+  background: white;
+}
+.getcoin{
+  width: 700rpx;
+  margin: 0 auto;
+  font-family: PingFang-SC-Medium;
+	font-size: 36rpx;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 50rpx;
+	letter-spacing: 0px;
+	color: #1f1f1f;
+  text-align: left;
+  margin-top: 20rpx;
+  box-sizing: border-box;
+}

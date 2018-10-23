@@ -1,0 +1,221 @@
+<!--pages/index/orderPay/index.wxml-->
+<view class="container">
+  <view class="order_top">
+    <block wx:if="{{addresslist}}">
+      <!--有地址样式  -->
+      <block wx:for="{{defaultaddress}}" wx:key="keys">
+        <view class='order_top_true' bindtap='selectaddress'>
+
+          <view class='person_msg'>{{item.name}} {{item.phone}}</view>
+          <view class='person_ads'>
+            <view class='ads_btn' wx:if="{{item.is_default==1}}">默认</view>
+            <view class='ads_address'>{{item.province+item.city+item.district+item.address}}</view>
+          </view>
+          <image class='ads_btnnext' src='../../../images/shouye_rexiaoshangpin_chakangengduo.png'></image>
+        </view>
+        <image class="order_top_icon" src="../../../images/querendingdan_dizhi02.png"></image>
+      </block>
+
+      <block wx:if="{{selectaddresslist!=''&&selectaddresslist!=null&&selectaddresslist!=undefine}}">
+        <view class='order_top_true' bindtap='selectaddress'>
+
+          <view class='person_msg'>{{selectaddresslist.name}} {{selectaddresslist.phone}}</view>
+          <view class='person_ads'>
+            <view class='ads_btn' wx:if="{{selectaddresslist.is_default==1}}">默认</view>
+            <view class='ads_address'>{{selectaddresslist.province+selectaddresslist.city+selectaddresslist.district+selectaddresslist.address2}}</view>
+          </view>
+          <image class='ads_btnnext' src='../../../images/shouye_rexiaoshangpin_chakangengduo.png'></image>
+        </view>
+        <image class="order_top_icon" src="../../../images/querendingdan_dizhi02.png"></image>
+      </block>
+    </block>
+    <block wx:else>
+      <!--没有地址样式  -->
+      <view class="order_top_flase">
+        <view class="order_top_flase_msg">您还没有填写联系信息</view>
+        <view class="order_top_flase_btn" bindtap='addRess'>去添加</view>
+      </view>
+      <image class="order_top_icon" src="../../../images/querendingdan_dizhi02.png"></image>
+    </block>
+  </view>
+
+
+  <view class='main_head'>
+    <block wx:if="{{types==2}}">
+      <image class='head_img' src='{{jiekou+datas.packageinfo.store_logo}}'></image>
+    </block>
+    <block wx:else>
+      <image class='head_img' src='{{jiekou+datas.goodsinfo.store_logo}}'></image>
+    </block>
+
+    <block wx:if="{{types==2}}">
+      <view class='head_title'>{{datas.packageinfo.store_name}}</view>
+    </block>
+    <block wx:else>
+      <view class='head_title'>{{datas.goodsinfo.store_name}}</view>
+    </block>
+  </view>
+  <view class='main_ul'>
+    <view class='f_ul'>
+      <block wx:if="{{types==2}}">
+        <image src="{{jiekou+datas.packageinfo.pack_pic}}" class='goods_img'></image>
+        <!-- <view class='item_one'>{{datas.packageinfo.goodsnames}}</view> -->
+      </block>
+      <block wx:else>
+         <image src="{{jiekou+datas.goodsinfo.original_img}}" class='goods_img'></image>
+      </block>
+      
+      <view class='main_item'>
+        <block wx:if="{{types==2}}">
+          <view class='item_one'>{{datas.packageinfo.goodsnames}}</view>
+        </block>
+        <block wx:else>
+          <view class='item_one'>{{datas.goodsinfo.goods_name}}</view>
+        </block>
+
+        <block wx:if="{{types==2}}">
+          <view class='item_two'>¥{{datas.packageinfo.pa_price}}</view>
+        </block>
+        <block wx:else>
+          <view class='item_two'>¥{{types==0?datas.goodsinfo.unit_price:datas.goodsinfo.group_price}}</view>
+        </block>
+      </view>
+      <view class='number'>×{{datas.goods_num}}</view>
+    </view>
+  </view>
+
+   <block wx:if="{{types==2}}">
+    <view class='main_content' bindtap='workgroup'>
+      <view class='cot_one'>施工团队</view>
+      <image class='cot_btn' src='../../../images/shouye_rexiaoshangpin_chakangengduo.png'></image>
+      <block wx:if="{{workflag==0}}"> 
+         <view class='cot_three' style='float:right;color: #cccccc;margin-right:15rpx;'>请选择</view>  
+      </block> 
+      <block wx:if="{{workflag==1}}"> 
+         <view class='cot_three' style='float:right;color: #cccccc;margin-right:15rpx;'>{{group[0].true_name}}   </view>  
+      </block> 
+      
+    </view>
+  </block>
+
+  <block wx:if="{{datas.goodsinfo.is_free_shipping==1||datas.packageinfo.is_free_shipping==1}}">
+    <view class='main_content'>
+      <view class='cot_one'>运费</view>
+      <view class='cot_two'>包邮</view>
+    </view>
+  </block>
+
+  <block wx:if="{{types!=1}}">
+    <view class='main_content' bindtap='usecoupon'>
+      <view class='cot_one'>优惠券</view>
+      <image class='cot_btn' src='../../../images/shouye_rexiaoshangpin_chakangengduo.png'></image>
+      <block wx:if="{{couponstatus==1&&freemoney==0}}">
+        <view class='cot_two' style='color: black;'>使用优惠券</view>
+      </block>
+      <block wx:if="{{couponstatus==0&&freemoney==0}}">
+        <view class='cot_two' style='color: #cccccc;'>无</view>
+      </block>
+      <block wx:if="{{freemoney!=0&&couponstatus==1}}">
+        <view class='cot_two' style='color:black;'>{{freemoney}}元优惠券</view>
+      </block>
+
+    </view>
+  </block>
+  <!-- 使用金币 -->
+  <view class='main_content' bindtap='usecoin'>
+    <view class='cot_one'>使用金币</view>
+    <block wx:if="{{usecoinstate==0}}">
+      <image class='use_coin' src='../../../images/shouye_rexiaoshangpin_chakangengduo.png'></image>
+    </block>
+    <block wx:if="{{usecoinstate==1}}">
+      <image class='use_coins' src='../../../images/querendingdan_shiyongjinbi_pulldown.png'></image>
+    </block>
+  </view>
+  <block wx:if="{{usecoinstate==1}}">
+    <view class='coin'>
+      <view class='coin_one'>
+        <text class='jinbi'>使用金币：</text>
+        <input class='coin_amount' value='{{coinvalue}}' type='number' bindinput='paycoins'></input>
+        <text class='usejinbi'>金币</text>
+      </view>
+      <view class='coin_two'>(现有{{datas.user.gold}}金币)</view>
+    </view>
+  </block>
+  <view class='main_info'>
+    <view class='infomsg'>
+     <block wx:if="{{types==0}}">
+        <view>订单类型：
+          <text style='color: #ec6d56;font-size: 26rpx;'>单品</text>
+        </view>
+      </block>
+       <block wx:if="{{types==1}}">
+        <view>订单类型：
+          <text style='color: #ec6d56;font-size: 26rpx;'>拼团</text>
+        </view>
+      </block>
+       <block wx:if="{{types==2}}">
+        <view>订单类型：
+          <text style='color: #ec6d56;font-size: 26rpx;'>套餐</text>
+        </view>
+      </block>
+      <block wx:if="{{types==0||types==1}}">
+        <view>一次性付款,小计：
+          <text style='color: #ec6d56;font-size: 30rpx;'>¥{{datas.xiaojifree}}</text>
+        </view>
+      </block>
+      <block wx:if="{{types==2}}">
+        <block wx:if="{{pay_stages==0}}">
+          <view>一次性付款,小计：
+            <text style='color: #ec6d56;font-size: 30rpx;'>¥{{datas.xiaojifree}}</text>
+          </view>
+        </block>
+        <block wx:if="{{pay_stages==1}}">
+          <view>预付金额,小计：
+            <text style='color: #ec6d56;font-size: 30rpx;'>¥{{datas.xiaojifree}}</text>
+          </view>
+        </block>
+      </block>
+      <view>邮费：
+        <text style='color: #ec6d56;font-size: 30rpx;'>{{datas.shippingfree}}</text>
+      </view>
+      <block wx:if="{{coinmoney}}">
+        <view>使用金币:
+          <text style='color: #ec6d56;font-size: 30rpx;'>-{{coinmoney}}</text>
+        </view>
+      </block>
+      <block wx:if="{{freemoney}}">
+        <view>使用优惠券:
+          <text style='color: #ec6d56;font-size: 30rpx;'>-{{freemoney}}</text>
+        </view>
+      </block>
+    </view>
+  </view>
+  <!-- 底部提交导航 -->
+  <view class='submit_info'>
+    <view class='sub_mssage'>合计金额：
+      <text style='color: #ec6d56;font-size: 36rpx;'>¥ {{totalmoney}}</text>
+    </view>
+    <view class='sub_btn' bindtap='submitorder'>提交订单</view>
+  </view>
+  <!-- 订单支付弹窗 -->
+  <block wx:if="{{paystate==1}}">
+    <view class='payfor'>
+      <view class='pay_method'>支付方式
+        <text style='color: #666666;font-size: 24rpx;'>（¥ {{totalmoney}}）</text>
+      </view>
+      <view class='wechat_pay' bindtap='getWxPay'>
+        <image src='../../../images/querendingdan_tijiaodingdan_zhifufangshi_weixinzhifu.png'></image>微信支付</view>
+      <view class="extra_pay {{datas.user.user_money==0?'extra_nopay':''}}" bindtap="moneyPay">
+        <image src='../../../images/querendingdan_tijiaodingdan_zhifufangshi_yuezhifu.png'></image>余额支付
+        <block wx:if="{{moneystate==0}}">
+          <view class='extramoney'>（余额不足）</view>
+        </block>
+        <block wx:else>
+          <view class='extramoney'>（¥ {{datas.user.user_money}}）</view>
+        </block>
+      </view>
+    </view>
+
+    <view class='mask' bindtap='cancelpay'></view>
+  </block>
+</view>

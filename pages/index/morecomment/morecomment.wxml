@@ -1,0 +1,24 @@
+<view class='container'>
+  <!-- 评论 -->
+  <view style='background-color: white;'>
+    <block wx:for="{{searchlist}}" wx:key="keys">
+      <view class='coment_content clear'>
+        <view class='comment_item clear'>
+          <image class='com_img' src='{{jiekou+item.head_pic}}'></image>
+          <view class='com_item'>
+            <view class='com_name'>{{item.nickname}}</view>
+            <view class='com_desc'>{{item.content}}</view>
+          </view>
+          <view class='com_time'>{{item.add_time}}</view>
+
+        </view>
+        <view wx:if="{{item.img.length!=0}}" class='comment_image'>
+          <block wx:for="{{item.img}}" wx:key="key">
+            <image style='width:80rpx;height:80rpx;' bindtap='onPreviewTap' data-src="{{jiekou+item}}" src='{{jiekou+item}}'></image>
+          </block>
+        </view>
+      </view>
+
+    </block>
+  </view>
+</view>

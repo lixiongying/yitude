@@ -1,0 +1,45 @@
+<view class='container'>
+   <block wx:if="{{changestatus==0}}">
+    <view class='main'>
+       <view class='main_li'></view>
+       <view class='f_li' style='margin-bottom: 30rpx;'>
+         <view class='li_one'><image src='../../../../images/psdtwo.png'></image></view>
+         <input class='li_two' bindinput='getphone' type='number' placeholder='请输入您的手机号码' placeholder-style='font-size: 32rpx;color: #cccccc;'></input>
+       </view>
+        <view class='f_li'>
+         <view class='li_one'><image src='../../../../images/psdone.png'></image></view>
+         <input class='li_two' bindinput='getcode' type='number' placeholder='请输入短信验证码' placeholder-style='font-size: 32rpx;color: #cccccc;'></input>
+         <block wx:if="{{timeflag==0}}">
+             <view class='li_three' bindtap='getcodenumber'>{{value}}</view>
+         </block>
+         <block wx:if="{{timeflag==1}}">
+             <view class='li_three'>{{value}}<text>秒后失效</text></view>
+         </block>
+       </view>
+       <view class='prompt'>点击获取验证码，系统会给您账号所绑定或注册手机号发送一条验证短信</view>
+    </view>
+   </block>
+
+    <block wx:if="{{changestatus==1}}">
+        <view class='mains'>
+          
+          <view class='f_li' style='margin-top: 30rpx;'>
+            <view class='li_one'>设置密码: </view>
+            <input class='li_two' bindinput='getpsd' maxlength='6' password type='number' placeholder='请输入密码（密码长度6个字符）' placeholder-style='font-size: 32rpx;color: #cccccc;'></input>
+          </view>
+            <view class='f_li'>
+            <view class='li_one'>确认密码: </view>
+            <input class='li_two'  bindinput='surepsd' maxlength='6' password type='number' placeholder='请再次输入设置密码' placeholder-style='font-size: 32rpx;color: #cccccc;'></input>
+          </view>
+          
+        </view> 
+    </block>
+
+    <block wx:if="{{changestatus==0}}">
+       <view class='savebtn' bindtap='next'>下一步</view>
+    </block>
+   <block wx:if="{{changestatus==1}}">
+       <view class='savebtn' bindtap='complete'>完成</view>
+    </block>
+    
+</view>

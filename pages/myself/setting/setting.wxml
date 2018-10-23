@@ -1,0 +1,48 @@
+<view class='container'>
+   <view class='profile' bindtap='Myqrcode'>
+      <image class='headimg' src='{{jiekou+datas.userinfo.head_pic}}'></image>
+      <view class='headitem'>
+         <view class='headid'>昵称：{{datas.userinfo.nickname}}</view>
+         <view class='headname'>UID:{{datas.userinfo.uid}}</view>
+      </view> 
+      <image class='icon_next' src='../../../images/shouye_rexiaoshangpin_chakangengduo.png'></image>
+      <image class='erweima' src='../../../images/shezhi_wodeerweima.png'></image>
+      
+   </view>
+   <view class='content'>
+      <view class='main' bindtap='goodsaddress'>
+          <image class='main_icon' src='../../../images/shezhi_wodeshouhuodizhi.png'></image>
+          <view class='main_name'>我的收货地址</view>
+          <image class='icon_next' src='../../../images/shouye_rexiaoshangpin_chakangengduo.png'></image>
+      </view>
+      <view class='main' bindtap='feedback'>
+          <image class='main_icon' style='width: 40rpx;height: 35rpx;' src='../../../images/shezhi_yijianfakui.png'></image>
+          <view class='main_name'>意见反馈</view>
+          <image class='icon_next' src='../../../images/shouye_rexiaoshangpin_chakangengduo.png'></image>
+      </view>
+      <block wx:if="{{psdstatus==0}}">
+        <view class='main' bindtap='setpsd'>
+          <image class='main_icon' style='width: 40rpx;height: 35rpx;' src='../../../images/psdicon.png'></image>
+          <view class='main_name'>设置支付密码</view>
+          <image class='icon_next' src='../../../images/shouye_rexiaoshangpin_chakangengduo.png'></image>
+      </view>
+      </block>
+      <block wx:else>
+        <view class='main' bindtap='changepsd'>
+          <image class='main_icon' style='width: 40rpx;height: 35rpx;' src='../../../images/psdicon.png'></image>
+          <view class='main_name'>修改支付密码</view>
+          <image class='icon_next' src='../../../images/shouye_rexiaoshangpin_chakangengduo.png'></image>
+      </view>
+      </block>
+        <!-- <view class='main' bindtap='findpsd'>
+          <image class='main_icon' style='width: 40rpx;height: 35rpx;' src='../../../images/psdicon.png'></image>
+          <view class='main_name'>找回支付密码</view>
+          <image class='icon_next' src='../../../images/shouye_rexiaoshangpin_chakangengduo.png'></image>
+      </view> -->
+      <view class='main' bindtap='aboutus'>
+          <image class='main_icon' src='../../../images/guanyuwomen.png'></image>
+          <view class='main_name'>关于我们</view>
+          <image class='icon_next' src='../../../images/shouye_rexiaoshangpin_chakangengduo.png'></image>
+      </view>
+   </view>
+</view>

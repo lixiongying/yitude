@@ -1,0 +1,19 @@
+<view class='container'>
+   <view class='mask'></view>
+   <view class='main'>
+      <view class='main_info'>
+        <image class='infoimg' src='{{jiekou+info.head_pic}}'></image>
+        <view class='info'>
+          <view class='name'>昵称：{{info.nickname}}</view>
+          <view class='info_id'>UID: {{info.uid}}</view>
+        </view>
+        
+      </view>
+      <view class='main_ing'>
+         <image src='{{jiekou+info.qrcode}}'></image>
+      </view>
+      <view class='' style='width:100%;height:100rpx;line-height:100rpx;text-align:center;font-size:30rpx;'>扫描上方二维码</view>
+     
+   </view>
+
+</view>

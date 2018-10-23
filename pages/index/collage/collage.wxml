@@ -1,0 +1,59 @@
+<view class='container'>
+   <view class='main_head'>
+      <image class='head_img' src='../../../images/dingdanxiangqing_daishouhuo.png'></image>
+      <view class='head_title'>易涂得专卖店(广州天河店)</view>
+    </view>
+    <view class='main_ul'>
+      <view class='f_ul'>
+          <image src="http://up.enterdesk.com/edpic_source/a2/7a/95/a27a957696c16e93f6a75540abef0a8b.jpg" class='goods_img'></image>
+          <view class='main_item'>
+              <view class='item_one'>商品商品</view>
+              <view class='item_two'>¥108.00</view>
+              
+          </view>
+        <view class='number'>×1</view>
+      </view>
+  </view>
+
+  <view class='main_center'>
+    <view class='f_lione'>
+       <view class='userimg'><image src='http://p5.sinaimg.cn/3912917476/180/23491385543452'></image><view class='tuanzhang'>团长</view></view>
+       <view class='userimg'><image src='http://p5.sinaimg.cn/3912917476/180/23491385543452'></image></view>
+       <view class='userimg'><image src='http://p5.sinaimg.cn/3912917476/180/23491385543452'></image></view>
+       
+    </view>
+    <view class='f_litwo'>还差 1人 成团 剩余 12:12:12 </view>
+  </view>
+
+  <view class='invitefriend'>
+     <view class='invite_btn'>邀请好友拼团</view>
+  </view>
+
+  <view class='share'>分享3个群后，拼团成功率高达90%</view>
+
+  <view class='collage'>
+    <view class='co_title'>
+    拼团玩法
+    </view>
+    <view class='co_item'>
+       <view class='item'><image src='../../../images/pintuanxiangqing_pintuanwanfa_zhifu.png'></image><view>支付开团或者参团</view></view>
+        <view class='item'><image src='../../../images/pintuanxiangqing_pintuanwanfa_zhifu.png'></image><view>邀请好友参团</view></view>
+         <view class='item'><image src='../../../images/pintuanxiangqing_pintuanwanfa_zhifu.png'></image><view>人数达到分别发货</view></view>
+          <view class='item'><image src='../../../images/pintuanxiangqing_pintuanwanfa_zhifu.png'></image><view>人数不够自动退款</view></view>
+    </view>
+  </view>
+
+  <view class='recomendgoods'>
+    <view class='goodtitle'>
+      <view class='line'></view>
+      <view class='linetitle'>推荐商品</view>
+      <view class='line'></view>
+    </view>
+    <view class='head_item' bindtap='goodsdetail' data-id="">
+        <image class='head_img' src='http://p5.sinaimg.cn/3912917476/180/23491385543452'></image>
+        <view class='name'>商品商品商品</view>
+        <view class='price'>¥50</view>
+    </view>
+  </view>
+
+</view>

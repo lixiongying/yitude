@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "最近浏览",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "white",
+  "navigationBarTextStyle": "black",
+  "navigationBarBackgroundColor": "#ffffff"
+}

@@ -1,0 +1,290 @@
+/* pages/myself/myself.wxss */
+.container{
+width: 100%;
+height: auto;
+}
+
+.main_head{
+  width: 100%;
+  height: 320rpx;
+  /* background-image: url("../../images/wode_id_bg.png");
+  background-size: cover; */
+  position: relative;
+}
+.headbj_img{
+position: absolute;
+width: 100%;
+height: 100%;
+left: 0;
+right: 0;
+top: 0;
+bottom: 0;
+z-index: -1
+}
+.main_head .head_one{
+  width: 100%;
+  height: 200rpx;
+
+}
+.main_head .head_img{
+  display: block;
+  width: 140rpx;
+	height: 140rpx;
+  float: left;
+  margin-top: 50rpx;
+  border-radius: 100%;
+  margin-left: 24rpx;
+
+}
+.main_head .head_two{
+   float: left;
+   max-width: 500rpx;
+   height: 200rpx;
+   margin-left: 20rpx;
+}
+.main_head .head_two .li_one{
+  margin-top: 70rpx;
+   width: 100%;
+   height: 50rpx;
+}
+.head_two .li_one .name{
+  width: auto;
+  height: 100%;
+	font-family: PingFang-SC-Bold;
+	font-size: 36rpx;
+	font-weight: bold;
+	font-stretch: normal;
+	line-height: 50rpx;
+	letter-spacing: 0px;
+	color: #ffffff;
+  float: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.head_two .li_one .apply{
+  width: auto;
+  height: 100%;
+	font-family: PingFang-SC-Medium;
+	font-size: 24rpx;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 50rpx;
+	letter-spacing: 0px;
+	color: #fff344;
+  float: left;
+  margin-left: 15rpx;
+}
+.head_two .li_one .login_btn{
+   width: 200rpx;
+  height: 60rpx;
+    margin-left: 3rpx;
+  margin-top:80rpx;
+  overflow: hidden
+}
+.head_two .li_one .login_btn button{
+  width: 100%;
+  height: 100%;
+  line-height: 60rpx;
+
+  font-size: 28rpx;
+  color:#546571;
+  padding: 0;
+}
+.head_two .li_two{
+  width: 120rpx;
+	height: 32rpx;
+	background-color: #ec6d56;
+	border-radius: 14rpx;
+  font-family: PingFang-SC-Medium;
+	font-size: 22rpx;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 32rpx;
+	letter-spacing: 0px;
+	color: #ffffff;
+  text-align: center;
+  margin-top: 30rpx;
+}
+.main_head .set{
+  width: 36rpx;
+	height: 34rpx;
+  float: right;
+margin-top: 100rpx;
+margin-right: 24rpx;
+}
+.main_head .head_item{
+  margin-top: 30rpx;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.head_item .item{
+  width: 150rpx;
+	height: 100rpx;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.head_item .item .number,.items{
+  font-family: PingFang-SC-Medium;
+	font-size: 24rpx;
+	font-weight: normal;
+	font-stretch: normal;
+
+	letter-spacing: 0px;
+	color: #ffffff;
+}
+
+/* 我的订单 */
+.order{
+  width: 750rpx;
+  height: 254rpx;
+  background: white;
+  margin: 0 auto;
+  
+}
+.order .order_one{
+  height: 102rpx;
+}
+.order .order_one .order_img{
+  width: 34rpx;
+	height: 36rpx;
+  margin-top: 36rpx;
+  margin-left: 24rpx;
+  float: left;
+}
+.order .order_one .order_name{
+  width: 134rpx;
+	height: 102rpx;
+  margin-left: 24rpx;
+  float: left;
+  line-height: 102rpx;
+  font-family: PingFang-SC-Medium;
+	font-size: 32rpx;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+	color: #1f1f1f;
+}
+.order .order_item{
+  width:700rpx;
+  height: 152rpx;
+  display: flex;
+  /* margin: 0 auto; */
+  justify-content: space-around;
+  align-items: center;
+  margin: 0 auto;
+   border-top: 1rpx solid #cccccc;
+}
+.order .order_item .item{
+  width: 20%;
+  height: 100%;
+  font-size: 24rpx;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.order .order_item image{
+  width: 52rpx;
+	height: 50rpx;
+   margin-bottom: 10rpx;
+}
+
+/* 我的套餐 */
+.package{
+  width: 750rpx;
+  height: 254rpx;
+  background: white;
+  margin-top: 20rpx;
+  margin: 0 auto;
+}
+.package .order_one{
+  width: 100%;
+  height: 102rpx;
+  
+}
+.package .order_one .order_img{
+  width: 34rpx;
+	height: 36rpx;
+  margin-top: 35rpx;
+  margin-left: 24rpx;
+  float: left;
+}
+.package .order_one .order_name{
+  width: 134rpx;
+	height: 102rpx;
+  margin-left: 24rpx;
+  float: left;
+  line-height: 102rpx;
+  font-family: PingFang-SC-Medium;
+	font-size: 32rpx;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+	color: #1f1f1f;
+}
+.package .order_item{
+  width:700rpx;
+  height: 152rpx;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0 auto;
+   border-top: 1rpx solid #cccccc;
+}
+.package .order_item .item{
+  width: 25%;
+  height: 100%;
+  display: flex;
+  font-size: 24rpx;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.package .order_item image{
+  width: 52rpx;
+	height: 50rpx;
+  margin-bottom: 10rpx;
+}
+/* 我的资产 预测结果 */
+.myassets{
+  width: 750rpx;
+  height: 254rpx;
+  background: white;
+  margin-top: 20rpx;
+}
+.myassets{
+  width: 750rpx;
+  height: 102rpx;
+  background: white;
+  margin-top: 20rpx;
+}
+.myassets .order_image{
+  width: 34rpx;
+	height: 36rpx;
+  margin-top: 33rpx;
+  margin-left: 24rpx;
+  float: left;
+}
+.myassets .order_name{
+  width: 134rpx;
+	height: 102rpx;
+  margin-left: 24rpx;
+  float: left;
+  line-height: 102rpx;
+  font-family: PingFang-SC-Medium;
+	font-size: 32rpx;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+	color: #1f1f1f;
+}
+.myassets .order_icon{
+  width: 25rpx;
+	height: 26rpx;
+  float: right;
+  margin-right: 24rpx;
+  margin-top: 38rpx;
+}

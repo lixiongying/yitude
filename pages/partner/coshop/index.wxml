@@ -1,0 +1,28 @@
+<!--pages/partner/coshop/index.wxml-->
+<view class="container">
+  <view class="shop_top clear">
+    <view class="shop_top_ipt"><input type="text" value='{{keyword}}' bindinput='setkeyword' placeholder='关键字搜索'></input></view>
+    <view class="shop_top_btn" bindtap='search'>搜索</view>
+  </view>
+  <picker bindchange="bindRegionChange" value="{{addressindex}}" mode="region">
+    <view class="addku_li" style="border-bottom: 20rpx solid #f0f0f0">
+      <view class="addku_li_name">所在地区：</view>
+      <view class="addku_li_ipt">
+        <view class="addku_li_ipt">
+          <input placeholder='请选择' disabled='true' placeholder-class='input_class' value="{{region}}" disabled='true' type='text'></input>
+        </view>
+      </view>
+      <view class="addku_li_next"><image src="../../../images/querendingdan_zhekouquan.png"></image></view>
+    </view>
+  </picker>
+  <view class="shop_list">
+    <block wx:for="{{datas}}" wx:key="keys" wx:for-index="indexs">
+      <view class="shop_list_li clear">
+        <view class="shop_list_li_img"><image wx:if="{{item.store_logo}}" src="{{jiekou + item.store_logo}}"></image></view>
+        <view class="shop_list_li_name">{{item.store_name}}</view>
+        <view class="shop_list_li_next" bindtap='returntixian' data-index="{{indexs}}">确定</view>
+      </view>
+    </block>
+  </view>
+  <view class="msg {{newpage >= page_size ? 'none' : ''}}">全部加载完成</view>
+</view>

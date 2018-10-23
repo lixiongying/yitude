@@ -1,0 +1,79 @@
+<view class='container'>
+
+   <scroll-view bindscrolltolower="bindDownLoad" data-index="{{navIndex}}" scroll-y="true" style="height:{{winHeight - 54}}px"> 
+      <view class='main_ul'> 
+        <view class='main_li'> 
+          <view class='main_pic'>
+            <view class='li_one'>
+              <view>10</view>
+              <view>¥</view> 
+            </view>
+            <view class='li_two'>
+              <view>10元优惠券</view>
+              <view>满100可用</view>
+            </view>
+          </view>
+         
+          <view class='f_li'>
+              <view class='li_item'>
+                <image class='timepic' src='../../../images/youhuiquan_shijian.png'></image>
+                <view class='times'>领取日期：2018-09-01 12:12:12</view>
+              </view>
+              <view class='li_item'>
+                <image class='timepic' src='../../../images/youhuiquan_shijian.png'></image>
+                <view class='times'>有效日期：至2018-09-30 24:00:00</view>
+              </view>
+          </view>
+        </view>
+
+        <view class='main_li'> 
+           <view class='main_pic' style='background-color:red'>
+              <view class='li_one'>
+                <view>20</view>
+                <view>¥</view> 
+              </view>
+              <view class='li_two'>
+                <view>10元优惠券</view>
+                <view>满100可用</view>
+              </view>
+             
+           </view>
+           <view class='f_li'>
+              <view class='li_item'>
+                <image class='timepic' src='../../../images/youhuiquan_shijian.png'></image>
+                <view class='times'>领取日期：2018-09-01 12:12:12</view>
+              </view>
+              <view class='li_item'>
+                <image class='timepic' src='../../../images/youhuiquan_shijian.png'></image>
+                <view class='times'>有效日期：至2018-09-30 24:00:00</view>
+              </view>
+          </view>
+        </view>
+
+        <view class='main_li'> 
+         <view class='main_pic' style='background-color:orange'>
+            <view class='li_one'>
+                <view>50</view>
+                <view>¥</view> 
+              </view>
+              <view class='li_two'>
+                <view>10元优惠券</view>
+                <view>满100可用</view>
+              </view>
+             
+        </view>
+           <view class='f_li'>
+              <view class='li_item'>
+                <image class='timepic' src='../../../images/youhuiquan_shijian.png'></image>
+                <view class='times'>领取日期：2018-09-01 12:12:12</view>
+              </view>
+              <view class='li_item'>
+                <image class='timepic' src='../../../images/youhuiquan_shijian.png'></image>
+                <view class='times'>有效日期：至2018-09-30 24:00:00</view>
+              </view>
+          </view>
+        </view>
+      </view>
+      </scroll-view> 
+</view>
+

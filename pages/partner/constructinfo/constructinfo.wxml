@@ -1,0 +1,66 @@
+<view class='container'>
+  <view class='order_head'>
+    <view class='head_pic'>
+      <image src='{{jiekou+user.head_pic}}'></image>{{user.true_name}}</view>
+
+    <view class='head_mark clear'>
+      <view class='mark_one'>业主评分：
+        <text>{{user.score}}</text>
+      </view>
+      <view class='mark_two'>施工次数：{{user.successcount}}次</view>
+    </view>
+    <view class='head_shop'>
+      <view class='shop_title'>所属店铺：</view>
+      <image class='shop_pic' src='{{jiekou+user.store_logo}}'></image>
+      <view class='shop_name'>{{user.store_name}}</view>
+    </view>
+  </view>
+  <view class='co_info' bindtap='workbefore'>查看以往施工情况</view>
+  <view class='co_order' wx:if="{{construc_order.length!=0}}">
+    <view></view>
+    <view>当前订单</view>
+  </view>
+  <view class='main' wx:if="{{construc_order.length!=0}}">
+    <block wx:for="{{construc_order}}" wx:key="keys">
+      <view class='co_content'>
+        <view class='main_title'>
+          <view class='mt_order'>订单号：{{item.order_package_sn}}</view>
+          <view class='mt_states'>{{item.status_name}}</view>
+        </view>
+        <view class='main_ul'>
+          <view class='f_ul'>
+            <image src="{{jiekou+item.pack_pic}}" class='goods_img'></image>
+            <view class='main_item'>
+              <view class='item_one'>{{item.pa_name}}</view>
+              <view class='item_two'>¥{{item.package_price}}</view>
+
+            </view>
+            <view class='number'>×1</view>
+          </view>
+        </view>
+        <view class='main_address'>
+          <view class='address_one'>
+            <view class='name'>{{item.consignee}}</view>
+            <view class='phone'>{{item.mobile}}</view>
+          </view>
+          <view class='address_two'>
+            <image class='ads_icon' src='../../../images/dingdanxiangqing_dizhi.png'></image>
+            <view class='ads_place'>{{item.province}}{{item.city}}{{item.district}}{{item.address}}</view>
+            <image class='image_icon' src='../../../images/querendingdan_dizhi02.png'></image>
+            <view class='ads_comster'>
+              <view class='comster_icon'>
+                <image src='../../../images/dingdanxiangqing_shigongyuanxinxi_dianhua.png'></image>
+              </view>
+              <view class='comster_name' data-phone="{{item.mobile}}" bindtap='playPhone'>联系客户</view>
+            </view>
+          </view>
+        </view>
+        <view class='main_btn' wx:if="{{item.status==2}}">
+          <view class='complete' data-order_package_id="{{item.order_package_id}}" bindtap='complete'>申请完成</view>
+        </view>
+      </view>
+    </block>
+
+
+  </view>
+</view>

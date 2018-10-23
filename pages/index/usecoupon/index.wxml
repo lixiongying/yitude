@@ -1,0 +1,31 @@
+<!--pages/partner/coupon/index.wxml-->
+<view class="container">
+  <block wx:if="{{couponstate==0}}">
+     <image style='width:100%;height:860rpx;' src='../../../images/kong.png'></image>
+  </block>
+  <view class="coupon_box" wx:for="{{couponlist}}" wx:for-index="indexs" wx:key="keys">
+
+    <view class="coupon_box_li" bindtap="usecoupon" data-money="{{item.free_money}}" data-coupon_id="{{item.coupon_id}}">
+      <view class="coupon_box_li_top_bg"><image src="{{jiekou+item.bj_pic}}"></image></view>
+      <view class="coupon_box_li_main">
+        <view class="coupon_box_li_top">
+          <view class="coupon_box_li_top_con_l">
+            <view class="coupon_box_li_top_con_l_num">
+              {{item.free_money}}
+              <text>¥</text>
+            </view>
+          </view>
+          <view class="coupon_box_li_top_con_c">
+            <view class="coupon_box_li_top_con_c_tit">{{item.coupon_name}}</view>
+            <view class="coupon_box_li_top_con_c_msg">满{{item.free_money}}可用</view>
+          </view>
+        </view>
+        <view class="coupon_box_li_con">
+          <view class="coupon_box_li_con_li"><image src="../../../images/youhuiquan_shijian.png"></image><text>领取日期：{{item.create_time}}</text></view>
+          <view class="coupon_box_li_con_li"><image src="../../../images/youhuiquan_shijian.png"></image><text>截至日期：{{item.end_time}}</text></view>
+        </view>
+      </view>
+
+    </view>
+  </view>
+</view>
